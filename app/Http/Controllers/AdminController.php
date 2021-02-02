@@ -1,0 +1,116 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use App\Login;
+use Illuminate\Support\Str;
+
+class AdminController extends Controller
+{
+    public function index()
+    {
+        $users = session('data_login');
+        if (!$users) {
+            return redirect()->route('login');
+        }
+        return view('admin.index', [
+            'users' => $users
+        ]);
+    }
+
+    public function login()
+    {
+        // $users = session('data_login');
+        if (session('data_login')) {
+            return redirect('/dashboard');
+        } else {
+            return view('admin.login');
+        }
+    }
+
+    public function register()
+    {
+        if (session('data_login')) {
+            return redirect('/dashboard');
+        }
+        return view('admin.register');
+    }
+
+    public function logout(Request $request)
+    {
+        // Alert::question('Yakin ingin Keluar?');
+        $request->session()->flush();
+        return redirect()->route('dashboard');
+    }
+
+    public function postLogin(Request $request)
+    {
+        $data_login = Login::where('username', $request->username)->firstOrFail();
+        $cek_password = Hash::check($request->password, $data_login->password);
+        // $cek_level = $data_login->level;
+
+        if ($data_login) {
+            if ($cek_password) {
+                $users = session(['data_login' => $data_login]);
+                return redirect()->route('dashboard');
+            }
+        }
+        return redirect('/dashboard/login')->withInput();
+    }
+
+    public function postRegister(Request $request)
+    {
+        $login_data = new Login;
+        $validatedLogin = $request->validate([
+            'email' => 'required',
+            'username' => 'required',
+            'password' => 'required'
+        ]);
+        $hashPassword = Hash::make($request->password, [
+            'rounds' => 12,
+        ]);
+        $token = Str::random(16);
+        $level = "guru";
+        $login_data = Login::create([
+            'email' => $request->email,
+            'username' => $request->username,
+            'password' => $hashPassword,
+            'level' => $level,
+            'token' => $token,
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        $login_data->save();
+        return redirect('/dashboard/login')->with('berhasil_register', 'Berhasil melakukan registrasi');
+    }
+
+    public function daftarSiswa()
+    {
+        return view('admin.daftar-siswa');
+    }
+
+    public function daftarGuru()
+    {
+        return view('admin.daftar-guru');
+    }
+    public function tambahSiswa()
+    {
+        //
+    }
+    public function tambahGuru()
+    {
+        //
+    }
+
+    public function post_tambahSiswa(Request $request)
+    {
+        //
+    }
+
+    public function post_tambahGuru(Request $request)
+    {
+        //
+    }
+}
