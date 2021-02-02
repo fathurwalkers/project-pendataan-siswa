@@ -134,6 +134,13 @@
                                 </li>
 
                                 <li class="nav-item">
+                                    <a href="{{ route('daftar-kelas') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Daftar Kelas</p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
                                     <a href="{{ route('tambah-siswa') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Tambah Siswa</p>
@@ -151,6 +158,13 @@
                                     <a href="{{ route('tambah-matapelajaran') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Tambah Mata Pelajaran</p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="{{ route('tambah-kelas') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Tambah Kelas</p>
                                     </a>
                                 </li>
 

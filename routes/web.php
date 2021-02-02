@@ -29,5 +29,10 @@ Route::prefix('/dashboard')->group(function () {
     // MATA PELAJARAN
     Route::get('/daftar-mata-pelajaran', 'AdminController@daftarMatapelajaran')->name('daftar-matapelajaran');
     Route::get('/tambah-mata-pelajaran', 'AdminController@tambahMatapelajaran')->name('tambah-matapelajaran');
-    Route::post('/tambah-mata-pelajaran', 'AdminController@post_tambahMatapelajaran')->name('post-tambah-matapelajaran');
+    Route::post('/tambah-mata-pelajaran', 'AdminController@post-tambahMatapelajaran')->name('post-tambah-matapelajaran');
+
+    // KELAS
+    Route::get('/daftar-kelas', 'AdminController@daftarKelas')->name('daftar-kelas');
+    Route::get('/tambah-kelas', 'AdminController@tambahKelas')->name('tambah-kelas');
+    Route::post('/tambah-kelas', 'AdminController@post_daftarKelas')->name('post-tambah-kelas');
 });
