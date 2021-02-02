@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="{{ asset('vendor/adminlte/plugins/fontawesome-free/css/all.min.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('vendor/adminlte/dist/css/adminlte.min.css') }}">
+    {{-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> --}}
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -52,7 +54,7 @@
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
-        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <aside class="main-sidebar sidebar-dark-primary elevation-4 position-fixed">
             <!-- Brand Logo -->
             <a href="{{ asset('vendor/adminlte') }}/index3.html" class="brand-link">
                 <img src="{{ asset('vendor/adminlte') }}/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
@@ -197,6 +199,8 @@
     <script src="{{ asset('vendor/adminlte/dist/js/adminlte.min.js') }}"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('vendor/adminlte/dist/js/demo.js') }}"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
+    @yield('after-script')
 </body>
 
 </html>
