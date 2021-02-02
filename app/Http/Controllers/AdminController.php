@@ -97,15 +97,29 @@ class AdminController extends Controller
         $users = session('data_login');
         return view('admin.daftar-guru', compact('users'));
     }
+
+    public function daftarMatapelajaran()
+    {
+        $users = session('data_login');
+        return view('admin.daftar-mata-pelajaran', compact('users'));
+    }
+
     public function tambahSiswa()
     {
         $users = session('data_login');
         return view('admin.tambah-siswa', compact('users'));
     }
+
     public function tambahGuru()
     {
         $users = session('data_login');
         return view('admin.tambah-guru', compact('users'));
+    }
+
+    public function tambahMatapelajaran()
+    {
+        $users = session('data_login');
+        return view('admin.tambah-mata-pelajaran', compact('users'));
     }
 
     public function post_tambahSiswa(Request $request)
@@ -114,6 +128,11 @@ class AdminController extends Controller
     }
 
     public function post_tambahGuru(Request $request)
+    {
+        //
+    }
+
+    public function post_tambahMatapelajaran(Request $request)
     {
         //
     }
