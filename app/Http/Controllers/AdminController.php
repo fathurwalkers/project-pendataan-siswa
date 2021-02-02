@@ -88,20 +88,24 @@ class AdminController extends Controller
 
     public function daftarSiswa()
     {
-        return view('admin.daftar-siswa');
+        $users = session('data_login');
+        return view('admin.daftar-siswa', compact('users'));
     }
 
     public function daftarGuru()
     {
-        return view('admin.daftar-guru');
+        $users = session('data_login');
+        return view('admin.daftar-guru', compact('users'));
     }
     public function tambahSiswa()
     {
-        //
+        $users = session('data_login');
+        return view('admin.tambah-siswa', compact('users'));
     }
     public function tambahGuru()
     {
-        //
+        $users = session('data_login');
+        return view('admin.tambah-guru', compact('users'));
     }
 
     public function post_tambahSiswa(Request $request)

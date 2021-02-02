@@ -111,28 +111,28 @@
                                 </li>
 
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="{{ route('daftar-siswa') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Daftar Siswa</p>
                                     </a>
                                 </li>
 
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="{{ route('daftar-guru') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Daftar Guru</p>
                                     </a>
                                 </li>
 
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="{{ route('tambah-siswa') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Tambah Siswa</p>
                                     </a>
                                 </li>
 
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="{{ route('tambah-guru') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Tambah Guru</p>
                                     </a>
