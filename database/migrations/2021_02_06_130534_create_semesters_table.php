@@ -15,12 +15,16 @@ class CreateSemestersTable extends Migration
     {
         Schema::create('semester', function (Blueprint $table) {
             $table->id();
+
             $table->string('kode_semester');
             $table->string('status_semester');
             $table->string('tahun_ajaran');
             $table->string('nip_kepsek')->nullable();
-            $table->unsignedBigInteger('detail_id')->nullable();
-            $table->foreign('detail_id')->references('id')->on('detail');
+
+            // $table->unsignedBigInteger('detail_id')->nullable();
+
+            // $table->foreign('detail_id')->references('id')->on('detail');
+            
             $table->timestamps();
         });
     }

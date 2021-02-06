@@ -9,4 +9,9 @@ class Detail extends Model
     protected $table = 'detail';
 
     protected $guarded = [];
+
+    public function login()
+    {
+        return $this->belongsTo('App\Login');
+    }
 }

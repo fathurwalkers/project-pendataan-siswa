@@ -8,7 +8,7 @@ class CreateMatapelajaransTable extends Migration
 {
     public function up()
     {
-        Schema::create('mata_pelajaran', function (Blueprint $table) {
+        Schema::create('matapelajaran', function (Blueprint $table) {
             $table->id();
             $table->string('nama_matapelajaran');
             $table->string('kode_matapelajaran');
@@ -18,6 +18,6 @@ class CreateMatapelajaransTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('mata_pelajaran');
+        Schema::dropIfExists('matapelajaran');
     }
 }
