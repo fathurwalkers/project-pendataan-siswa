@@ -91,24 +91,36 @@ class AdminController extends Controller
     public function daftarSiswa()
     {
         $users = session('data_login');
+        if (!$users) {
+            return redirect()->route('daftar-siswa');
+        }
         return view('admin.daftar-siswa', compact('users'));
     }
 
     public function daftarGuru()
     {
         $users = session('data_login');
+        if (!$users) {
+            return redirect()->route('daftar-guru');
+        }
         return view('admin.daftar-guru', compact('users'));
     }
 
     public function daftarMatapelajaran()
     {
         $users = session('data_login');
+        if (!$users) {
+            return redirect()->route('daftar-matapelajaran');
+        }
         return view('admin.daftar-mata-pelajaran', compact('users'));
     }
 
     public function daftarKelas()
     {
         $users = session('data_login');
+        if (!$users) {
+            return redirect()->route('daftar-kelas');
+        }
         return view('admin.daftar-kelas', compact('users'));
     }
 
@@ -126,18 +138,27 @@ class AdminController extends Controller
     public function tambahGuru()
     {
         $users = session('data_login');
+        if (!$users) {
+            return redirect()->route('login');
+        }
         return view('admin.tambah-guru', compact('users'));
     }
 
     public function tambahMatapelajaran()
     {
         $users = session('data_login');
+        if (!$users) {
+            return redirect()->route('login');
+        }
         return view('admin.tambah-mata-pelajaran', compact('users'));
     }
 
     public function tambahKelas()
     {
         $users = session('data_login');
+        if (!$users) {
+            return redirect()->route('login');
+        }
         return view('admin.tambah-kelas', compact('users'));
     }
 
