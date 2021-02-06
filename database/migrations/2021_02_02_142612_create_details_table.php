@@ -15,9 +15,8 @@ class CreateDetailsTable extends Migration
             $table->string('jenis_kelamin');
             $table->string('alamat');
             $table->string('telepon');
-            $table->string('foto');
+            $table->string('foto')->nullable();
             $table->string('role_status');
-            $table->string('kode');
             $table->string('siswa_kelas')->nullable();
             $table->string('siswa_status')->nullable();
             $table->timestamps();

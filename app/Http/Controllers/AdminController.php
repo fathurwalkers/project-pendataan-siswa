@@ -86,6 +86,8 @@ class AdminController extends Controller
         return redirect('/dashboard/login')->with('berhasil_register', 'Berhasil melakukan registrasi');
     }
 
+    // ---------------------------------------------------------------------------------------
+
     public function daftarSiswa()
     {
         $users = session('data_login');
@@ -110,9 +112,14 @@ class AdminController extends Controller
         return view('admin.daftar-kelas', compact('users'));
     }
 
+    // ---------------------------------------------------------------------------------------
+
     public function tambahSiswa()
     {
         $users = session('data_login');
+        if (!$users) {
+            return redirect()->route('login');
+        }
         return view('admin.tambah-siswa', compact('users'));
     }
 
@@ -134,9 +141,31 @@ class AdminController extends Controller
         return view('admin.tambah-kelas', compact('users'));
     }
 
+    // ---------------------------------------------------------------------------------------
+
     public function post_tambahSiswa(Request $request)
     {
-        //
+        dump($request->nama_lengkap);
+        dump($request->nip_nisn);
+        dump($request->jenis_kelamin);
+        dump($request->role_status);
+        die;
+        // $data_siswa = new Login;
+        // $validatedLogin = $request->validate([
+        //     'email' => 'required',
+        //     'username' => 'required',
+        //     'password' => 'required'
+        // ]);
+        // $hashPassword = Hash::make($request->password, [
+        //     'rounds' => 12,
+        // ]);
+        // $token = Str::random(16);
+        // $level = "admin";
+        // $data_siswa = Login::create([
+        //     '' => ,
+        // ]);
+        // $data_siswa->save();
+        // return redirect('/dashboard/login')->with('berhasil_register', 'Berhasil melakukan registrasi');
     }
 
     public function post_tambahGuru(Request $request)

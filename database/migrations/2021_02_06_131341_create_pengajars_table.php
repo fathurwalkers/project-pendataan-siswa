@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreatePengajarsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('pengajar', function (Blueprint $table) {
@@ -34,11 +29,6 @@ class CreatePengajarsTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('pengajar');
