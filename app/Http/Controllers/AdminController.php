@@ -72,7 +72,7 @@ class AdminController extends Controller
             'rounds' => 12,
         ]);
         $token = Str::random(16);
-        $level = "guru";
+        $level = "admin";
         $login_data = Login::create([
             'email' => $request->email,
             'username' => $request->username,

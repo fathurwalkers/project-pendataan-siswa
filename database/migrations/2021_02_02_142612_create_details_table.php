@@ -11,11 +11,14 @@ class CreateDetailsTable extends Migration
         Schema::create('detail', function (Blueprint $table) {
             $table->id();
             $table->string('nama_lengkap');
+            $table->string('nip_nisn');
             $table->string('jenis_kelamin');
-            $table->string('kode_kelas');
-            $table->string('kode_matapelajaran');
             $table->string('alamat');
+            $table->string('telepon');
+            $table->string('foto');
             $table->string('role_status');
+            $table->string('siswa_kelas')->nullable();
+            $table->string('siswa_status')->nullable();
             $table->timestamps();
         });
     }
