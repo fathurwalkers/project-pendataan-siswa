@@ -56,8 +56,6 @@ class AdminController extends Controller
     {
         $data_login = Login::where('username', $request->username)->firstOrFail();
         $cek_password = Hash::check($request->password, $data_login->password);
-        // $cek_level = $data_login->level;
-
         if ($data_login) {
             if ($cek_password) {
                 $users = session(['data_login' => $data_login]);
@@ -178,6 +176,12 @@ class AdminController extends Controller
         dump($request->jenis_kelamin);
         dump($request->role_status);
         die;
+
+        // $detail_siswa = new Detail;
+        // $validateDetail = $request->validate([
+        //     '' => $request->
+        // ]);
+
         // $data_siswa = new Login;
         // $validatedLogin = $request->validate([
         //     'email' => 'required',
