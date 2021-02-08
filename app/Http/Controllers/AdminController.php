@@ -97,7 +97,7 @@ class AdminController extends Controller
     {
         $users = session('data_login');
         if (!$users) {
-            return redirect()->route('daftar-siswa');
+            return redirect()->route('login');
         }
         $daftarsiswa = Detail::where('role_status', 'siswa')->latest()->get();
         return view('admin.daftar-siswa', compact('users', 'daftarsiswa'));
@@ -107,7 +107,7 @@ class AdminController extends Controller
     {
         $users = session('data_login');
         if (!$users) {
-            return redirect()->route('daftar-guru');
+            return redirect()->route('login');
         }
         return view('admin.daftar-guru', compact('users'));
     }
@@ -116,7 +116,7 @@ class AdminController extends Controller
     {
         $users = session('data_login');
         if (!$users) {
-            return redirect()->route('daftar-matapelajaran');
+            return redirect()->route('login');
         }
         return view('admin.daftar-mata-pelajaran', compact('users'));
     }
@@ -125,9 +125,18 @@ class AdminController extends Controller
     {
         $users = session('data_login');
         if (!$users) {
-            return redirect()->route('daftar-kelas');
+            return redirect()->route('login');
         }
         return view('admin.daftar-kelas', compact('users'));
+    }
+
+    public function daftarUserSiswa()
+    {
+        $users = session('data_login');
+        if (!$users) {
+            return redirect()->route('login');
+        }
+        return view('admin.daftar-user-siswa', compact('users'));
     }
 
     // ---------------------------------------------------------------------------------------

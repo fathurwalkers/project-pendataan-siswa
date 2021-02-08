@@ -35,4 +35,7 @@ Route::prefix('/dashboard')->group(function () {
     Route::get('/daftar-kelas', 'AdminController@daftarKelas')->name('daftar-kelas');
     Route::get('/tambah-kelas', 'AdminController@tambahKelas')->name('tambah-kelas');
     Route::post('/tambah-kelas', 'AdminController@post_daftarKelas')->name('post-tambah-kelas');
+
+    // DAFTAR INFORMASI USER
+    Route::get('daftar-user-siswa', 'AdminController@daftarUserSiswa')->name('daftar-user-siswa');
 });

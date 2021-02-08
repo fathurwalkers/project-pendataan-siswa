@@ -52,10 +52,6 @@
         </tbody>
     </table>
   </div>
-  <!-- /.card-body -->
-  {{-- <div class="card-footer">
-    Footer Section
-  </div> --}}
   <!-- /.card-footer-->
 </div>
 <!-- /.card -->
