@@ -171,18 +171,48 @@ class AdminController extends Controller
 
     public function post_tambahSiswa(Request $request)
     {
-        dump($request->nama_lengkap);
-        dump($request->nip_nisn);
-        dump($request->jenis_kelamin);
-        dump($request->role_status);
-        die;
+        // nama_lengkap
+        // nip_nisn
+        // jenis_kelamin
+        // alamat
+        // telepon
+        // foto
+        // role_status
+        // siswa_kelas
+        // siswa_status
+        // dump($request->nama_lengkap);
+        // dump($request->nip_nisn);
+        // dump($request->jenis_kelamin);
+        // dump($request->role_status);
+        // die;
 
-        // $detail_siswa = new Detail;
-        // $validateDetail = $request->validate([
-        //     '' => $request->
-        // ]);
+        $detail_siswa = new Detail;
 
-        // $data_siswa = new Login;
+        $extFile = $request->foto->getClientOriginalExtension();
+        $randomGambar = Str::random(6);
+        $namaFile = 'image-'.$randomGambar.".".$extFile;
+        $path = $request->foto->move('image', $namaFile);
+        $pathGambar = 'image/'. $namaFile;
+        // dd($path);
+
+        $saveDetail = $detail_siswa->create([
+            'nama_lengkap' => $request->nama_lengkap,
+            'nip_nisn' => $request->nip_nisn,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'alamat' => $request->alamat,
+            'telepon' => $request->telepon,
+            'foto' => $pathGambar,
+            'role_status' => $request->role_status,
+            'siswa_kelas' => $request->siswa_kelas,
+            'siswa_status' => $request->siswa_status,
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        dd($saveDetail);
+        $saveDetail->save();
+        return redirect()->route('daftar-siswa');
+
+        // $login_siswa = new Login;
         // $validatedLogin = $request->validate([
         //     'email' => 'required',
         //     'username' => 'required',
@@ -193,10 +223,10 @@ class AdminController extends Controller
         // ]);
         // $token = Str::random(16);
         // $level = "admin";
-        // $data_siswa = Login::create([
+        // $login_siswa = Login::create([
         //     '' => ,
         // ]);
-        // $data_siswa->save();
+        // $login_siswa->save();
         // return redirect('/dashboard/login')->with('berhasil_register', 'Berhasil melakukan registrasi');
     }
 
