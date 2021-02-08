@@ -99,7 +99,8 @@ class AdminController extends Controller
         if (!$users) {
             return redirect()->route('daftar-siswa');
         }
-        return view('admin.daftar-siswa', compact('users'));
+        $daftarsiswa = Detail::where('role_status', 'siswa')->latest()->get();
+        return view('admin.daftar-siswa', compact('users', 'daftarsiswa'));
     }
 
     public function daftarGuru()
@@ -208,7 +209,7 @@ class AdminController extends Controller
             'updated_at' => now()
             ]);
         $id_detailbaru = intval($saveDetail->id);
-        $login_siswa->detail()->attach($id_detailbaru);
+        $login_siswa->detail()->associate($id_detailbaru);
         $login_siswa->save();
 
         return redirect()->route('daftar-siswa');

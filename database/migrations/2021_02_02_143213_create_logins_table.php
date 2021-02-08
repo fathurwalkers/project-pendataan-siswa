@@ -16,7 +16,7 @@ class CreateLoginsTable extends Migration
             $table->string('level');
             $table->text('token');
             $table->unsignedBigInteger('detail_id')->nullable();
-            $table->foreign('detail_id')->references('id')->on('detail');
+            $table->foreign('detail_id')->references('id')->on('detail')->onDelete('cascade');
             $table->timestamps();
         });
     }

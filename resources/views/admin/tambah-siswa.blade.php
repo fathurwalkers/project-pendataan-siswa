@@ -39,8 +39,8 @@
           </div>
           <select class="custom-select" id="inputGroupSelect01" name="jenis_kelamin">
             <option selected>Choose...</option>
-            <option value="pria">Laki-laki</option>
-            <option value="wanita">Perempuan</option>
+            <option value="Laki-laki">Laki-laki</option>
+            <option value="Perempuan">Perempuan</option>
           </select>
         </div>
       </div>

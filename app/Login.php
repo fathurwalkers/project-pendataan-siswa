@@ -12,6 +12,6 @@ class Login extends Model
 
     public function detail()
     {
-        return $this->hasOne('App\Detail');
+        return $this->belongsTo('App\Detail');
     }
 }
