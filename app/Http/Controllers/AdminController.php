@@ -171,30 +171,12 @@ class AdminController extends Controller
 
     public function post_tambahSiswa(Request $request)
     {
-        // nama_lengkap
-        // nip_nisn
-        // jenis_kelamin
-        // alamat
-        // telepon
-        // foto
-        // role_status
-        // siswa_kelas
-        // siswa_status
-        // dump($request->nama_lengkap);
-        // dump($request->nip_nisn);
-        // dump($request->jenis_kelamin);
-        // dump($request->role_status);
-        // die;
-
         $detail_siswa = new Detail;
-
         $extFile = $request->foto->getClientOriginalExtension();
         $randomGambar = Str::random(6);
         $namaFile = 'image-'.$randomGambar.".".$extFile;
         $path = $request->foto->move('image', $namaFile);
         $pathGambar = 'image/'. $namaFile;
-        // dd($path);
-
         $saveDetail = $detail_siswa->create([
             'nama_lengkap' => $request->nama_lengkap,
             'nip_nisn' => $request->nip_nisn,
@@ -208,26 +190,28 @@ class AdminController extends Controller
             'created_at' => now(),
             'updated_at' => now()
         ]);
-        dd($saveDetail);
         $saveDetail->save();
-        return redirect()->route('daftar-siswa');
+        
+        $login_siswa = new Login;
+        $passwordSiswa = Str::random(5);
+        $userSiswa = $request->nip_nisn;
+        $token = Str::random(16);
+        $level = "siswa";
+        
+        $login_siswa = Login::create([
+            'email' => $userSiswa.'@siakad.com',
+            'username' => $userSiswa,
+            'password' => $passwordSiswa,
+            'level' => $level,
+            'token' => $token,
+            'created_at' => now(),
+            'updated_at' => now()
+            ]);
+        $id_detailbaru = intval($saveDetail->id);
+        $login_siswa->detail()->attach($id_detailbaru);
+        $login_siswa->save();
 
-        // $login_siswa = new Login;
-        // $validatedLogin = $request->validate([
-        //     'email' => 'required',
-        //     'username' => 'required',
-        //     'password' => 'required'
-        // ]);
-        // $hashPassword = Hash::make($request->password, [
-        //     'rounds' => 12,
-        // ]);
-        // $token = Str::random(16);
-        // $level = "admin";
-        // $login_siswa = Login::create([
-        //     '' => ,
-        // ]);
-        // $login_siswa->save();
-        // return redirect('/dashboard/login')->with('berhasil_register', 'Berhasil melakukan registrasi');
+        return redirect()->route('daftar-siswa');
     }
 
     public function post_tambahGuru(Request $request)
