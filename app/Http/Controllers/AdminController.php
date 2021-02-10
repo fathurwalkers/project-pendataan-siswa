@@ -240,8 +240,8 @@ class AdminController extends Controller
             'telepon' => $request->telepon,
             'foto' => $pathGambar,
             'role_status' => $request->role_status,
-            'siswa_kelas' => $request->siswa_kelas,
-            'siswa_status' => $request->siswa_status,
+            'siswa_kelas' => null,
+            'siswa_status' => null,
             'created_at' => now(),
             'updated_at' => now()
         ]);
