@@ -6,7 +6,7 @@
 
 @section('main-content')
 <!-- Default box -->
-<div class="card">
+<div class="card col-sm-12">
   <div class="card-body">
     <form action="{{ route('post-tambah-guru') }}" method="POST" enctype="multipart/form-data">
 
@@ -84,7 +84,18 @@
         </div>
       </div> --}}
 
-      <input type="hidden" value="guru" name="role_status">
+      <div class="form-group my-3">
+        <div class="input-group mb-3 my-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">Jenis Kelamin</label>
+          </div>
+          <select class="custom-select" id="inputGroupSelect01" name="role_status">
+            <option selected>Choose...</option>
+            <option value="guru">Guru / Pengajar</option>
+            <option value="kepsek">Kepala Sekolah</option>
+          </select>
+        </div>
+      </div>
 
       <button type="submit" class="btn btn-primary my-2">Tambah Guru</button>
 
