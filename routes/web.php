@@ -38,4 +38,5 @@ Route::prefix('/dashboard')->group(function () {
 
     // DAFTAR INFORMASI USER
     Route::get('daftar-user-siswa', 'AdminController@daftarUserSiswa')->name('daftar-user-siswa');
+    Route::get('daftar-user-guru', 'AdminController@daftarUserGuru')->name('daftar-user-guru');
 });

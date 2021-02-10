@@ -137,7 +137,18 @@ class AdminController extends Controller
         if (!$users) {
             return redirect()->route('login');
         }
-        return view('admin.daftar-user-siswa', compact('users'));
+        $user_siswa = Login::where('level', 'siswa')->latest()->get();
+        return view('admin.daftar-user-siswa', compact('users', 'user_siswa'));
+    }
+
+    public function daftarUserGuru()
+    {
+        $users = session('data_login');
+        if (!$users) {
+            return redirect()->route('login');
+        }
+        $user_guru = Login::where('level', 'guru')->latest()->get();
+        return view('admin.daftar-user-guru', compact('users', 'user_guru'));
     }
 
     // ---------------------------------------------------------------------------------------

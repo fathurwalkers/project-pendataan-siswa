@@ -175,6 +175,13 @@
                                     </a>
                                 </li>
 
+                                <li class="nav-item">
+                                    <a href="{{ route('daftar-user-guru') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Daftar User Guru</p>
+                                    </a>
+                                </li>
+
                             </ul>
                         </li>
                     </ul>
