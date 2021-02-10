@@ -38,7 +38,7 @@
             <label class="input-group-text" for="inputGroupSelect01">Jenis Kelamin</label>
           </div>
           <select class="custom-select" id="inputGroupSelect01" name="jenis_kelamin">
-            <option selected>Choose...</option>
+            <option selected>Pilih...</option>
             <option value="Laki-laki">Laki-laki</option>
             <option value="Perempuan">Perempuan</option>
           </select>
