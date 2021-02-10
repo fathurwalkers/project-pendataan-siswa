@@ -226,7 +226,47 @@ class AdminController extends Controller
 
     public function post_tambahGuru(Request $request)
     {
-        //
+        $detail_guru = new Detail;
+        $extFile = $request->foto->getClientOriginalExtension();
+        $randomGambar = Str::random(6);
+        $namaFile = 'image-'.$randomGambar.".".$extFile;
+        $path = $request->foto->move('image', $namaFile);
+        $pathGambar = 'image/'. $namaFile;
+        $saveDetail = $detail_guru->create([
+            'nama_lengkap' => $request->nama_lengkap,
+            'nip_nisn' => $request->nip_nisn,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'alamat' => $request->alamat,
+            'telepon' => $request->telepon,
+            'foto' => $pathGambar,
+            'role_status' => $request->role_status,
+            'siswa_kelas' => $request->siswa_kelas,
+            'siswa_status' => $request->siswa_status,
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        $saveDetail->save();
+        
+        $login_guru = new Login;
+        $passwordGuru = Str::random(5);
+        $userGuru = $request->nip_nisn;
+        $token = Str::random(16);
+        $level = "guru";
+        
+        $login_guru = Login::create([
+            'email' => $userGuru.'@siakad.com',
+            'username' => $userGuru,
+            'password' => $passwordGuru,
+            'level' => $level,
+            'token' => $token,
+            'created_at' => now(),
+            'updated_at' => now()
+            ]);
+        $id_detailbaru = intval($saveDetail->id);
+        $login_guru->detail()->associate($id_detailbaru);
+        $login_guru->save();
+
+        return redirect()->route('daftar-guru');
     }
 
     public function post_tambahMatapelajaran(Request $request)
