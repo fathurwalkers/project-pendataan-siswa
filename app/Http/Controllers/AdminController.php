@@ -109,7 +109,8 @@ class AdminController extends Controller
         if (!$users) {
             return redirect()->route('login');
         }
-        return view('admin.daftar-guru', compact('users'));
+        $daftarguru = Detail::where('role_status', 'guru')->latest()->get();
+        return view('admin.daftar-guru', compact('users', 'daftarguru'));
     }
 
     public function daftarMatapelajaran()
