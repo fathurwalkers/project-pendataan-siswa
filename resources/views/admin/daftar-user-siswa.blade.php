@@ -9,7 +9,9 @@
 <div class="card">
   <div class="card-header">
     <h3 class="card-title">Title</h3>
-
+    @foreach ($user_siswa as $item)
+    {{ dd($item->detail->nama_lengkap) }}
+    @endforeach
     <div class="card-tools">
       <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
         <i class="fas fa-minus"></i>
