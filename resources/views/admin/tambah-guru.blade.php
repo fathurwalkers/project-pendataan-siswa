@@ -57,33 +57,6 @@
         </div>
       </div>
 
-      {{-- <div class="form-group my-3">
-        <div class="input-group mb-3 my-3">
-          <div class="input-group-prepend">
-            <label class="input-group-text" for="inputGroupSelect01">Kelas</label>
-          </div>
-          <select class="custom-select" id="inputGroupSelect01" name="siswa_kelas">
-            <option selected>Pilih Kelas</option>
-            <option value="1">I</option>
-            <option value="2">II</option>
-            <option value="3">III</option>
-          </select>
-        </div>
-      </div> --}}
-
-      {{-- <div class="form-group my-3">
-        <div class="input-group mb-3 my-3">
-          <div class="input-group-prepend">
-            <label class="input-group-text" for="inputGroupSelect01">Status Siswa</label>
-          </div>
-          <select class="custom-select" id="inputGroupSelect01" name="siswa_status">
-            <option selected>Status Siswa</option>
-            <option value="aktif">Aktif</option>
-            <option value="tidak_aktif">Tidak Aktif</option>
-          </select>
-        </div>
-      </div> --}}
-
       <div class="form-group my-3">
         <div class="input-group mb-3 my-3">
           <div class="input-group-prepend">
