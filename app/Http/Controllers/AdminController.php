@@ -119,7 +119,8 @@ class AdminController extends Controller
         if (!$users) {
             return redirect()->route('login');
         }
-        return view('admin.daftar-mata-pelajaran', compact('users'));
+        $matapelajaran = Matapelajaran::latest()->get();
+        return view('admin.daftar-mata-pelajaran', compact('users', 'matapelajaran'));
     }
 
     public function daftarKelas()
@@ -128,7 +129,8 @@ class AdminController extends Controller
         if (!$users) {
             return redirect()->route('login');
         }
-        return view('admin.daftar-kelas', compact('users'));
+        $kelas = Kelas::latest()->get();
+        return view('admin.daftar-kelas', compact('users', 'kelas'));
     }
 
     public function daftarUserSiswa()
