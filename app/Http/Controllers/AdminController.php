@@ -285,6 +285,9 @@ class AdminController extends Controller
 
     public function post_tambahMatapelajaran(Request $request)
     {
+        $validateForm = $request->validate([
+            'nama_matapelajaran' => 'required|max:255'
+        ]);
         $matapelajaran = new Matapelajaran;
         $kodematapelajaran = 'MAPEL-';
         $kodematapelajaran .= Str::random(5);
@@ -300,9 +303,10 @@ class AdminController extends Controller
 
     public function post_tambahKelas(Request $request)
     {
-        // if ($request->kelas->isEmpty) {
-        //     return redirect()->route('tambah-kelas');
-        // }
+        // $validateForm = $request->validate([
+        //     'kelas' => 'required|max:255',
+        //     'ext_kelas' => 'required'
+        // ]);
         $kelas = new Kelas;
         $kodekelas = 'KLS-';
         $kodekelas .= strtoupper(Str::random(5));

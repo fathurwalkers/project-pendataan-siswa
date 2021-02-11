@@ -14,7 +14,10 @@
 
       <div class="form-group">
         <label for="nama_matapelajaran">Nama Mata Pelajaran</label>
-        <input type="text" class="form-control" id="nama_matapelajaran" name="nama_matapelajaran" autofocus>
+        @error('ext_kelas')
+    <div class="alert alert-danger">{{ $message }}</div>
+@enderror
+        <input type="text" class="form-control @error('ext_kelas') is-invalid @enderror" id="nama_matapelajaran" name="nama_matapelajaran" autofocus>
       </div>
 
       <button type="submit" class="btn btn-primary my-2">Tambah Mata Pelajaran</button>
