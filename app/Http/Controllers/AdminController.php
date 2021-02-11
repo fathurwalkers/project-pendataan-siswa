@@ -291,8 +291,8 @@ class AdminController extends Controller
             'created_at' => now(),
             'updated_at'=> now()
         ]);
-        dd($save);
         $save->save();
+        return redirect()->route('daftar-matapelajaran');
     }
 
     public function post_tambahKelas(Request $request)
@@ -303,10 +303,13 @@ class AdminController extends Controller
         $urutankelas = $request->kelas;
         $extKelas = $request->ext_kelas;
         $gabungkelas = $urutankelas . ' ' . $extKelas;
-        dump($kodekelas);
-        dd($gabungkelas);
-        // $saveKelas = $kelas->created([
-        //     'kelas' => $,
-        // ]);
+        $saveKelas = $kelas->create([
+            'kode_kelas' => $kodekelas,
+            'kelas' => $gabungkelas,
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        $saveKelas->save();
+        return redirect()->route('daftar-kelas');
     }
 }

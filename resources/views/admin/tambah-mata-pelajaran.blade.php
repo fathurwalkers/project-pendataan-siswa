@@ -21,7 +21,7 @@
 
     </form>
 
-    <a href="{{ route('daftar-siswa') }}" class="float-right btn btn-danger my-1 mx-2">Kembali</a>
+    <a href="{{ route('daftar-matapelajaran') }}" class="float-right btn btn-danger my-1 mx-2">Kembali</a>
 
   </div>
   <!-- /.card-body -->

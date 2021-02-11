@@ -43,11 +43,11 @@
         </div>
       </div>
 
-      <button type="submit" class="btn btn-primary my-2">Tambah Mata Pelajaran</button>
+      <button type="submit" class="btn btn-primary my-2">Tambah Kelas</button>
 
     </form>
 
-    <a href="{{ route('daftar-siswa') }}" class="float-right btn btn-danger my-1 mx-2">Kembali</a>
+    <a href="{{ route('daftar-kelas') }}" class="float-right btn btn-danger my-1 mx-2">Kembali</a>
 
   </div>
   <!-- /.card-body -->
