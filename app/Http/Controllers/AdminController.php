@@ -284,7 +284,8 @@ class AdminController extends Controller
     public function post_tambahMatapelajaran(Request $request)
     {
         $matapelajaran = new Matapelajaran;
-        $kodematapelajaran = Str::random(5);
+        $kodematapelajaran = 'MAPEL-';
+        $kodematapelajaran .= Str::random(5);
         $save = $matapelajaran->create([
             'nama_matapelajaran' => $request->nama_matapelajaran,
             'kode_matapelajaran' => strtoupper($kodematapelajaran),
