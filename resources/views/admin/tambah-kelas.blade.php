@@ -6,27 +6,31 @@
 
 @section('main-content')
 <!-- Default box -->
+<!-- Default box -->
 <div class="card">
-  <div class="card-header">
-    <h3 class="card-title">Title</h3>
-
-    <div class="card-tools">
-      <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-        <i class="fas fa-minus"></i>
-      </button>
-      <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-        <i class="fas fa-times"></i>
-      </button>
-    </div>
-  </div>
   <div class="card-body">
-    Body Section
+    <form action="{{ route('post-tambah-matapelajaran') }}" method="POST" enctype="multipart/form-data">
+
+      @csrf
+
+      <div class="form-group">
+        <label for="nama_matapelajaran">Nama Mata Pelajaran</label>
+        <input type="text" class="form-control" id="nama_matapelajaran" name="nama_matapelajaran" autofocus>
+      </div>
+
+      <div class="form-group">
+        <label for="nama_matapelajaran">Nama Mata Pelajaran</label>
+        <input type="text" class="form-control" id="nama_matapelajaran" name="nama_matapelajaran" autofocus>
+      </div>
+
+      <button type="submit" class="btn btn-primary my-2">Tambah Mata Pelajaran</button>
+
+    </form>
+
+    <a href="{{ route('daftar-siswa') }}" class="float-right btn btn-danger my-1 mx-2">Kembali</a>
+
   </div>
   <!-- /.card-body -->
-  <div class="card-footer">
-    Footer Section
-  </div>
-  <!-- /.card-footer-->
 </div>
 <!-- /.card -->
 @endsection
