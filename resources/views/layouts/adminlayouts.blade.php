@@ -95,95 +95,95 @@
                         data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Menu
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
-                            </a>
-                            <ul class="nav nav-treeview">
+                            </a> --}}
+                            {{-- <ul class="nav nav-treeview"> --}}
 
                                 <li class="nav-item">
                                     <a href="{{ route('dashboard') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        <i class="far fa fa-bars nav-icon"></i>
                                         <p>Beranda</p>
                                     </a>
                                 </li>
 
                                 <li class="nav-item">
                                     <a href="{{ route('daftar-siswa') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        <i class="far fa fa-bars nav-icon"></i>
                                         <p>Daftar Siswa</p>
                                     </a>
                                 </li>
 
                                 <li class="nav-item">
                                     <a href="{{ route('daftar-guru') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        <i class="far fa fa-bars nav-icon"></i>
                                         <p>Daftar Guru</p>
                                     </a>
                                 </li>
 
                                 <li class="nav-item">
                                     <a href="{{ route('daftar-matapelajaran') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        <i class="far fa fa-bars nav-icon"></i>
                                         <p>Daftar Mata Pelajaran</p>
                                     </a>
                                 </li>
 
                                 <li class="nav-item">
                                     <a href="{{ route('daftar-kelas') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        <i class="far fa fa-bars nav-icon"></i>
                                         <p>Daftar Kelas</p>
                                     </a>
                                 </li>
 
                                 <li class="nav-item">
                                     <a href="{{ route('tambah-siswa') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        <i class="far fa fa-bars nav-icon"></i>
                                         <p>Tambah Siswa</p>
                                     </a>
                                 </li>
 
                                 <li class="nav-item">
                                     <a href="{{ route('tambah-guru') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        <i class="far fa fa-bars nav-icon"></i>
                                         <p>Tambah Guru</p>
                                     </a>
                                 </li>
 
                                 <li class="nav-item">
                                     <a href="{{ route('tambah-matapelajaran') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        <i class="far fa fa-bars nav-icon"></i>
                                         <p>Tambah Mata Pelajaran</p>
                                     </a>
                                 </li>
 
                                 <li class="nav-item">
                                     <a href="{{ route('tambah-kelas') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        <i class="far fa fa-bars nav-icon"></i>
                                         <p>Tambah Kelas</p>
                                     </a>
                                 </li>
 
                                 <li class="nav-item">
                                     <a href="{{ route('daftar-user-siswa') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        <i class="far fa fa-bars nav-icon"></i>
                                         <p>Daftar User Siswa</p>
                                     </a>
                                 </li>
 
                                 <li class="nav-item">
                                     <a href="{{ route('daftar-user-guru') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        <i class="far fa fa-bars nav-icon"></i>
                                         <p>Daftar User Guru</p>
                                     </a>
                                 </li>
 
-                            </ul>
-                        </li>
+                            {{-- </ul> --}}
+                        {{-- </li> --}}
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
