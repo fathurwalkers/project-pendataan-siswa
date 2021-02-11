@@ -32,7 +32,7 @@
         <tbody>
             @foreach ($matapelajaran as $mapel)
             <tr>
-                <td>{{ $loop->iteration }}</td>
+                <td class="text-center">{{ $loop->iteration }}</td>
                 <td>{{ $mapel->nama_matapelajaran }}</td>
                 <td class="text-center">{{ $mapel->kode_matapelajaran }}</td>
                 <td class="text-center">
