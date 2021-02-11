@@ -297,6 +297,16 @@ class AdminController extends Controller
 
     public function post_tambahKelas(Request $request)
     {
-        //
+        $kelas = new Kelas;
+        $kodekelas = 'KLS-';
+        $kodekelas .= strtoupper(Str::random(5));
+        $urutankelas = $request->kelas;
+        $extKelas = $request->ext_kelas;
+        $gabungkelas = $urutankelas . ' ' . $extKelas;
+        dump($kodekelas);
+        dd($gabungkelas);
+        // $saveKelas = $kelas->created([
+        //     'kelas' => $,
+        // ]);
     }
 }

@@ -12,7 +12,6 @@ class CreateKelasTable extends Migration
             $table->id();
             $table->string('kode_kelas');
             $table->string('kelas');
-            $table->string('ext_kelas');
             $table->timestamps();
         });
     }
