@@ -303,10 +303,11 @@ class AdminController extends Controller
 
     public function post_tambahKelas(Request $request)
     {
-        // $validateForm = $request->validate([
-        //     'kelas' => 'required|max:255',
-        //     'ext_kelas' => 'required'
-        // ]);
+        if ($request->kelas == 'none') {
+            if ($request->ext_kelas == 'none') {
+                return redirect()->route('tambah-kelas');
+            }
+        }
         $kelas = new Kelas;
         $kodekelas = 'KLS-';
         $kodekelas .= strtoupper(Str::random(5));

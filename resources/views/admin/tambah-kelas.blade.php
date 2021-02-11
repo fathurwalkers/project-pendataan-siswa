@@ -19,6 +19,7 @@
             <label class="input-group-text" for="inputGroupSelect01">Kelas</label>
           </div>
           <select class="custom-select" id="inputGroupSelect01" name="kelas">
+            <option selected value="none">Kelas...</option>
             <option value="VII">VII</option>
             <option value="VIII">VIII</option>
             <option value="IX">IX</option>
@@ -32,6 +33,7 @@
             <label class="input-group-text" for="inputGroupSelect01">Kelas</label>
           </div>
           <select class="custom-select" id="inputGroupSelect01" name="ext_kelas">
+            <option selected value="none">Urutan Kelas</option>
             <option value="A">A</option>
             <option value="B">B</option>
             <option value="C">C</option>

@@ -15,8 +15,8 @@
       <div class="form-group">
         <label for="nama_matapelajaran">Nama Mata Pelajaran</label>
         @error('ext_kelas')
-    <div class="alert alert-danger">{{ $message }}</div>
-@enderror
+          <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
         <input type="text" class="form-control @error('ext_kelas') is-invalid @enderror" id="nama_matapelajaran" name="nama_matapelajaran" autofocus>
       </div>
 
