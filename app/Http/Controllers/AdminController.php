@@ -300,6 +300,9 @@ class AdminController extends Controller
 
     public function post_tambahKelas(Request $request)
     {
+        // if ($request->kelas->isEmpty) {
+        //     return redirect()->route('tambah-kelas');
+        // }
         $kelas = new Kelas;
         $kodekelas = 'KLS-';
         $kodekelas .= strtoupper(Str::random(5));
