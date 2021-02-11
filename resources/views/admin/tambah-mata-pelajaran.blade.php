@@ -8,7 +8,7 @@
 <!-- Default box -->
 <div class="card">
   <div class="card-body">
-    <form action="{{ route('post-tambah-siswa') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('post-tambah-matapelajaran') }}" method="POST" enctype="multipart/form-data">
 
       @csrf
 
@@ -17,7 +17,7 @@
         <input type="text" class="form-control" id="nama_matapelajaran" name="nama_matapelajaran" autofocus>
       </div>
 
-      <button type="submit" class="btn btn-primary my-2">Tambah Siswa</button>
+      <button type="submit" class="btn btn-primary my-2">Tambah Mata Pelajaran</button>
 
     </form>
 
