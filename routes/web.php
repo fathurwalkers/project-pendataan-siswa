@@ -41,5 +41,7 @@ Route::prefix('/dashboard')->group(function () {
     Route::get('daftar-user-guru', 'AdminController@daftarUserGuru')->middleware('ceklogin')->name('daftar-user-guru');
 
     // MANAGEMENT UNTUK SISWA
-    Route::get('/detail-siswa', 'SiswaController@detailSiswa')->middleware('ceklogin');
+    Route::prefix('/siswa')->group(function () {
+        Route::get('/detail-siswa', 'SiswaController@detailSiswa')->middleware('ceklogin')->name('detail-siswa');
+    });
 });

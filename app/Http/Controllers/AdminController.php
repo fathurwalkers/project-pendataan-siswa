@@ -44,7 +44,6 @@ class AdminController extends Controller
 
     public function logout(Request $request)
     {
-        // Alert::question('Yakin ingin Keluar?');
         $request->session()->flush();
         return redirect()->route('dashboard');
     }
