@@ -8,10 +8,10 @@ class CekLogin
 {
     public function handle($request, Closure $next)
     {
-        $users = session('data_login');
-        if (!$users) {
-            return redirect()->route('login');
+        // $users = session('data_login');
+        if (session('data_login')) {
+            return $next($request);
         }
-        return $next($request);
+        return redirect()->route('login');
     }
 }
