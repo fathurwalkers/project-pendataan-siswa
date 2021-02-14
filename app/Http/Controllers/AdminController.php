@@ -426,18 +426,4 @@ class AdminController extends Controller
         }
         return redirect()->route('daftar-guru');
     }
-
-    // public function generate_matapelajaran()
-    // {
-    //     $faker = Faker::create('id_ID');
-    //     for ($i = 0; $i<10; $i++) {
-    //         $matapelajaran = new Matapelajaran;
-    //         $saveMatapelajaran = $matapelajaran->create([
-    //             'nama_matapelajaran' => strtoupper($faker->word),
-    //             'kode_matapelajaran' => 'MAPEL-'.strtoupper(Str::random(5)),
-    //             'created_at' => now(),
-    //             'updated_at' => now()
-    //         ]);
-    //     }
-    // }
 }
