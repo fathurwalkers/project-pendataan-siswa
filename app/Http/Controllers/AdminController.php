@@ -315,11 +315,6 @@ class AdminController extends Controller
         $faker = Faker::create('id_ID');
         for ($i = 0; $i<10; $i++) {
             $detail_siswa = new Detail;
-            // $extFile = $request->foto->getClientOriginalExtension();
-            // $randomGambar = Str::random(6);
-            // $namaFile = 'image-'.$randomGambar.".".$extFile;
-            // $path = $request->foto->move('image', $namaFile);
-            // $pathGambar = 'image/'. $namaFile;
             $array_jenkel = ['Laki-laki', 'Perempuan'];
             $array_kelas = ['1', '2', '3'];
             $siswa_kelas = Randoms::random($array_kelas);
