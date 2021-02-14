@@ -1,8 +1,8 @@
 @extends('layouts.adminlayouts')
 
-@section('title', 'Biodata Siswa - Sistem Pendataan Siswa')
+@section('title', 'Biodata Guru - Sistem Pendataan Siswa')
 
-@section('header-text', 'Biodata Siswa')
+@section('header-text', 'Biodata Guru')
 
 @section('main-content')
 <div class="card mb-3 col-md-12">
