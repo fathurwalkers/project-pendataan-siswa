@@ -20,8 +20,8 @@ Route::prefix('/dashboard')->group(function () {
     Route::get('/daftar-siswa', 'AdminController@daftarSiswa')->middleware('ceklogin')->name('daftar-siswa');
     Route::get('/tambah-siswa', 'AdminController@tambahSiswa')->middleware('ceklogin')->name('tambah-siswa');
     Route::post('/tambah-siswa', 'AdminController@post_tambahSiswa')->middleware('ceklogin')->name('post-tambah-siswa');
-    Route::get('/detail-siswa/{idsiswa}', 'AdminController@biodata_siswa')->middleware('ceklogin')->name('biodata-siswa');
-    Route::post('/detail-siswa/{idsiswa}', 'AdminController@hapusSiswa')->middleware('ceklogin')->name('hapus-siswa');
+    Route::get('/detail-siswa/info/{idsiswa}', 'AdminController@biodata_siswa')->middleware('ceklogin')->name('biodata-siswa');
+    Route::post('/detail-siswa/delete/{idsiswa}', 'AdminController@hapusSiswa')->middleware('ceklogin')->name('hapus-siswa');
 
     // GURU
     Route::get('/daftar-guru', 'AdminController@daftarGuru')->middleware('ceklogin')->name('daftar-guru');

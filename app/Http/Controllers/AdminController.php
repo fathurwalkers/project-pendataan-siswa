@@ -302,7 +302,7 @@ class AdminController extends Controller
 
     public function hapusSiswa(Request $request, $idsiswa)
     {
-        $siswa = Detail::where('id', $idsiswa)->firstOrFail();
+        $siswa = Detail::where('id', $request->idsiswa)->firstOrFail();
         $siswa->forceDelete();
         return redirect()->route('daftar-siswa');
     }
