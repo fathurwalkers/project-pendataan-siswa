@@ -31,3 +31,4 @@ class CreateDetailsTable extends Migration
         Schema::dropIfExists('detail');
     }
 }
+otep
