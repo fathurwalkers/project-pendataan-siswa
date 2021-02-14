@@ -356,8 +356,7 @@ class AdminController extends Controller
             $id_detailbaru = intval($saveDetail->id);
             $login_siswa->detail()->associate($id_detailbaru);
             $login_siswa->save();
-    
-            return redirect()->route('daftar-siswa');
         }
+        return redirect()->route('daftar-siswa');
     }
 }
