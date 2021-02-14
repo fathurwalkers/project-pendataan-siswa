@@ -40,7 +40,7 @@
                 <td>{{ $siswa->nip_nisn }}</td>
                 <td>{{ $siswa->jenis_kelamin }}</td>
                 <td>{{ $siswa->telepon }}</td>
-                <td>{{ $siswa->siswa_kelas }}</td>
+                <td>{{ $siswa->kelas->kelas }}</td>
                 <td>{{ $siswa->siswa_status }}</td>
                 <td class="text-center d-flex">
                     <a href="#" class="btn btn-info mx-1">Edit</a>

@@ -314,7 +314,7 @@ class AdminController extends Controller
     {
         $faker = Faker::create('id_ID');
         for ($i = 0; $i<10; $i++) {
-            $kelas = Kelas::latest()->get();
+            $kelas = Kelas::all();
             $randomkelas = $kelas->random();
             $detail_siswa = new Detail;
             $array_jenkel = ['Laki-laki', 'Perempuan'];
