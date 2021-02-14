@@ -19,36 +19,38 @@
       </div>
     </div>
     <div class="card-body">
-      <table id="example" class="display" style="width:100%" class="d-flex">
-          <thead>
-              <tr>
-                  <th>#</th>
-                  <th>Nama</th>
-                  <th>NIP</th>
-                  <th>Jenis Kelamin</th>
-                  <th>Alamat</th>
-                  <th>Telepon</th>
-                  <th>Kelola</th>
-              </tr>
-          </thead>
-          <tbody>
-              @foreach ($daftarguru as $guru)
-              <tr>
-                  <td class="text-center">{{ $loop->iteration }}</td>
-                  <td>{{ $guru->nama_lengkap }}</td>
-                  <td>{{ $guru->nip_nisn }}</td>
-                  <td>{{ $guru->jenis_kelamin }}</td>
-                  <td>{{ $guru->alamat }}</td>
-                  <td>{{ $guru->telepon }}</td>
-                  <td class="text-center">
-                      <a href="#" class="btn btn-info">Edit</a>
-                      <a href="#" class="btn btn-success">Lihat Detail</a>
-                      <a href="#" class="btn btn-danger">Hapus</a>
-                  </td>
-              </tr>
-              @endforeach
-          </tbody>
-      </table>
+      <table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nama</th>
+                <th>NISN</th>
+                <th>Jenis Kelamin</th>
+                <th>Telepon</th>
+                <th>Kelola</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($daftarguru as $guru)
+            <tr>
+                <td class="text-center">{{ $loop->iteration }}</td>
+                <td>{{ $guru->nama_lengkap }}</td>
+                <td>{{ $guru->nip_nisn }}</td>
+                <td>{{ $guru->jenis_kelamin }}</td>
+                <td>{{ $guru->telepon }}</td>
+                <td class="text-center d-flex">
+                    <a href="#" class="btn btn-info mx-1">Edit</a>
+                    <a href="#" class="btn btn-success mx-1">Selengkapnya</a>
+                    <form action="#" method="POST">
+                      @csrf
+                      <input type="hidden" value="{{ $guru->id }}" name="idsiswa">
+                      <button id="tombolhapus" type="submit" class="btn btn-danger mx-1">Hapus</button>
+                    </form>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
     </div>
     <!-- /.card-footer-->
   </div>

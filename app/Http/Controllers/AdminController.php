@@ -230,7 +230,7 @@ class AdminController extends Controller
         $saveDetail->save();
         
         $login_guru = new Login;
-        $passwordGuru = Str::random(5);
+        $passwordGuru = strtoupper(Str::random(5));
         $userGuru = $request->nip_nisn;
         $token = Str::random(16);
         $level = "guru";
@@ -309,7 +309,7 @@ class AdminController extends Controller
         return redirect()->route('daftar-siswa');
     }
 
-    // FAKER AUTO GENERATE DATA
+    // FAKER AUTO GENERATE DATA SISWA
     public function generate_siswa()
     {
         $faker = Faker::create('id_ID');
@@ -358,5 +358,56 @@ class AdminController extends Controller
             $login_siswa->save();
         }
         return redirect()->route('daftar-siswa');
+    }
+
+    // FAKER AUTO GENERATE DATA GURU
+    public function generate_guru()
+    {
+        $faker = Faker::create('id_ID');
+        for ($i = 0; $i<10; $i++) {
+            $detail_siswa = new Detail;
+            $array_jenkel = ['Laki-laki', 'Perempuan'];
+            $array_kelas = ['1', '2', '3'];
+            $siswa_kelas = Randoms::random($array_kelas);
+            $jenis_kelamin = Randoms::random($array_jenkel);
+            $role_status = 'guru';
+            $siswa_status = 'Aktif';
+            $gambarfaker = 'image/image-hmDRkX.png';
+
+            $saveDetail = $detail_siswa->create([
+                'nama_lengkap' => $faker->name,
+                'nip_nisn' => $faker->unique()->numberBetween(700000000, 900000000),
+                'jenis_kelamin' => $jenis_kelamin,
+                'alamat' => $faker->address,
+                'telepon' => '08'.$faker->unique()->numberBetween(70000000000, 90000000000),
+                'foto' => $gambarfaker,
+                'role_status' => $role_status,
+                'siswa_kelas' => null,
+                'siswa_status' => null,
+                'created_at' => now(),
+                'updated_at' => now()
+            ]);
+            $saveDetail->save();
+            
+            $login_siswa = new Login;
+            $passwordSiswa = strtoupper(Str::random(5));
+            $userSiswa = $saveDetail->nip_nisn;
+            $token = Str::random(16);
+            $level = "guru";
+            
+            $login_siswa = Login::create([
+                'email' => $userSiswa.'@siakad.com',
+                'username' => $userSiswa,
+                'password' => $passwordSiswa,
+                'level' => $level,
+                'token' => $token,
+                'created_at' => now(),
+                'updated_at' => now()
+                ]);
+            $id_detailbaru = intval($saveDetail->id);
+            $login_siswa->detail()->associate($id_detailbaru);
+            $login_siswa->save();
+        }
+        return redirect()->route('daftar-guru');
     }
 }
