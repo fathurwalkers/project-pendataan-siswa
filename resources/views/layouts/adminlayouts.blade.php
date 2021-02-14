@@ -241,6 +241,7 @@
     <script src="{{ asset('vendor/adminlte/dist/js/adminlte.min.js') }}"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('vendor/adminlte/dist/js/demo.js') }}"></script>
+    <script src="{{ asset('/vendor/sweetalert/sweetalert.min.js') }}"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
     @yield('after-script')
 </body>

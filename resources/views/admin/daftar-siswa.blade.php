@@ -48,7 +48,7 @@
                     <form action="{{ route('hapus-siswa', $siswa->id) }}" method="POST">
                       @csrf
                       <input type="hidden" value="{{ $siswa->id }}" name="idsiswa">
-                      <button type="submit" class="btn btn-danger mx-1">Hapus</button>
+                      <button onclick="alertConfirm.preventDefault();" type="submit" class="btn btn-danger mx-1">Hapus</button>
                     </form>
                 </td>
             </tr>
@@ -65,6 +65,26 @@
 <script>
     $(document).ready(function() {
         $('#example').DataTable();
-    } );
+    });
+
+    function alertConfirm(){
+      Swal.fire({
+        title: 'Konfirmasi',
+        text: "Apakah anda yakin ingin menghapus data ini?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, hapus!'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire(
+            'Di hapus',
+            'Data berhasil di hapus',
+            'success'
+            )
+          }
+      })
+    }
 </script>
 @endsection

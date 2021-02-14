@@ -37,5 +37,29 @@
     $(document).ready(function() {
         $('#example').DataTable();
     } );
+
+    // let tombol = document.getElementById('tombol');
+    // tombol.addEventListener('click', hapusdata);
+
+    // function hapusdata(){
+    //     Swal.fire({
+    //         title: 'Konfirmasi',
+    //         text: "Apakah anda yakin ingin menghapus data ini?",
+    //         icon: 'warning',
+    //         showCancelButton: true,
+    //         confirmButtonColor: '#3085d6',
+    //         cancelButtonColor: '#d33',
+    //         confirmButtonText: 'Hapus Data'
+    //         }).then((result) => {
+    //             if (result.value) {
+    //                 Swal.fire(
+    //                 'Data Terhapus!',
+    //                 'Data berhasil di hapus',
+    //                 'success'
+    //             )
+    //         }
+    //     });
+    // }
+    
 </script>
 @endsection
