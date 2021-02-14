@@ -28,7 +28,6 @@ class AdminController extends Controller
 
     public function login()
     {
-        // $users = session('data_login');
         if (session('data_login')) {
             return redirect('/dashboard');
         } else {
@@ -299,7 +298,17 @@ class AdminController extends Controller
         if ($siswa->role_status == 'siswa') {
             return view('admin.biodata-siswa', compact('siswa', 'users'));
         }
-        return redirect()->route('daftar-siswa');
+        return back();
+    }
+
+    public function biodata_guru(Request $request, $idguru)
+    {
+        $users = session('data_login');
+        $guru = Detail::where('id', $idguru)->firstOrFail();
+        if ($guru->role_status == 'guru') {
+            return view('admin.biodata-guru', compact('guru', 'users'));
+        }
+        return back();
     }
 
     public function hapusSiswa(Request $request, $idsiswa)
@@ -307,6 +316,13 @@ class AdminController extends Controller
         $siswa = Detail::where('id', $request->idsiswa)->firstOrFail();
         $siswa->forceDelete();
         return redirect()->route('daftar-siswa');
+    }
+
+    public function hapusGuru(Request $request, $idguru)
+    {
+        $guru = Detail::where('id', $request->idguru)->firstOrFail();
+        $guru->forceDelete();
+        return redirect()->route('daftar-guru');
     }
 
     // FAKER AUTO GENERATE DATA SISWA
@@ -318,8 +334,6 @@ class AdminController extends Controller
             $randomkelas = $kelas->random();
             $detail_siswa = new Detail;
             $array_jenkel = ['Laki-laki', 'Perempuan'];
-            // $array_kelas = $kelas;
-            // $siswa_kelas = Randoms::random($kelas);
             $jenis_kelamin = Randoms::random($array_jenkel);
             $role_status = 'siswa';
             $siswa_status = 'Aktif';
@@ -333,7 +347,6 @@ class AdminController extends Controller
                 'telepon' => '08'.$faker->unique()->numberBetween(70000000000, 90000000000),
                 'foto' => $gambarfaker,
                 'role_status' => $role_status,
-                // 'siswa_kelas' => $randomkelas,
                 'siswa_status' => $siswa_status,
                 'created_at' => now(),
                 'updated_at' => now()
@@ -386,7 +399,6 @@ class AdminController extends Controller
                 'telepon' => '08'.$faker->unique()->numberBetween(70000000000, 90000000000),
                 'foto' => $gambarfaker,
                 'role_status' => $role_status,
-                'siswa_kelas' => null,
                 'siswa_status' => null,
                 'created_at' => now(),
                 'updated_at' => now()

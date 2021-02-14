@@ -27,6 +27,8 @@ Route::prefix('/dashboard')->group(function () {
     Route::get('/daftar-guru', 'AdminController@daftarGuru')->middleware('ceklogin')->name('daftar-guru');
     Route::get('/tambah-guru', 'AdminController@tambahGuru')->middleware('ceklogin')->name('tambah-guru');
     Route::post('/tambah-guru', 'AdminController@post_tambahGuru')->middleware('ceklogin')->name('post-tambah-guru');
+    Route::get('/detail-guru/info/{idguru}', 'AdminController@biodata_guru')->middleware('ceklogin')->name('biodata-guru');
+    Route::post('/detail-guru/delete/{idguru}', 'AdminController@hapusGuru')->middleware('ceklogin')->name('hapus-guru');
 
     // MATA PELAJARAN
     Route::get('/daftar-mata-pelajaran', 'AdminController@daftarMatapelajaran')->middleware('ceklogin')->name('daftar-matapelajaran');
