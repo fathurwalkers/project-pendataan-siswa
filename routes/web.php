@@ -44,4 +44,9 @@ Route::prefix('/dashboard')->group(function () {
     Route::prefix('/siswa')->group(function () {
         Route::get('/detail-siswa', 'SiswaController@detailSiswa')->middleware('ceklogin')->name('detail-siswa');
     });
+
+    // MANAGEMENT UNTUK GURU
+    Route::prefix('/guru')->group(function () {
+        Route::get('/rekap-data-siswa', 'GuruController@rekapdatasiswa')->middleware('ceklogin')->name('rekap-data-siswa');
+    });
 });
