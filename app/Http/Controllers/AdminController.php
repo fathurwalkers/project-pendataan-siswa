@@ -234,7 +234,7 @@ class AdminController extends Controller
         $level = "guru";
         
         $login_guru = Login::create([
-            'email' => $userGuru.'@siakad.com',
+            'email' => $userGuru.'@aplikasi.com',
             'username' => $userGuru,
             'password' => $passwordGuru,
             'level' => $level,
@@ -288,5 +288,14 @@ class AdminController extends Controller
         ]);
         $saveKelas->save();
         return redirect()->route('daftar-kelas');
+    }
+
+    public function biodata_siswa(Request $request, $idsiswa)
+    {
+        $siswa = Detail::where('id', $idsiswa)->firstOrFail();
+        if ($siswa->role_status == 'siswa') {
+            return view('admin.biodata-siswa', compact('siswa'));
+        }
+        return redirect()->route('daftar-siswa');
     }
 }

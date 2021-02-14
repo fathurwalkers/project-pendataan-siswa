@@ -46,7 +46,7 @@
                 <td>{{ $siswa->siswa_status }}</td>
                 <td class="text-center">
                     <a href="#" class="btn btn-info">Edit</a>
-                    <a href="#" class="btn btn-success">Lihat Detail</a>
+                    <a href="{{ route('biodata-siswa', $siswa->id) }}" class="btn btn-success">Lihat Detail</a>
                     <a href="#" class="btn btn-danger">Hapus</a>
                 </td>
             </tr>
