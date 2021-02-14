@@ -185,7 +185,7 @@ class AdminController extends Controller
         $saveDetail->save();
         
         $login_siswa = new Login;
-        $passwordSiswa = Str::random(5);
+        $passwordSiswa = strtoupper(Str::random(5));
         $userSiswa = $request->nip_nisn;
         $token = Str::random(16);
         $level = "siswa";
@@ -344,7 +344,7 @@ class AdminController extends Controller
             $saveDetail->save();
             
             $login_siswa = new Login;
-            $passwordSiswa = Str::random(5);
+            $passwordSiswa = strtoupper(Str::random(5));
             $userSiswa = $saveDetail->nip_nisn;
             $token = Str::random(16);
             $level = "siswa";
