@@ -18,8 +18,8 @@ class CreateDetailsTable extends Migration
             $table->string('foto')->nullable();
             $table->string('role_status');
 
-            $table->unsignedBigInteger('siswa_kelas')->nullable();
-            $table->foreign('siswa_kelas')->references('id')->on('kelas')->onDelete('cascade');
+            $table->unsignedBigInteger('kelas_id')->nullable();
+            $table->foreign('kelas_id')->references('id')->on('kelas')->onDelete('cascade');
             
             $table->string('siswa_status')->nullable();
             $table->timestamps();

@@ -289,7 +289,7 @@ class AdminController extends Controller
             'updated_at' => now()
         ]);
         $saveKelas->save();
-        return redirect()->route('daftar-kelas');
+        return redirect()->route('tambah-kelas');
     }
 
     public function biodata_siswa(Request $request, $idsiswa)
@@ -313,12 +313,13 @@ class AdminController extends Controller
     public function generate_siswa()
     {
         $faker = Faker::create('id_ID');
-
         for ($i = 0; $i<10; $i++) {
+            $kelas = Kelas::latest()->get();
+            $randomkelas = $kelas->random();
             $detail_siswa = new Detail;
             $array_jenkel = ['Laki-laki', 'Perempuan'];
-            $array_kelas = ['1', '2', '3'];
-            $siswa_kelas = Randoms::random($array_kelas);
+            // $array_kelas = $kelas;
+            // $siswa_kelas = Randoms::random($kelas);
             $jenis_kelamin = Randoms::random($array_jenkel);
             $role_status = 'siswa';
             $siswa_status = 'Aktif';
@@ -332,11 +333,12 @@ class AdminController extends Controller
                 'telepon' => '08'.$faker->unique()->numberBetween(70000000000, 90000000000),
                 'foto' => $gambarfaker,
                 'role_status' => $role_status,
-                'siswa_kelas' => $siswa_kelas,
+                // 'siswa_kelas' => $randomkelas,
                 'siswa_status' => $siswa_status,
                 'created_at' => now(),
                 'updated_at' => now()
             ]);
+            $saveDetail->kelas()->associate($randomkelas);
             $saveDetail->save();
             
             $login_siswa = new Login;
