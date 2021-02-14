@@ -3,13 +3,28 @@
 use Illuminate\Database\Seeder;
 use App\Login;
 use App\Kelas;
+use App\Matapelajaran;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Faker\Factory as Faker;
+use Illuminate\Support\Arr as Randoms;
 
 class DatabaseSeeder extends Seeder
 {
     public function run()
     {
+        $faker = Faker::create('id_ID');
+        for ($i = 0; $i<10; $i++) {
+            // $matapelajaran = new Matapelajaran;
+            Matapelajaran::create([
+                'nama_matapelajaran' => strtoupper($faker->word),
+                'kode_matapelajaran' => 'MAPEL-'.strtoupper(Str::random(5)),
+                'created_at' => now(),
+                'updated_at' => now()
+            ]);
+        }
+
+
         $hashPassword = Hash::make('jancok', [
             'rounds' => 12,
         ]);
