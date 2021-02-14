@@ -48,7 +48,7 @@
                     <form action="{{ route('hapus-siswa', $siswa->id) }}" method="POST">
                       @csrf
                       <input type="hidden" value="{{ $siswa->id }}" name="idsiswa">
-                      <button onclick="alertConfirm.preventDefault();" type="submit" class="btn btn-danger mx-1">Hapus</button>
+                      <button id="tombolhapus" type="submit" class="btn btn-danger mx-1">Hapus</button>
                     </form>
                 </td>
             </tr>
