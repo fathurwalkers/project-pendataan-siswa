@@ -313,6 +313,7 @@ class AdminController extends Controller
     public function generate_siswa()
     {
         $faker = Faker::create('id_ID');
+
         for ($i = 0; $i<10; $i++) {
             $detail_siswa = new Detail;
             $array_jenkel = ['Laki-laki', 'Perempuan'];
@@ -364,6 +365,7 @@ class AdminController extends Controller
     public function generate_guru()
     {
         $faker = Faker::create('id_ID');
+        
         for ($i = 0; $i<10; $i++) {
             $detail_siswa = new Detail;
             $array_jenkel = ['Laki-laki', 'Perempuan'];

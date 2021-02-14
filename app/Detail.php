@@ -14,4 +14,9 @@ class Detail extends Model
     {
         return $this->hasOne('App\Login');
     }
+
+    public function kelas()
+    {
+        return $this->hasOne('App\Kelas');
+    }
 }
