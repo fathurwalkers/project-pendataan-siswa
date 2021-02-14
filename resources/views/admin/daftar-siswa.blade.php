@@ -26,7 +26,6 @@
                 <th>Nama</th>
                 <th>NISN</th>
                 <th>Jenis Kelamin</th>
-                <th>Alamat</th>
                 <th>Telepon</th>
                 <th>Kelas</th>
                 <th>Status</th>
@@ -40,14 +39,15 @@
                 <td>{{ $siswa->nama_lengkap }}</td>
                 <td>{{ $siswa->nip_nisn }}</td>
                 <td>{{ $siswa->jenis_kelamin }}</td>
-                <td>{{ Str::limit($siswa->alamat, 10) }}</td>
                 <td>{{ $siswa->telepon }}</td>
                 <td>{{ $siswa->siswa_kelas }}</td>
                 <td>{{ $siswa->siswa_status }}</td>
-                <td class="text-center">
-                    <a href="#" class="btn btn-info">Edit</a>
-                    <a href="{{ route('biodata-siswa', $siswa->id) }}" class="btn btn-success">Lihat Detail</a>
-                    <a href="#" class="btn btn-danger">Hapus</a>
+                <td class="text-center d-flex">
+                    <a href="#" class="btn btn-info mx-1">Edit</a>
+                    <a href="{{ route('biodata-siswa', $siswa->id) }}" class="btn btn-success mx-1">Selengkapnya</a>
+                    <form action="{{ route('hapus-siswa', $siswa->id) }}">
+                      <button type="submit" class="btn btn-danger mx-1">Hapus</button>
+                    </form>
                 </td>
             </tr>
             @endforeach

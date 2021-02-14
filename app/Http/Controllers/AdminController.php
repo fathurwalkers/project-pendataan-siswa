@@ -299,4 +299,11 @@ class AdminController extends Controller
         }
         return redirect()->route('daftar-siswa');
     }
+
+    public function hapusSiswa(Request $request, $idsiswa)
+    {
+        $siswa = Detail::where('id', $idsiswa)->firstOrFail();
+        $siswa->forceDelete();
+        return redirect()->route('daftar-siswa');
+    }
 }
