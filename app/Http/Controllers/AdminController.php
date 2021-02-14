@@ -190,7 +190,7 @@ class AdminController extends Controller
         $level = "siswa";
         
         $login_siswa = Login::create([
-            'email' => $userSiswa.'@siakad.com',
+            'email' => $userSiswa.'@localhost.com',
             'username' => $userSiswa,
             'password' => $passwordSiswa,
             'level' => $level,
@@ -361,7 +361,7 @@ class AdminController extends Controller
             $level = "siswa";
             
             $login_siswa = Login::create([
-                'email' => $userSiswa.'@siakad.com',
+                'email' => $userSiswa.'@localhost.com',
                 'username' => $userSiswa,
                 'password' => $passwordSiswa,
                 'level' => $level,
@@ -412,7 +412,7 @@ class AdminController extends Controller
             $level = "guru";
             
             $login_siswa = Login::create([
-                'email' => $userSiswa.'@siakad.com',
+                'email' => $userSiswa.'@localhost.com',
                 'username' => $userSiswa,
                 'password' => $passwordSiswa,
                 'level' => $level,
