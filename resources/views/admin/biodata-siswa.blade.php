@@ -1,7 +1,14 @@
-<div class="card mb-3" style="max-width: 540px;">
+@extends('layouts.adminlayouts')
+
+@section('title', 'Daftar Siswa - Sistem Pendataan Siswa')
+
+@section('header-text', 'Daftar Siswa')
+
+@section('main-content')
+<div class="card mb-3 col-md-12">
     <div class="row g-0">
       <div class="col-md-4">
-        <img src="..." alt="...">
+        <img src="{{ asset($siswa->foto) }}" alt="{{ $siswa->nama_lengkap }}" class="img-fluid">
       </div>
       <div class="col-md-8">
         <div class="card-body">
@@ -12,3 +19,12 @@
       </div>
     </div>
   </div>
+@endsection
+
+@section('after-script')
+<script>
+    $(document).ready(function() {
+        $('#example').DataTable();
+    } );
+</script>
+@endsection

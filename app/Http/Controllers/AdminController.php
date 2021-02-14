@@ -292,9 +292,10 @@ class AdminController extends Controller
 
     public function biodata_siswa(Request $request, $idsiswa)
     {
+        $users = session('data_login');
         $siswa = Detail::where('id', $idsiswa)->firstOrFail();
         if ($siswa->role_status == 'siswa') {
-            return view('admin.biodata-siswa', compact('siswa'));
+            return view('admin.biodata-siswa', compact('siswa', 'users'));
         }
         return redirect()->route('daftar-siswa');
     }

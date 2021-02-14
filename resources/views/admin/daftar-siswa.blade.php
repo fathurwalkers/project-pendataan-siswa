@@ -40,7 +40,7 @@
                 <td>{{ $siswa->nama_lengkap }}</td>
                 <td>{{ $siswa->nip_nisn }}</td>
                 <td>{{ $siswa->jenis_kelamin }}</td>
-                <td>{{ $siswa->alamat }}</td>
+                <td>{{ Str::limit($siswa->alamat, 10) }}</td>
                 <td>{{ $siswa->telepon }}</td>
                 <td>{{ $siswa->siswa_kelas }}</td>
                 <td>{{ $siswa->siswa_status }}</td>
