@@ -13,6 +13,8 @@ use App\Nilai;
 use App\Semester;
 use App\Pengajar;
 use Illuminate\Support\Str;
+use Faker\Factory as Faker;
+use Illuminate\Support\Arr as Randoms;
 
 class AdminController extends Controller
 {
@@ -305,5 +307,62 @@ class AdminController extends Controller
         $siswa = Detail::where('id', $request->idsiswa)->firstOrFail();
         $siswa->forceDelete();
         return redirect()->route('daftar-siswa');
+    }
+
+    // FAKER AUTO GENERATE DATA
+    public function generate_siswa()
+    {
+        $faker = Faker::create('id_ID');
+        for ($i = 0; $i<10; $i++) {
+            $detail_siswa = new Detail;
+            // $extFile = $request->foto->getClientOriginalExtension();
+            // $randomGambar = Str::random(6);
+            // $namaFile = 'image-'.$randomGambar.".".$extFile;
+            // $path = $request->foto->move('image', $namaFile);
+            // $pathGambar = 'image/'. $namaFile;
+            $array_jenkel = ['Laki-laki', 'Perempuan'];
+            $array_kelas = ['1', '2', '3'];
+            $siswa_kelas = Randoms::random($array_kelas);
+            $jenis_kelamin = Randoms::random($array_jenkel);
+            $role_status = 'siswa';
+            $siswa_status = 'Aktif';
+            $gambarfaker = 'image/image-hmDRkX.png';
+
+            $saveDetail = $detail_siswa->create([
+                'nama_lengkap' => $faker->name,
+                'nip_nisn' => $faker->unique()->numberBetween(700000000, 900000000),
+                'jenis_kelamin' => $jenis_kelamin,
+                'alamat' => $faker->address,
+                'telepon' => '08'.$faker->unique()->numberBetween(70000000000, 90000000000),
+                'foto' => $gambarfaker,
+                'role_status' => $role_status,
+                'siswa_kelas' => $siswa_kelas,
+                'siswa_status' => $siswa_status,
+                'created_at' => now(),
+                'updated_at' => now()
+            ]);
+            $saveDetail->save();
+            
+            $login_siswa = new Login;
+            $passwordSiswa = Str::random(5);
+            $userSiswa = $saveDetail->nip_nisn;
+            $token = Str::random(16);
+            $level = "siswa";
+            
+            $login_siswa = Login::create([
+                'email' => $userSiswa.'@siakad.com',
+                'username' => $userSiswa,
+                'password' => $passwordSiswa,
+                'level' => $level,
+                'token' => $token,
+                'created_at' => now(),
+                'updated_at' => now()
+                ]);
+            $id_detailbaru = intval($saveDetail->id);
+            $login_siswa->detail()->associate($id_detailbaru);
+            $login_siswa->save();
+    
+            return redirect()->route('daftar-siswa');
+        }
     }
 }
