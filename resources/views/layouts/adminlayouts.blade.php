@@ -77,34 +77,12 @@
                     </div>
                 </div>
 
-                <!-- SidebarSearch Form -->
-                {{-- <div class="form-inline">
-          <div class="input-group" data-widget="sidebar-search">
-            <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-            <div class="input-group-append">
-              <button class="btn btn-sidebar">
-                <i class="fas fa-search fa-fw"></i>
-              </button>
-            </div>
-          </div>
-        </div> --}}
-
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                         data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                        {{-- <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>
-                                    Menu
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a> --}}
-                            {{-- <ul class="nav nav-treeview"> --}}
-
                                 <li class="nav-item">
                                     <a href="{{ route('dashboard') }}" class="nav-link">
                                         <i class="far fa fa-bars nav-icon"></i>
@@ -158,13 +136,6 @@
                                     <a href="{{ route('tambah-matapelajaran') }}" class="nav-link">
                                         <i class="far fa fa-bars nav-icon"></i>
                                         <p>Tambah Mata Pelajaran</p>
-                                    </a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="{{ route('tambah-kelas') }}" class="nav-link">
-                                        <i class="far fa fa-bars nav-icon"></i>
-                                        <p>Tambah Kelas</p>
                                     </a>
                                 </li>
 
