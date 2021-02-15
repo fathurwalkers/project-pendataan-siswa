@@ -40,7 +40,7 @@ class DatabaseSeeder extends Seeder
 
         foreach ($array_mapel as $item) {
             Matapelajaran::create([
-                'nama_matapelajaran' => $strtoupper($item),
+                'nama_matapelajaran' => strtoupper($item),
                 'kode_matapelajaran' => 'MAPEL-'.strtoupper(Str::random(5)),
                 'created_at' => now(),
                 'updated_at' => now()
