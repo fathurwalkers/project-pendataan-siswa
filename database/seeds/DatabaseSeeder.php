@@ -14,16 +14,38 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create('id_ID');
-        for ($i = 0; $i<10; $i++) {
-            // $matapelajaran = new Matapelajaran;
+        // for ($i = 0; $i<10; $i++) {
+        //     // $matapelajaran = new Matapelajaran;
+        //     Matapelajaran::create([
+        //         'nama_matapelajaran' => strtoupper($faker->word),
+        //         'kode_matapelajaran' => 'MAPEL-'.strtoupper(Str::random(5)),
+        //         'created_at' => now(),
+        //         'updated_at' => now()
+        //     ]);
+        // }
+        
+        $array_mapel = [
+            'Matematika',
+            'Bahasa Indonesia',
+            'Bahasa Inggris',
+            'Fisika',
+            'Kimia',
+            'Sejarah',
+            'Pendidikan Agama Islam',
+            'Pendidikan Kewarganegaraan',
+            'Kewirausahaan',
+            'Penjaskes',
+            'Biologi'
+        ];
+
+        foreach ($array_mapel as $item) {
             Matapelajaran::create([
-                'nama_matapelajaran' => strtoupper($faker->word),
+                'nama_matapelajaran' => $strtoupper($item),
                 'kode_matapelajaran' => 'MAPEL-'.strtoupper(Str::random(5)),
                 'created_at' => now(),
                 'updated_at' => now()
             ]);
         }
-
 
         $hashPassword = Hash::make('jancok', [
             'rounds' => 12,
