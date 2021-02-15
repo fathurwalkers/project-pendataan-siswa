@@ -353,7 +353,6 @@ class AdminController extends Controller
             ]);
             $saveDetail->kelas()->associate($randomkelas);
             $saveDetail->save();
-            
             $login_siswa = new Login;
             $passwordSiswa = strtoupper(Str::random(5));
             $userSiswa = $saveDetail->nip_nisn;
