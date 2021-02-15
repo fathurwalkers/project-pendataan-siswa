@@ -67,8 +67,6 @@
                 <!-- Sidebar user (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        {{-- <img src="{{ asset('vendor/adminlte') }}/dist/img/user2-160x160.jpg"
-                        class="img-circle elevation-2" alt="User Image"> --}}
                         <div class="fa fa-user img-circle elevation-2"></div>
                     </div>
                     <div class="info">
@@ -152,9 +150,6 @@
                                         <p>Daftar User Guru</p>
                                     </a>
                                 </li>
-
-                            {{-- </ul> --}}
-                        {{-- </li> --}}
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
