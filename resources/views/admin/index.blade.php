@@ -13,7 +13,7 @@
 
             <div class="small-box bg-warning mx-2">
               <div class="inner">
-                <h3>44</h3>
+                <h3>{{ $detail_siswa }}</h3>
   
                 <p>Total Siswa</p>
               </div>

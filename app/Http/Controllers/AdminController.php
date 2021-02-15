@@ -21,8 +21,10 @@ class AdminController extends Controller
     public function index()
     {
         $users = session('data_login');
+        $detail_siswa = Detail::where('role_status', 'siswa')->get()->count();
         return view('admin.index', [
-            'users' => $users
+            'users' => $users,
+            'detail_siswa' => $detail_siswa
         ]);
     }
 
