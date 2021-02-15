@@ -152,11 +152,11 @@ class AdminController extends Controller
         return view('admin.tambah-mata-pelajaran', compact('users'));
     }
 
-    public function tambahKelas()
-    {
-        $users = session('data_login');
-        return view('admin.tambah-kelas', compact('users'));
-    }
+    // public function tambahKelas()
+    // {
+    //     $users = session('data_login');
+    //     return view('admin.tambah-kelas', compact('users'));
+    // }
 
     // ---------------------------------------------------------------------------------------
 
@@ -268,28 +268,28 @@ class AdminController extends Controller
         return redirect()->route('daftar-matapelajaran');
     }
 
-    public function post_tambahKelas(Request $request)
-    {
-        if ($request->kelas == 'none') {
-            if ($request->ext_kelas == 'none') {
-                return redirect()->route('tambah-kelas');
-            }
-        }
-        $kelas = new Kelas;
-        $kodekelas = 'KLS-';
-        $kodekelas .= strtoupper(Str::random(5));
-        $urutankelas = $request->kelas;
-        $extKelas = $request->ext_kelas;
-        $gabungkelas = $urutankelas . ' ' . $extKelas;
-        $saveKelas = $kelas->create([
-            'kode_kelas' => $kodekelas,
-            'kelas' => $gabungkelas,
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-        $saveKelas->save();
-        return redirect()->route('tambah-kelas');
-    }
+    // public function post_tambahKelas(Request $request)
+    // {
+    //     if ($request->kelas == 'none') {
+    //         if ($request->ext_kelas == 'none') {
+    //             return redirect()->route('tambah-kelas');
+    //         }
+    //     }
+    //     $kelas = new Kelas;
+    //     $kodekelas = 'KLS-';
+    //     $kodekelas .= strtoupper(Str::random(5));
+    //     $urutankelas = $request->kelas;
+    //     $extKelas = $request->ext_kelas;
+    //     $gabungkelas = $urutankelas . ' ' . $extKelas;
+    //     $saveKelas = $kelas->create([
+    //         'kode_kelas' => $kodekelas,
+    //         'kelas' => $gabungkelas,
+    //         'created_at' => now(),
+    //         'updated_at' => now()
+    //     ]);
+    //     $saveKelas->save();
+    //     return redirect()->route('tambah-kelas');
+    // }
 
     public function biodata_siswa(Request $request, $idsiswa)
     {
