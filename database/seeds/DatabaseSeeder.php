@@ -183,11 +183,14 @@ class DatabaseSeeder extends Seeder
         $userkepsek = 'kepsek';
         $token = Str::random(16);
         $level = "kepsek";
+        $hashPasswordkepsek = Hash::make($passwordkepsek, [
+            'rounds' => 12,
+        ]);
         
         $login_kepsek = Login::create([
             'email' => $userkepsek.'@localhost.com',
             'username' => $userkepsek,
-            'password' => $passwordkepsek,
+            'password' => $hashPasswordkepsek,
             'level' => $level,
             'token' => $token,
             'created_at' => now(),
