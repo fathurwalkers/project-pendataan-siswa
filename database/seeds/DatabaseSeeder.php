@@ -52,98 +52,123 @@ class DatabaseSeeder extends Seeder
             'updated_at' => now()
         ]);
 
-        $kodekelas = 'KLS-';
-        $kodekelas .= strtoupper(Str::random(5));
-        Kelas::create([
-            'kode_kelas' => $kodekelas,
-            'kelas' => 'VII A',
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-        Kelas::create([
-            'kode_kelas' => $kodekelas,
-            'kelas' => 'VII B',
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-        Kelas::create([
-            'kode_kelas' => $kodekelas,
-            'kelas' => 'VII C',
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-        Kelas::create([
-            'kode_kelas' => $kodekelas,
-            'kelas' => 'VII D',
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-        Kelas::create([
-            'kode_kelas' => $kodekelas,
-            'kelas' => 'VII E',
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-        Kelas::create([
-            'kode_kelas' => $kodekelas,
-            'kelas' => 'VIII A',
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-        Kelas::create([
-            'kode_kelas' => $kodekelas,
-            'kelas' => 'VIII B',
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-        Kelas::create([
-            'kode_kelas' => $kodekelas,
-            'kelas' => 'VIII C',
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-        Kelas::create([
-            'kode_kelas' => $kodekelas,
-            'kelas' => 'VIII D',
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-        Kelas::create([
-            'kode_kelas' => $kodekelas,
-            'kelas' => 'VIII E',
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-        Kelas::create([
-            'kode_kelas' => $kodekelas,
-            'kelas' => 'IX A',
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-        Kelas::create([
-            'kode_kelas' => $kodekelas,
-            'kelas' => 'IX B',
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-        Kelas::create([
-            'kode_kelas' => $kodekelas,
-            'kelas' => 'IX C',
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-        Kelas::create([
-            'kode_kelas' => $kodekelas,
-            'kelas' => 'IX D',
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-        Kelas::create([
-            'kode_kelas' => $kodekelas,
-            'kelas' => 'IX E',
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
+        // Kelas::create([
+        //     'kode_kelas' => $kodekelas,
+        //     'kelas' => 'VII A',
+        //     'created_at' => now(),
+        //     'updated_at' => now()
+        // ]);
+        // Kelas::create([
+        //     'kode_kelas' => $kodekelas,
+        //     'kelas' => 'VII B',
+        //     'created_at' => now(),
+        //     'updated_at' => now()
+        // ]);
+        // Kelas::create([
+        //     'kode_kelas' => $kodekelas,
+        //     'kelas' => 'VII C',
+        //     'created_at' => now(),
+        //     'updated_at' => now()
+        // ]);
+        // Kelas::create([
+        //     'kode_kelas' => $kodekelas,
+        //     'kelas' => 'VII D',
+        //     'created_at' => now(),
+        //     'updated_at' => now()
+        // ]);
+        // Kelas::create([
+        //     'kode_kelas' => $kodekelas,
+        //     'kelas' => 'VII E',
+        //     'created_at' => now(),
+        //     'updated_at' => now()
+        // ]);
+        // Kelas::create([
+        //     'kode_kelas' => $kodekelas,
+        //     'kelas' => 'VIII A',
+        //     'created_at' => now(),
+        //     'updated_at' => now()
+        // ]);
+        // Kelas::create([
+        //     'kode_kelas' => $kodekelas,
+        //     'kelas' => 'VIII B',
+        //     'created_at' => now(),
+        //     'updated_at' => now()
+        // ]);
+        // Kelas::create([
+        //     'kode_kelas' => $kodekelas,
+        //     'kelas' => 'VIII C',
+        //     'created_at' => now(),
+        //     'updated_at' => now()
+        // ]);
+        // Kelas::create([
+        //     'kode_kelas' => $kodekelas,
+        //     'kelas' => 'VIII D',
+        //     'created_at' => now(),
+        //     'updated_at' => now()
+        // ]);
+        // Kelas::create([
+        //     'kode_kelas' => $kodekelas,
+        //     'kelas' => 'VIII E',
+        //     'created_at' => now(),
+        //     'updated_at' => now()
+        // ]);
+        // Kelas::create([
+        //     'kode_kelas' => $kodekelas,
+        //     'kelas' => 'IX A',
+        //     'created_at' => now(),
+        //     'updated_at' => now()
+        // ]);
+        // Kelas::create([
+        //     'kode_kelas' => $kodekelas,
+        //     'kelas' => 'IX B',
+        //     'created_at' => now(),
+        //     'updated_at' => now()
+        // ]);
+        // Kelas::create([
+        //     'kode_kelas' => $kodekelas,
+        //     'kelas' => 'IX C',
+        //     'created_at' => now(),
+        //     'updated_at' => now()
+        // ]);
+        // Kelas::create([
+        //     'kode_kelas' => $kodekelas,
+        //     'kelas' => 'IX D',
+        //     'created_at' => now(),
+        //     'updated_at' => now()
+        // ]);
+        // Kelas::create([
+        //     'kode_kelas' => $kodekelas,
+        //     'kelas' => 'IX E',
+        //     'created_at' => now(),
+        //     'updated_at' => now()
+        // ]);
+
+        $arraykelas = [
+            'VII A',
+            'VII B',
+            'VII C',
+            'VII D',
+            'VII E',
+            'VIII A',
+            'VIII B',
+            'VIII C',
+            'VIII D',
+            'VIII E',
+            'IX A',
+            'IX B',
+            'IX C',
+            'IX D',
+            'IX E'
+        ];
+        foreach ($arraykelas as $itemkelas) {
+            Kelas::create([
+                'kode_kelas' => 'KLS-'.strtoupper(Str::random(5)),
+                'kelas' => strtoupper($itemkelas),
+                'created_at' => now(),
+                'updated_at' => now()
+            ]);
+        }
+
 
         
         // SEED DATA SISWA
