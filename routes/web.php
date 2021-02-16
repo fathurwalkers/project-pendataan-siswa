@@ -8,6 +8,8 @@ Route::prefix('/')->group(function () {
     })->name('home');
 });
 
+Route::get('/test', 'AdminController@test');
+
 Route::prefix('/dashboard')->group(function () {
     Route::get('/', 'AdminController@index')->middleware('ceklogin')->name('dashboard');
     Route::get('/login', 'AdminController@login')->name('login');

@@ -20,9 +20,16 @@ class AdminController extends Controller
 {
     public function test()
     {
+        $nipkepsek = Detail::where('role_status', 'kepsek')->firstOrFail();
+        dd($nipkepsek);
         $semester = new Semester;
         $semester->create([
-            ''
+            'kode_semester' => 'SEMESTER-'.strtoupper(Str::random('5')),
+            'status_semester' => 'Aktif',
+            'tahun_ajaran' => '2020/2021',
+            'nip_kepsek' => null,
+            'created_at' => now(),
+            'updated_at' => now()
         ]);
     }
 
