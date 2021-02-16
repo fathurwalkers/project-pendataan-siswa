@@ -81,6 +81,9 @@
                         data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+
+                            @switch($users->level)
+                                @case('admin')
                                 <li class="nav-item">
                                     <a href="{{ route('dashboard') }}" class="nav-link">
                                         <i class="far fa fa-bars nav-icon"></i>
@@ -150,6 +153,24 @@
                                         <p>Daftar User Guru</p>
                                     </a>
                                 </li>
+                                    @break
+                                @case('guru')
+                                <li class="nav-item">
+                                    <a href="{{ route('dashboard') }}" class="nav-link">
+                                        <i class="far fa fa-bars nav-icon"></i>
+                                        <p>Guru</p>
+                                    </a>
+                                </li>
+                                    @break
+                                @case('siswa')
+                                <li class="nav-item">
+                                    <a href="{{ route('dashboard') }}" class="nav-link">
+                                        <i class="far fa fa-bars nav-icon"></i>
+                                        <p>Siswa</p>
+                                    </a>
+                                </li>
+                                    @break
+                            @endswitch
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
