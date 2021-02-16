@@ -31,8 +31,8 @@ class AdminController extends Controller
             'updated_at' => now()
         ]);
         $saveSemester->detail()->associate($nipkepsek->id);
-        dd($saveSemester);
         $saveSemester->save();
+        dd($saveSemester);
     }
 
     public function index()
