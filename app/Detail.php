@@ -22,6 +22,6 @@ class Detail extends Model
 
     public function semester()
     {
-        return $this->hasOne('App\Semester');
+        return $this->hasMany('App\Semester');
     }
 }
