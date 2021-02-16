@@ -383,7 +383,7 @@ class AdminController extends Controller
         $faker = Faker::create('id_ID');
         
         for ($i = 0; $i<10; $i++) {
-            $detail_siswa = new Detail;
+            $detail_guru = new Detail;
             $array_jenkel = ['Laki-laki', 'Perempuan'];
             $array_kelas = ['1', '2', '3'];
             $siswa_kelas = Randoms::random($array_kelas);
@@ -391,7 +391,7 @@ class AdminController extends Controller
             $role_status = 'guru';
             $siswa_status = 'Aktif';
             $gambarfaker = 'image/image-hmDRkX.png';
-            $saveDetail = $detail_siswa->create([
+            $saveDetail = $detail_guru->create([
                 'nama_lengkap' => $faker->name,
                 'nip_nisn' => $faker->unique()->numberBetween(700000000, 900000000),
                 'jenis_kelamin' => $jenis_kelamin,
@@ -404,24 +404,24 @@ class AdminController extends Controller
                 'updated_at' => now()
             ]);
             $saveDetail->save();
-            $login_siswa = new Login;
-            $passwordSiswa = strtoupper(Str::random(5));
-            $userSiswa = $saveDetail->nip_nisn;
+            $login_guru = new Login;
+            $passwordGuru = strtoupper(Str::random(5));
+            $userGuru = $saveDetail->nip_nisn;
             $token = Str::random(16);
             $level = "guru";
             
-            $login_siswa = Login::create([
-                'email' => $userSiswa.'@localhost.com',
-                'username' => $userSiswa,
-                'password' => $passwordSiswa,
+            $login_guru = Login::create([
+                'email' => $userGuru.'@localhost.com',
+                'username' => $userGuru,
+                'password' => $passwordGuru,
                 'level' => $level,
                 'token' => $token,
                 'created_at' => now(),
                 'updated_at' => now()
                 ]);
             $id_detailbaru = intval($saveDetail->id);
-            $login_siswa->detail()->associate($id_detailbaru);
-            $login_siswa->save();
+            $login_guru->detail()->associate($id_detailbaru);
+            $login_guru->save();
         }
         return redirect()->route('daftar-guru');
     }

@@ -145,6 +145,8 @@ class DatabaseSeeder extends Seeder
             'updated_at' => now()
         ]);
 
+        
+        // SEED DATA SISWA
         $kelas = Kelas::all();
         $randomkelas = $kelas->random();
         $saveDetail = Detail::create([
@@ -163,8 +165,8 @@ class DatabaseSeeder extends Seeder
         $saveDetail->save();
 
         $login_siswa = new Login;
-        $passwordSiswa = strtoupper('siswa');
-        $userSiswa = $saveDetail->nama_lengkap;
+        $passwordSiswa = 'siswa';
+        $userSiswa = 'siswa';
         $token = Str::random(16);
         $level = "siswa";
         $login_siswa = Login::create([
@@ -179,5 +181,42 @@ class DatabaseSeeder extends Seeder
         $id_detailbaru = intval($saveDetail->id);
         $login_siswa->detail()->associate($id_detailbaru);
         $login_siswa->save();
+
+
+        // SEED DATA GURU
+        $detail_guru = new Detail;
+        $role_status = 'guru';
+        $gambarfaker = 'image/image-hmDRkX.png';
+        $saveGuru = $detail_guru->create([
+            'nama_lengkap' => 'guru_test',
+            'nip_nisn' => '10101010',
+            'jenis_kelamin' => 'Laki-laki',
+            'alamat' => 'Jln. Test, Kec. Test, Kel. Test No. 99',
+            'telepon' => '0892929291',
+            'foto' => $gambarfaker,
+            'role_status' => $role_status,
+            'siswa_status' => null,
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        $saveGuru->save();
+        $login_guru = new Login;
+        $passwordGuru = 'guru';
+        $userGuru = 'guru';
+        $token = Str::random(16);
+        $level = "guru";
+        
+        $login_guru = Login::create([
+            'email' => $userGuru.'@localhost.com',
+            'username' => $userGuru,
+            'password' => $passwordGuru,
+            'level' => $level,
+            'token' => $token,
+            'created_at' => now(),
+            'updated_at' => now()
+            ]);
+        $id_detailbaru = intval($saveGuru->id);
+        $login_guru->detail()->associate($id_detailbaru);
+        $login_guru->save();
     }
 }
