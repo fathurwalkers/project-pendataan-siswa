@@ -103,10 +103,14 @@ class DatabaseSeeder extends Seeder
         $userSiswa = 'siswa';
         $token = Str::random(16);
         $level = "siswa";
+        $hashPasswordSiswa = Hash::make($passwordSiswa, [
+            'rounds' => 12,
+        ]);
+
         $login_siswa = Login::create([
                 'email' => $userSiswa.'@localhost.com',
                 'username' => $userSiswa,
-                'password' => $passwordSiswa,
+                'password' => $hashPasswordSiswa,
                 'level' => $level,
                 'token' => $token,
                 'created_at' => now(),
