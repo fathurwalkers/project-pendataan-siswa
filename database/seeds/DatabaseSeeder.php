@@ -139,11 +139,14 @@ class DatabaseSeeder extends Seeder
         $userGuru = 'guru';
         $token = Str::random(16);
         $level = "guru";
+        $hashPasswordGuru = Hash::make($passwordGuru, [
+            'rounds' => 12,
+        ]);
         
         $login_guru = Login::create([
             'email' => $userGuru.'@localhost.com',
             'username' => $userGuru,
-            'password' => $passwordGuru,
+            'password' => $hashPasswordGuru,
             'level' => $level,
             'token' => $token,
             'created_at' => now(),
@@ -153,6 +156,8 @@ class DatabaseSeeder extends Seeder
         $login_guru->detail()->associate($id_detailbaru);
         $login_guru->save();
 
+        
+        // SEED DATA KEPALA SEKOLAH
         $detail_kepsek = new Detail;
         $role_status = 'kepsek';
         $gambarfaker = 'image/image-hmDRkX.png';
