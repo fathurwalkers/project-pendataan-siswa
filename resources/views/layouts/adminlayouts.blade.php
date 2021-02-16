@@ -154,6 +154,16 @@
                                     </a>
                                 </li>
                                     @break
+
+                                @case('kepsek')
+                                <li class="nav-item">
+                                    <a href="{{ route('dashboard') }}" class="nav-link">
+                                        <i class="far fa fa-bars nav-icon"></i>
+                                        <p>Kepala Sekolah</p>
+                                    </a>
+                                </li>
+                                    @break
+                                
                                 @case('guru')
                                 <li class="nav-item">
                                     <a href="{{ route('dashboard') }}" class="nav-link">
@@ -162,6 +172,7 @@
                                     </a>
                                 </li>
                                     @break
+
                                 @case('siswa')
                                 <li class="nav-item">
                                     <a href="{{ route('dashboard') }}" class="nav-link">
@@ -170,6 +181,7 @@
                                     </a>
                                 </li>
                                     @break
+
                             @endswitch
                     </ul>
                 </nav>
