@@ -218,5 +218,40 @@ class DatabaseSeeder extends Seeder
         $id_detailbaru = intval($saveGuru->id);
         $login_guru->detail()->associate($id_detailbaru);
         $login_guru->save();
+
+        $detail_kepsek = new Detail;
+        $role_status = 'kepsek';
+        $gambarfaker = 'image/image-hmDRkX.png';
+        $savekepsek = $detail_kepsek->create([
+            'nama_lengkap' => 'kepsek_test',
+            'nip_nisn' => '10101010',
+            'jenis_kelamin' => 'Laki-laki',
+            'alamat' => 'Jln. Test, Kec. Test, Kel. Test No. 99',
+            'telepon' => '0892929291',
+            'foto' => $gambarfaker,
+            'role_status' => $role_status,
+            'siswa_status' => null,
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        $savekepsek->save();
+        $login_kepsek = new Login;
+        $passwordkepsek = 'kepsek';
+        $userkepsek = 'kepsek';
+        $token = Str::random(16);
+        $level = "kepsek";
+        
+        $login_kepsek = Login::create([
+            'email' => $userkepsek.'@localhost.com',
+            'username' => $userkepsek,
+            'password' => $passwordkepsek,
+            'level' => $level,
+            'token' => $token,
+            'created_at' => now(),
+            'updated_at' => now()
+            ]);
+        $id_detailbaru = intval($savekepsek->id);
+        $login_kepsek->detail()->associate($id_detailbaru);
+        $login_kepsek->save();
     }
 }
