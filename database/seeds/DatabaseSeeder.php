@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 use App\Login;
 use App\Kelas;
 use App\Matapelajaran;
+use App\Detail;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Faker\Factory as Faker;
@@ -35,6 +36,7 @@ class DatabaseSeeder extends Seeder
                 'updated_at' => now()
             ]);
         }
+
         $hashPassword = Hash::make('jancok', [
             'rounds' => 12,
         ]);
@@ -49,6 +51,7 @@ class DatabaseSeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now()
         ]);
+
         $kodekelas = 'KLS-';
         $kodekelas .= strtoupper(Str::random(5));
         Kelas::create([
@@ -141,5 +144,40 @@ class DatabaseSeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now()
         ]);
+
+        $kelas = Kelas::all();
+        $randomkelas = $kelas->random();
+        $saveDetail = Detail::create([
+            'nama_lengkap' => 'siswa_test',
+            'nip_nisn' => '999999',
+            'jenis_kelamin' => 'Laki-laki',
+            'alamat' => 'Jln. Test, Kec. Test, Kel. Test No. 99',
+            'telepon' => '121231312',
+            'foto' => 'image/image-AdcZ0R.png',
+            'role_status' => 'siswa',
+            'siswa_status' => 'Aktif',
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        $saveDetail->kelas()->associate($randomkelas);
+        $saveDetail->save();
+
+        $login_siswa = new Login;
+        $passwordSiswa = strtoupper('siswa');
+        $userSiswa = $saveDetail->nama_lengkap;
+        $token = Str::random(16);
+        $level = "siswa";
+        $login_siswa = Login::create([
+                'email' => $userSiswa.'@localhost.com',
+                'username' => $userSiswa,
+                'password' => $passwordSiswa,
+                'level' => $level,
+                'token' => $token,
+                'created_at' => now(),
+                'updated_at' => now()
+                ]);
+        $id_detailbaru = intval($saveDetail->id);
+        $login_siswa->detail()->associate($id_detailbaru);
+        $login_siswa->save();
     }
 }
