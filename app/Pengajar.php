@@ -8,9 +8,4 @@ class Pengajar extends Model
 {
     protected $table = 'pengajar';
     protected $guarded = [];
-
-    public function detail()
-    {
-        return $this->belongsTo('App\Detail');
-    }
 }

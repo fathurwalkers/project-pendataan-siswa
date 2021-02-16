@@ -18,6 +18,14 @@ use Illuminate\Support\Arr as Randoms;
 
 class AdminController extends Controller
 {
+    public function test()
+    {
+        $semester = new Semester;
+        $semester->create([
+            ''
+        ]);
+    }
+
     public function index()
     {
         $users = session('data_login');

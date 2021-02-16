@@ -20,8 +20,8 @@ class Detail extends Model
         return $this->belongsTo('App\Kelas');
     }
 
-    public function pengajar()
+    public function semester()
     {
-        return $this->hasOne('App\Pengajar');
+        return $this->hasOne('App\Semester');
     }
 }
