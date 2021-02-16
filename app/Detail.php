@@ -15,13 +15,13 @@ class Detail extends Model
         return $this->hasOne('App\Login');
     }
 
-    public function pengajar()
-    {
-        return $this->hasOne('App\Pengajar');
-    }
-
     public function kelas()
     {
         return $this->belongsTo('App\Kelas');
+    }
+
+    public function pengajar()
+    {
+        return $this->hasOne('App\Pengajar');
     }
 }
