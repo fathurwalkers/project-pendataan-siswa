@@ -101,12 +101,22 @@ class AdminController extends Controller
     public function postLogin(Request $request)
     {
         $data_login = Login::where('username', $request->username)->firstOrFail();
-        $cek_password = Hash::check($request->password, $data_login->password);
-        if ($data_login) {
-            if ($cek_password) {
-                $users = session(['data_login' => $data_login]);
-                return redirect()->route('dashboard');
-            }
+        switch ($data_login->level) {
+            case 'admin':
+                $cek_password = Hash::check($request->password, $data_login->password);
+                if ($data_login) {
+                    if ($cek_password) {
+                        $users = session(['data_login' => $data_login]);
+                        return redirect()->route('dashboard');
+                    }
+                }
+                break;
+            case 'guru':
+                if ($request->password == $data_login->password) {
+                    $users = session(['data_login' => $data_login]);
+                    return redirect()->route('dashboard');
+                }
+                break;
         }
         return redirect('/dashboard/login')->withInput();
     }
