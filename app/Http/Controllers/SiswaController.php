@@ -27,9 +27,9 @@ class SiswaController extends Controller
     public function detailKelas()
     {
         $users = session('data_login');
-        $kode_kelas = $users->detail->kelas->kode_kelas;
-        $detail_kelas = Kelas::where('kode_kelas', $kode_kelas)->latest();
-        dd($detail_kelas);
+        $kode_kelas = $users->detail->kelas->id;
+        $detail_kelas = Detail::where('kelas_id', $kode_kelas)->get();
+        // dd($detail_kelas);
         return view('siswa.detail-kelas', compact('users', 'detail_kelas'));
     }
 }

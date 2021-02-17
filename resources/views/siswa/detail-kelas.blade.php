@@ -32,9 +32,9 @@
             @foreach ($detail_kelas as $item)
             <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td>{{ $item->kelas }}</td>
-                <td>{{ $item->siswa->nama_lengkap }}</td>
-                <td>{{ $item->kode_kelas }}</td>
+                <td>{{ $item->kelas->kelas }}</td>
+                <td>{{ $item->nama_lengkap }}</td>
+                <td>{{ $item->kelas->kode_kelas }}</td>
             </tr>
             @endforeach
     </table>
