@@ -42,10 +42,18 @@ class AdminController extends Controller
         return view('admin.daftar-semester', compact('users', 'semester'));
     }
 
-    public function tambahSemester(Request $request)
+    public function tambahSemester()
     {
         $users = session('data_login');
         return view('admin.tambah-semester', compact('users'));
+    }
+
+    public function post_tambahSemester(Request $request)
+    {
+        $users = session('data_login');
+        $saveSemester = Semester::create([
+            '' => ,
+        ]);
     }
 
     public function index()
