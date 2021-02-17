@@ -173,7 +173,7 @@
                                 <li class="nav-item">
                                     <a href="{{ route('dashboard') }}" class="nav-link">
                                         <i class="far fa fa-bars nav-icon"></i>
-                                        <p>Kepala Sekolah</p>
+                                        <p>Beranda</p>
                                     </a>
                                 </li>
                                     @break
@@ -182,7 +182,7 @@
                                 <li class="nav-item">
                                     <a href="{{ route('dashboard') }}" class="nav-link">
                                         <i class="far fa fa-bars nav-icon"></i>
-                                        <p>Guru</p>
+                                        <p>Beranda</p>
                                     </a>
                                 </li>
                                     @break
@@ -191,7 +191,7 @@
                                 <li class="nav-item">
                                     <a href="{{ route('dashboard') }}" class="nav-link">
                                         <i class="far fa fa-bars nav-icon"></i>
-                                        <p>Siswa</p>
+                                        <p>Beranda</p>
                                     </a>
                                 </li>
                                     @break
