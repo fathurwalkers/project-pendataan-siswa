@@ -177,7 +177,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ route('biodata-user', $users->id) }}" class="nav-link">
+                                    <a href="{{ route('biodata-user', $users->detail->id) }}" class="nav-link">
                                         <i class="far fa fa-bars nav-icon"></i>
                                         <p>Lihat Profil</p>
                                     </a>
@@ -192,7 +192,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ route('biodata-user', $users->id) }}" class="nav-link">
+                                    <a href="{{ route('biodata-user', $users->detail->id) }}" class="nav-link">
                                         <i class="far fa fa-bars nav-icon"></i>
                                         <p>Lihat Profil</p>
                                     </a>
