@@ -103,9 +103,6 @@ class DatabaseSeeder extends Seeder
         $userSiswa = 'siswa';
         $token = Str::random(16);
         $level = "siswa";
-        // $hashPasswordSiswa = Hash::make($passwordSiswa, [
-        //     'rounds' => 12,
-        // ]);
 
         $login_siswa = Login::create([
                 'email' => $userSiswa.'@localhost.com',
@@ -143,9 +140,6 @@ class DatabaseSeeder extends Seeder
         $userGuru = 'guru';
         $token = Str::random(16);
         $level = "guru";
-        // $hashPasswordGuru = Hash::make($passwordGuru, [
-        //     'rounds' => 12,
-        // ]);
         
         $login_guru = Login::create([
             'email' => $userGuru.'@localhost.com',
@@ -183,9 +177,6 @@ class DatabaseSeeder extends Seeder
         $userkepsek = 'kepsek';
         $token = Str::random(16);
         $level = "kepsek";
-        // $hashPasswordkepsek = Hash::make($passwordkepsek, [
-        //     'rounds' => 12,
-        // ]);
         
         $login_kepsek = Login::create([
             'email' => $userkepsek.'@localhost.com',
