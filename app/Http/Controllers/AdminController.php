@@ -45,15 +45,24 @@ class AdminController extends Controller
     public function tambahSemester()
     {
         $users = session('data_login');
-        return view('admin.tambah-semester', compact('users'));
+        $kepsek = Detail::where('role_status', 'kepsek')->firstOrFail();
+        return view('admin.tambah-semester', compact('users', 'kepsek'));
     }
 
     public function post_tambahSemester(Request $request)
     {
         $users = session('data_login');
         $saveSemester = Semester::create([
-            '' => ,
+            'kode_semester' => 'SEMESTER-'.strtoupper(Str::random(5)),
+            'status_semester' => 'Aktif',
+            'tahun_ajaran' => $request->tahun_ajaran,
+            'nip_kepsek' => intval($request->nip_kepsek),
+            'created_at' => now(),
+            'updated_at' => now()
         ]);
+        $saveSemester->detail()->associate($nip_kepsek);
+        $saveSemester->save();
+        return redirect()->route('daftar-semester');
     }
 
     public function index()
