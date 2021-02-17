@@ -25,6 +25,7 @@
                 <th>#</th>
                 <th>Tahun Ajaran</th>
                 <th>Kepala Sekolah</th>
+                <th>Kode Semester</th>
                 <th>Status</th>
                 {{-- <th>Kelola</th> --}}
             </tr>
@@ -33,9 +34,10 @@
             @foreach ($semester as $smtr)
             <tr>
                 <td class="text-center">{{ $loop->iteration }}</td>
-                <td>{{ $siswa->nama_lengkap }}</td>
-                <td>{{ $siswa->nip_nisn }}</td>
-                <td>{{ $siswa->jenis_kelamin }}</td>
+                <td>{{ $smtr->tahun_ajaran }}</td>
+                <td>{{ $smtr->nip_kepsek }}</td>
+                <td>{{ $smtr->kode_semester }}</td>
+                <td>{{ $smtr->status_semester }}</td>
                 {{-- <td class="text-center d-flex">
                     <a href="#" class="btn btn-info mx-1">Edit</a>
                     <a href="#" class="btn btn-success mx-1">Selengkapnya</a>
