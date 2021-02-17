@@ -39,8 +39,10 @@ Route::prefix('/dashboard')->group(function () {
 
     // KELAS
     Route::get('/daftar-kelas', 'AdminController@daftarKelas')->middleware('ceklogin')->name('daftar-kelas');
-    Route::get('/tambah-kelas', 'AdminController@tambahKelas')->middleware('ceklogin')->name('tambah-kelas');
-    Route::post('/tambah-kelas', 'AdminController@post_tambahKelas')->middleware('ceklogin')->name('post-tambah-kelas');
+    // Route::get('/tambah-kelas', 'AdminController@tambahKelas')->middleware('ceklogin')->name('tambah-kelas');
+    // Route::post('/tambah-kelas', 'AdminController@post_tambahKelas')->middleware('ceklogin')->name('post-tambah-kelas');
+
+
 
     // DAFTAR INFORMASI USER
     Route::get('daftar-user-siswa', 'AdminController@daftarUserSiswa')->middleware('ceklogin')->name('daftar-user-siswa');
