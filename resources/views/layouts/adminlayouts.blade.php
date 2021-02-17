@@ -120,6 +120,20 @@
                                 </li>
 
                                 <li class="nav-item">
+                                    <a href="{{ route('daftar-semester') }}" class="nav-link">
+                                        <i class="far fa fa-bars nav-icon"></i>
+                                        <p>Daftar Semester</p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="{{ route('tambah-semester') }}" class="nav-link">
+                                        <i class="far fa fa-bars nav-icon"></i>
+                                        <p>Tambah Semester</p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
                                     <a href="{{ route('tambah-siswa') }}" class="nav-link">
                                         <i class="far fa fa-bars nav-icon"></i>
                                         <p>Tambah Siswa</p>
