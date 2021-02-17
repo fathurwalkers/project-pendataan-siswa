@@ -493,4 +493,11 @@ class AdminController extends Controller
         }
         return redirect()->route('daftar-guru');
     }
+
+    public function profileuser($iduser)
+    {
+        $users = session('data_login');
+        $profile = Detail::where('id', $iduser)->firstOrFail();
+        return view('admin.profile-user', compact('users', 'profile'));
+    }
 }
