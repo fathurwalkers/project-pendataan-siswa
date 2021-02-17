@@ -55,6 +55,7 @@ Route::prefix('/dashboard')->group(function () {
     // MANAGEMENT UNTUK SISWA
     Route::prefix('/siswa')->group(function () {
         Route::get('/detail-siswa', 'SiswaController@detailSiswa')->middleware('ceklogin')->name('detail-siswa');
+        Route::get('/detail-kelas', 'SiswaController@detailKelas')->middleware('ceklogin')->name('detail-kelas');
     });
 
     // MANAGEMENT UNTUK GURU
