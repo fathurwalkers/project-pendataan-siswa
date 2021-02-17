@@ -60,7 +60,7 @@ class AdminController extends Controller
             'created_at' => now(),
             'updated_at' => now()
         ]);
-        $saveSemester->detail()->associate($nip_kepsek);
+        $saveSemester->detail()->associate($request->idkepsek);
         $saveSemester->save();
         return redirect()->route('daftar-semester');
     }
