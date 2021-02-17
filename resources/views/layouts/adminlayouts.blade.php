@@ -176,6 +176,12 @@
                                         <p>Beranda</p>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('dashboard') }}" class="nav-link">
+                                        <i class="far fa fa-bars nav-icon"></i>
+                                        <p>Lihat Profil</p>
+                                    </a>
+                                </li>
                                     @break
                                 
                                 @case('guru')
