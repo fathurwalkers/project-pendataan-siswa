@@ -22,23 +22,23 @@
     <table id="example" class="display" style="width:100%">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Start date</th>
-                <th>Salary</th>
+                <th>#</th>
+                <th>Nama Lengkap</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Role Status</th>
             </tr>
         </thead>
         <tbody>
+            @foreach ($user_siswa as $item)
             <tr>
-                <td>Tiger Nixon</td>
-                <td>System Architect</td>
-                <td>Edinburgh</td>
-                <td>61</td>
-                <td>2011/04/25</td>
-                <td>$320,800</td>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $item->detail->nama_lengkap }}</td>
+                <td>{{ $item->username }}</td>
+                <td>{{ $item->password }}</td>
+                <td>{{ $item->detail->role_status }}</td>
             </tr>
+            @endforeach
     </table>
   </div>
   <!-- /.card-body -->
