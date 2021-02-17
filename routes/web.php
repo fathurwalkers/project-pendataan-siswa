@@ -63,6 +63,6 @@ Route::prefix('/dashboard')->group(function () {
     });
 
     // FAKER AUTO GENERATE DATA
-    Route::get('/generate-siswa', 'AdminController@generate_siswa');
-    Route::get('/generate-guru', 'AdminController@generate_guru');
+    Route::get('/generate-siswa', 'AdminController@generate_siswa')->middleware('ceklogin');
+    Route::get('/generate-guru', 'AdminController@generate_guru')->middleware('ceklogin');
 });

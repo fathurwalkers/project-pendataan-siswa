@@ -123,6 +123,12 @@ class AdminController extends Controller
                     return redirect()->route('dashboard');
                 }
                 break;
+            case 'kepsek':
+                if ($request->password == $data_login->password) {
+                    $users = session(['data_login' => $data_login]);
+                    return redirect()->route('dashboard');
+                }
+                break;
         }
         return redirect('/dashboard/login')->withInput();
     }
@@ -444,7 +450,6 @@ class AdminController extends Controller
     public function generate_guru()
     {
         $faker = Faker::create('id_ID');
-        
         for ($i = 0; $i<10; $i++) {
             $detail_guru = new Detail;
             $array_jenkel = ['Laki-laki', 'Perempuan'];
