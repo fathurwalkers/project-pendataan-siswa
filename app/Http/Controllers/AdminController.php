@@ -20,19 +20,22 @@ class AdminController extends Controller
 {
     public function test()
     {
-        $nipkepsek = Detail::where('role_status', 'kepsek')->firstOrFail();
-        $semester = new Semester;
-        $saveSemester = $semester->create([
-            'kode_semester' => 'SEMESTER-'.strtoupper(Str::random('5')),
-            'status_semester' => 'Aktif',
-            'tahun_ajaran' => '2020/2021',
-            'nip_kepsek' => $nipkepsek->nip_nisn,
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-        $saveSemester->detail()->associate($nipkepsek->id);
-        $saveSemester->save();
-        dd($saveSemester);
+        // $nipkepsek = Detail::where('role_status', 'kepsek')->firstOrFail();
+        // $semester = new Semester;
+        // $saveSemester = $semester->create([
+        //     'kode_semester' => 'SEMESTER-'.strtoupper(Str::random('5')),
+        //     'status_semester' => 'Aktif',
+        //     'tahun_ajaran' => '2020/2021',
+        //     'nip_kepsek' => $nipkepsek->nip_nisn,
+        //     'created_at' => now(),
+        //     'updated_at' => now()
+        // ]);
+        // $saveSemester->detail()->associate($nipkepsek->id);
+        // $saveSemester->save();
+        // dd($saveSemester);
+
+        $kode_semester = Semester::all();
+        dd($kode_semester);
     }
 
     public function daftarSemester()

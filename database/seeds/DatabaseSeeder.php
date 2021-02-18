@@ -5,6 +5,7 @@ use App\Login;
 use App\Kelas;
 use App\Matapelajaran;
 use App\Detail;
+use App\Semester;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Faker\Factory as Faker;
@@ -190,5 +191,18 @@ class DatabaseSeeder extends Seeder
         $id_detailbaru = intval($savekepsek->id);
         $login_kepsek->detail()->associate($id_detailbaru);
         $login_kepsek->save();
+
+        $nipkepsek = Detail::where('role_status', 'kepsek')->firstOrFail();
+        $semester = new Semester;
+        $saveSemester = $semester->create([
+            'kode_semester' => 'SEMESTER-'.strtoupper(Str::random('5')),
+            'status_semester' => 'Aktif',
+            'tahun_ajaran' => '2020/2021',
+            'nip_kepsek' => $nipkepsek->nip_nisn,
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        $saveSemester->detail()->associate($nipkepsek->id);
+        $saveSemester->save();
     }
 }
