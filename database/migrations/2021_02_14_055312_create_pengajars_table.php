@@ -17,13 +17,13 @@ class CreatePengajarsTable extends Migration
             $table->string('kode_matapelajaran');
             $table->string('nip_guru');
 
-            // $table->unsignedBigInteger('semester_id');
-            // $table->unsignedBigInteger('kelas_id');
-            // $table->unsignedBigInteger('matapelajaran_id');
+            $table->unsignedBigInteger('semester_id');
+            $table->unsignedBigInteger('kelas_id');
+            $table->unsignedBigInteger('matapelajaran_id');
 
-            // $table->foreign('semester_id')->references('id')->on('semester');
-            // $table->foreign('kelas_id')->references('id')->on('kelas');
-            // $table->foreign('matapelajaran_id')->references('id')->on('matapelajaran');
+            $table->foreign('semester_id')->references('id')->on('semester');
+            $table->foreign('kelas_id')->references('id')->on('kelas');
+            $table->foreign('matapelajaran_id')->references('id')->on('matapelajaran');
 
             $table->timestamps();
         });

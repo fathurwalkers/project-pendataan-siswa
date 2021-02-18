@@ -9,4 +9,9 @@ class Matapelajaran extends Model
     protected $table = 'matapelajaran';
 
     protected $guarded = [];
+
+    public function pengajar()
+    {
+        return $this->hasMany('App\Pengajar');
+    }
 }

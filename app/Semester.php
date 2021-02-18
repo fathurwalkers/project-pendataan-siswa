@@ -13,4 +13,9 @@ class Semester extends Model
     {
         return $this->belongsTo('App\Detail');
     }
+
+    public function pengajar()
+    {
+        return $this->hasOne('App\Pengajar');
+    }
 }

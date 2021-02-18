@@ -14,4 +14,9 @@ class Kelas extends Model
     {
         return $this->hasOne('App\Detail');
     }
+
+    public function pengajar()
+    {
+        return $this->hasMany('App\Pengajar');
+    }
 }
