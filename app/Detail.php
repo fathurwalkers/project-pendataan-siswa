@@ -27,6 +27,6 @@ class Detail extends Model
 
     public function pengajar()
     {
-        return $this->hasMany('App\Pengajar');
+        return $this->hasOne('App\Pengajar');
     }
 }

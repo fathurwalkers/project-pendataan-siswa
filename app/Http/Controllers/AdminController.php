@@ -42,14 +42,18 @@ class AdminController extends Controller
         $pengajar = new Pengajar;
         $savePengajar = $pengajar->create([
             'kode_pengajar' => 'PENGAJAR-'.strtoupper(Str::random(5)),
+            'kode_semester' => $kode_semester->kode_semester,
+            'kode_kelas' => $kode_kelas->kode_kelas,
+            'kode_matapelajaran' => $kode_matapelajaran->kode_matapelajaran,
             'created_at' => now(),
             'updated_at' => now()
         ]);
-        $savePengajar->detail()->attach($nip_guru->id);
-        $savePengajar->kelas()->attach($kode_kelas->id);
-        $savePengajar->semester()->attach($kode_semester->id);
-        $savePengajar->matapelajaran()->attach($kode_matapelajaran->id);
+        $savePengajar->detail()->associate($nip_guru->id);
+        $savePengajar->kelas()->associate($kode_kelas->id);
+        $savePengajar->semester()->associate($kode_semester->id);
+        $savePengajar->matapelajaran()->associate($kode_matapelajaran->id);
         $savePengajar->save();
+        dd($savePengajar);
     }
 
     public function daftarSemester()

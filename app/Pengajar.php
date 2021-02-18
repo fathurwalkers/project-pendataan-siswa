@@ -11,12 +11,12 @@ class Pengajar extends Model
 
     public function matapelajaran()
     {
-        return $this->belongsToMany('App\Matapelajaran');
+        return $this->belongsTo('App\Matapelajaran');
     }
 
     public function kelas()
     {
-        return $this->belongsToMany('App\Kelas');
+        return $this->belongsTo('App\Kelas');
     }
 
     public function semester()
@@ -26,6 +26,6 @@ class Pengajar extends Model
 
     public function detail()
     {
-        return $this->belongsToMany('App\Detail');
+        return $this->belongsTo('App\Detail');
     }
 }
