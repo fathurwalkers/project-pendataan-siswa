@@ -45,6 +45,7 @@ class AdminController extends Controller
             'kode_semester' => $kode_semester->kode_semester,
             'kode_kelas' => $kode_kelas->kode_kelas,
             'kode_matapelajaran' => $kode_matapelajaran->kode_matapelajaran,
+            'nip_guru' => $nip_guru->nip_nisn,
             'created_at' => now(),
             'updated_at' => now()
         ]);
