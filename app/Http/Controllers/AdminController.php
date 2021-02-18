@@ -77,6 +77,26 @@ class AdminController extends Controller
         // $saveAbsensi->detail()->associate($nisn_siswa->id);
         // $saveAbsensi->save();
         // dd($saveAbsensi);
+
+        // INPUT NILAI
+        $pengajar = Pengajar::latest()->first();
+        $nilai = new Nilai;
+        $saveNilai = $nilai->create([
+            'kode_pengajar' => $pengajar->kode_pengajar,
+            'kode_kelas' => $pengajar->kelas->kode_kelas,
+            'kode_matapelajaran' => $pengajar->matapelajaran->kode_matapelajaran,
+            'kode_semester' => $pengajar->semester->kode_semester,
+            'nisn_siswa' => $pengajar->detail->nip_nisn,
+            'nilai_siswa' => intval('100'),
+            'waktu_nilai' => now(),
+            'tanggal_nilai' => now(),
+            'status_nilai' => 'Aman',
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        $saveNilai->pengajar()->associate($pengajar->id);
+        $saveNilai->save();
+        dd($saveNilai);
     }
 
     public function daftarSemester()
