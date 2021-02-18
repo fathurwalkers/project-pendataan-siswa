@@ -26,7 +26,7 @@ class CreateNilaisTable extends Migration
             $table->date('tanggal_nilai');
             $table->string('status_nilai');
 
-            $table->unsignedBigInteger('pengajar_id');
+            $table->unsignedBigInteger('pengajar_id')->nullable();
             $table->foreign('pengajar_id')->references('id')->on('pengajar');
 
             $table->timestamps();

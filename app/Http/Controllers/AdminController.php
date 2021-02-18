@@ -21,40 +21,39 @@ class AdminController extends Controller
     public function test()
     {
         // INPUT SEMESTER
-        // $nipkepsek = Detail::where('role_status', 'kepsek')->firstOrFail();
-        // $semester = new Semester;
-        // $saveSemester = $semester->create([
-        //     'kode_semester' => 'SEMESTER-'.strtoupper(Str::random('5')),
-        //     'status_semester' => 'Aktif',
-        //     'tahun_ajaran' => '2020/2021',
-        //     'nip_kepsek' => $nipkepsek->nip_nisn,
-        //     'created_at' => now(),
-        //     'updated_at' => now()
-        // ]);
-        // $saveSemester->detail()->associate($nipkepsek->id);
-        // $saveSemester->save();
-        // dd($saveSemester);
+        $nipkepsek = Detail::where('role_status', 'kepsek')->firstOrFail();
+        $semester = new Semester;
+        $saveSemester = $semester->create([
+            'kode_semester' => 'SEMESTER-'.strtoupper(Str::random('5')),
+            'status_semester' => 'Aktif',
+            'tahun_ajaran' => '2020/2021',
+            'nip_kepsek' => $nipkepsek->nip_nisn,
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        $saveSemester->detail()->associate($nipkepsek->id);
+        $saveSemester->save();
 
         // INPUT PENGAJAR
-        // $kode_semester = Semester::latest()->first();
-        // $kode_kelas = Kelas::latest()->first();
-        // $kode_matapelajaran = Matapelajaran::latest()->first();
-        // $nip_guru = Detail::where('role_status', 'guru')->first();
-        // $pengajar = new Pengajar;
-        // $savePengajar = $pengajar->create([
-        //     'kode_pengajar' => 'PENGAJAR-'.strtoupper(Str::random(5)),
-        //     'kode_semester' => $kode_semester->kode_semester,
-        //     'kode_kelas' => $kode_kelas->kode_kelas,
-        //     'kode_matapelajaran' => $kode_matapelajaran->kode_matapelajaran,
-        //     'nip_guru' => $nip_guru->nip_nisn,
-        //     'created_at' => now(),
-        //     'updated_at' => now()
-        // ]);
-        // $savePengajar->detail()->associate($nip_guru->id);
-        // $savePengajar->kelas()->associate($kode_kelas->id);
-        // $savePengajar->semester()->associate($kode_semester->id);
-        // $savePengajar->matapelajaran()->associate($kode_matapelajaran->id);
-        // $savePengajar->save();
+        $kode_semester = Semester::latest()->first();
+        $kode_kelas = Kelas::latest()->first();
+        $kode_matapelajaran = Matapelajaran::latest()->first();
+        $nip_guru = Detail::where('role_status', 'guru')->first();
+        $pengajar = new Pengajar;
+        $savePengajar = $pengajar->create([
+            'kode_pengajar' => 'PENGAJAR-'.strtoupper(Str::random(5)),
+            'kode_semester' => $kode_semester->kode_semester,
+            'kode_kelas' => $kode_kelas->kode_kelas,
+            'kode_matapelajaran' => $kode_matapelajaran->kode_matapelajaran,
+            'nip_guru' => $nip_guru->nip_nisn,
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        $savePengajar->detail()->associate($nip_guru->id);
+        $savePengajar->kelas()->associate($kode_kelas->id);
+        $savePengajar->semester()->associate($kode_semester->id);
+        $savePengajar->matapelajaran()->associate($kode_matapelajaran->id);
+        $savePengajar->save();
 
         // INPUT ABSENSI
         // $absensi = new Absensi;
@@ -79,14 +78,14 @@ class AdminController extends Controller
         // dd($saveAbsensi);
 
         // INPUT NILAI
-        $pengajar = Pengajar::latest()->first();
+        $pengajarNilai = Pengajar::latest()->first();
         $nilai = new Nilai;
         $saveNilai = $nilai->create([
-            'kode_pengajar' => $pengajar->kode_pengajar,
-            'kode_kelas' => $pengajar->kelas->kode_kelas,
-            'kode_matapelajaran' => $pengajar->matapelajaran->kode_matapelajaran,
-            'kode_semester' => $pengajar->semester->kode_semester,
-            'nisn_siswa' => $pengajar->detail->nip_nisn,
+            'kode_pengajar' => $pengajarNilai->kode_pengajar,
+            'kode_kelas' => $pengajarNilai->kelas->kode_kelas,
+            'kode_matapelajaran' => $pengajarNilai->matapelajaran->kode_matapelajaran,
+            'kode_semester' => $pengajarNilai->semester->kode_semester,
+            'nisn_siswa' => $pengajarNilai->detail->nip_nisn,
             'nilai_siswa' => intval('100'),
             'waktu_nilai' => now(),
             'tanggal_nilai' => now(),
@@ -94,7 +93,7 @@ class AdminController extends Controller
             'created_at' => now(),
             'updated_at' => now()
         ]);
-        $saveNilai->pengajar()->associate($pengajar->id);
+        $saveNilai->pengajar()->associate($pengajarNilai->id);
         $saveNilai->save();
         dd($saveNilai);
     }
