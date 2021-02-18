@@ -57,13 +57,13 @@ class AdminController extends Controller
 
         // INPUT ABSENSI
         // $absensi = new Absensi;
-        // $pengajar = Pengajar::latest()->first();
+        // $pengajarAbsensi = Pengajar::latest()->first();
         // $nisn_siswa = Detail::where('role_status', 'siswa')->first();
         // $saveAbsensi = $absensi->create([
-        //     'kode_pengajar' => $pengajar->kode_pengajar,
-        //     'kode_kelas' => $pengajar->kelas->kode_kelas,
-        //     'kode_semester' => $pengajar->semester->kode_semester,
-        //     'kode_matapelajaran' => $pengajar->matapelajaran->kode_matapelajaran,
+        //     'kode_pengajar' => $pengajarAbsensi->kode_pengajar,
+        //     'kode_kelas' => $pengajarAbsensi->kelas->kode_kelas,
+        //     'kode_semester' => $pengajarAbsensi->semester->kode_semester,
+        //     'kode_matapelajaran' => $pengajarAbsensi->matapelajaran->kode_matapelajaran,
         //     'nisn_siswa' => $nisn_siswa->nip_nisn,
         //     'nisn_siswa' => $nisn_siswa->nip_nisn,
         //     'waktu_absen' => now(),
@@ -72,7 +72,7 @@ class AdminController extends Controller
         //     'created_at' => now(),
         //     'updated_at' => now()
         // ]);
-        // $saveAbsensi->pengajar()->associate($pengajar->id);
+        // $saveAbsensi->pengajar()->associate($pengajarAbsensi->id);
         // $saveAbsensi->detail()->associate($nisn_siswa->id);
         // $saveAbsensi->save();
         // dd($saveAbsensi);
