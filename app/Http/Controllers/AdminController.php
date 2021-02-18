@@ -34,8 +34,9 @@ class AdminController extends Controller
         // $saveSemester->save();
         // dd($saveSemester);
 
-        $kode_semester = Semester::all();
-        dd($kode_semester);
+        $kode_semester = Semester::latest()->first();
+        $kode_kelas = Kelas::latest()->first();
+        dd($kode_kelas);
     }
 
     public function daftarSemester()
