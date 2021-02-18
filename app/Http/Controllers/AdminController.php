@@ -40,7 +40,6 @@ class AdminController extends Controller
         $kode_kelas = Kelas::latest()->first();
         $kode_matapelajaran = Matapelajaran::latest()->first();
         $nip_guru = Detail::where('role_status', 'guru')->first();
-        // dd($nip_guru);
         $pengajar = new Pengajar;
         $savePengajar = $pengajar->create([
             'kode_pengajar' => 'PENGAJAR-'.strtoupper(Str::random(5)),
@@ -57,11 +56,12 @@ class AdminController extends Controller
         $savePengajar->matapelajaran()->associate($kode_matapelajaran->id);
         $savePengajar->save();
 
+        // INPUT ABSENSI
         $absensi = new Absensi;
         $pengajar = Pengajar::latest()->first();
         $nisn_siswa = Detail::where('role_status', 'siswa')->first();
         $saveAbsensi = $absensi->create([
-            'kode_pengajar' => $pengajar->id,
+            'kode_pengajar' => $pengajar->kode_pengajar,
             'kode_kelas' => $pengajar->kelas->kode_kelas,
             'kode_semester' => $pengajar->semester->kode_semester,
             'kode_matapelajaran' => $pengajar->matapelajaran->kode_matapelajaran,
