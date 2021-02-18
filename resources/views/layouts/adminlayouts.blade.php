@@ -54,7 +54,7 @@
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
-        <aside class="main-sidebar sidebar-dark-primary elevation-4 position-fixed">
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="{{ asset('vendor/adminlte') }}/index3.html" class="brand-link">
                 <img src="{{ asset('vendor/adminlte') }}/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
