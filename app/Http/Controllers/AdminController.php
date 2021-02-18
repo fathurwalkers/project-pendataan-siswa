@@ -35,28 +35,48 @@ class AdminController extends Controller
         // $saveSemester->save();
         // dd($saveSemester);
 
-        // INPUT PENGAJAR
-        // $kode_semester = Semester::latest()->first();
-        // $kode_kelas = Kelas::latest()->first();
-        // $kode_matapelajaran = Matapelajaran::latest()->first();
-        // $nip_guru = Detail::where('role_status', 'guru')->first();
-        // // dd($nip_guru);
-        // $pengajar = new Pengajar;
-        // $savePengajar = $pengajar->create([
-        //     'kode_pengajar' => 'PENGAJAR-'.strtoupper(Str::random(5)),
-        //     'kode_semester' => $kode_semester->kode_semester,
-        //     'kode_kelas' => $kode_kelas->kode_kelas,
-        //     'kode_matapelajaran' => $kode_matapelajaran->kode_matapelajaran,
-        //     'nip_guru' => $nip_guru->nip_nisn,
-        //     'created_at' => now(),
-        //     'updated_at' => now()
-        // ]);
-        // $savePengajar->detail()->associate($nip_guru->id);
-        // $savePengajar->kelas()->associate($kode_kelas->id);
-        // $savePengajar->semester()->associate($kode_semester->id);
-        // $savePengajar->matapelajaran()->associate($kode_matapelajaran->id);
-        // $savePengajar->save();
-        // dd($savePengajar);
+        INPUT PENGAJAR
+        $kode_semester = Semester::latest()->first();
+        $kode_kelas = Kelas::latest()->first();
+        $kode_matapelajaran = Matapelajaran::latest()->first();
+        $nip_guru = Detail::where('role_status', 'guru')->first();
+        // dd($nip_guru);
+        $pengajar = new Pengajar;
+        $savePengajar = $pengajar->create([
+            'kode_pengajar' => 'PENGAJAR-'.strtoupper(Str::random(5)),
+            'kode_semester' => $kode_semester->kode_semester,
+            'kode_kelas' => $kode_kelas->kode_kelas,
+            'kode_matapelajaran' => $kode_matapelajaran->kode_matapelajaran,
+            'nip_guru' => $nip_guru->nip_nisn,
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        $savePengajar->detail()->associate($nip_guru->id);
+        $savePengajar->kelas()->associate($kode_kelas->id);
+        $savePengajar->semester()->associate($kode_semester->id);
+        $savePengajar->matapelajaran()->associate($kode_matapelajaran->id);
+        $savePengajar->save();
+
+        $absensi = new Absensi;
+        $pengajar = Pengajar::latest()->first();
+        $nisn_siswa = Detail::where('role_status', 'siswa')->first();
+        $saveAbsensi = $absensi->create([
+            'kode_pengajar' => $pengajar->id,
+            'kode_kelas' => $pengajar->kelas->kode_kelas,
+            'kode_semester' => $pengajar->semester->kode_semester,
+            'kode_matapelajaran' => $pengajar->matapelajaran->kode_matapelajaran,
+            'nisn_siswa' => $nisn_siswa->nip_nisn,
+            'nisn_siswa' => $nisn_siswa->nip_nisn,
+            'waktu_absen' => now(),
+            'tanggal_absen' => now(),
+            'status_absen' => 'Hadir',
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        $saveAbsensi->pengajar()->associate($pengajar->id);
+        $saveAbsensi->detail()->associate($nisn_siswa->id);
+        $saveAbsensi->save();
+        dd($saveAbsensi);
     }
 
     public function daftarSemester()

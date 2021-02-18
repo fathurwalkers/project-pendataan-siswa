@@ -21,7 +21,7 @@ class CreateAbsensisTable extends Migration
             $table->string('kode_semester');
             $table->string('kode_matapelajaran');
             $table->string('nisn_siswa');
-            $table->string('absen_siswa');
+            // $table->string('status_absen');
             $table->time('waktu_absen');
             $table->date('tanggal_absen');
             $table->string('status_absen')->nullable();
