@@ -45,10 +45,10 @@ class AdminController extends Controller
             'created_at' => now(),
             'updated_at' => now()
         ]);
-        $savePengajar->detail()->associate($nip_guru->id);
-        $savePengajar->kelas()->associate($kode_kelas->id);
-        $savePengajar->semester()->associate($kode_semester->id);
-        $savePengajar->matapelajaran()->associate($kode_matapelajaran->id);
+        $savePengajar->detail()->attach($nip_guru->id);
+        $savePengajar->kelas()->attach($kode_kelas->id);
+        $savePengajar->semester()->attach($kode_semester->id);
+        $savePengajar->matapelajaran()->attach($kode_matapelajaran->id);
         $savePengajar->save();
     }
 

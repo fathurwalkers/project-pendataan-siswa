@@ -20,10 +20,12 @@ class CreatePengajarsTable extends Migration
             $table->unsignedBigInteger('semester_id')->nullable();
             $table->unsignedBigInteger('kelas_id')->nullable();
             $table->unsignedBigInteger('matapelajaran_id')->nullable();
+            $table->unsignedBigInteger('detail_id')->nullable();
 
             $table->foreign('semester_id')->references('id')->on('semester');
             $table->foreign('kelas_id')->references('id')->on('kelas');
             $table->foreign('matapelajaran_id')->references('id')->on('matapelajaran');
+            $table->foreign('detail_id')->references('id')->on('detail');
 
             $table->timestamps();
         });
