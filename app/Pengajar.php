@@ -23,4 +23,9 @@ class Pengajar extends Model
     {
         return $this->belongsTo('App\Semester');
     }
+
+    public function detail()
+    {
+        return $this->belongsToMany('App\Detail');
+    }
 }

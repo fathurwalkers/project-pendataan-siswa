@@ -24,4 +24,9 @@ class Detail extends Model
     {
         return $this->hasMany('App\Semester');
     }
+
+    public function pengajar()
+    {
+        return $this->hasMany('App\Pengajar');
+    }
 }
