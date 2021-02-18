@@ -12,14 +12,14 @@ class CreatePengajarsTable extends Migration
             $table->id();
             
             $table->string('kode_pengajar');
-            $table->string('kode_semester');
-            $table->string('kode_kelas');
-            $table->string('kode_matapelajaran');
-            $table->string('nip_guru');
+            $table->string('kode_semester')->nullable();
+            $table->string('kode_kelas')->nullable();
+            $table->string('kode_matapelajaran')->nullable();
+            $table->string('nip_guru')->nullable();
 
-            $table->unsignedBigInteger('semester_id');
-            $table->unsignedBigInteger('kelas_id');
-            $table->unsignedBigInteger('matapelajaran_id');
+            $table->unsignedBigInteger('semester_id')->nullable();
+            $table->unsignedBigInteger('kelas_id')->nullable();
+            $table->unsignedBigInteger('matapelajaran_id')->nullable();
 
             $table->foreign('semester_id')->references('id')->on('semester');
             $table->foreign('kelas_id')->references('id')->on('kelas');

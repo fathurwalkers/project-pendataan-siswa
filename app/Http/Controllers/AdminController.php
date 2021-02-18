@@ -38,13 +38,18 @@ class AdminController extends Controller
         $kode_kelas = Kelas::latest()->first();
         $kode_matapelajaran = Matapelajaran::latest()->first();
         $nip_guru = Detail::where('role_status', 'guru')->first();
-        dd($nip_guru);
+        // dd($nip_guru);
         $pengajar = new Pengajar;
         $savePengajar = $pengajar->create([
             'kode_pengajar' => 'PENGAJAR-'.strtoupper(Str::random(5)),
             'created_at' => now(),
             'updated_at' => now()
         ]);
+        $savePengajar->detail()->associate($nip_guru->id);
+        $savePengajar->kelas()->associate($kode_kelas->id);
+        $savePengajar->semester()->associate($kode_semester->id);
+        $savePengajar->matapelajaran()->associate($kode_matapelajaran->id);
+        $savePengajar->save();
     }
 
     public function daftarSemester()
