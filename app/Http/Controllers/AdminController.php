@@ -20,6 +20,7 @@ class AdminController extends Controller
 {
     public function test()
     {
+        // INPUT SEMESTER
         // $nipkepsek = Detail::where('role_status', 'kepsek')->firstOrFail();
         // $semester = new Semester;
         // $saveSemester = $semester->create([
@@ -34,27 +35,28 @@ class AdminController extends Controller
         // $saveSemester->save();
         // dd($saveSemester);
 
-        $kode_semester = Semester::latest()->first();
-        $kode_kelas = Kelas::latest()->first();
-        $kode_matapelajaran = Matapelajaran::latest()->first();
-        $nip_guru = Detail::where('role_status', 'guru')->first();
-        // dd($nip_guru);
-        $pengajar = new Pengajar;
-        $savePengajar = $pengajar->create([
-            'kode_pengajar' => 'PENGAJAR-'.strtoupper(Str::random(5)),
-            'kode_semester' => $kode_semester->kode_semester,
-            'kode_kelas' => $kode_kelas->kode_kelas,
-            'kode_matapelajaran' => $kode_matapelajaran->kode_matapelajaran,
-            'nip_guru' => $nip_guru->nip_nisn,
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-        $savePengajar->detail()->associate($nip_guru->id);
-        $savePengajar->kelas()->associate($kode_kelas->id);
-        $savePengajar->semester()->associate($kode_semester->id);
-        $savePengajar->matapelajaran()->associate($kode_matapelajaran->id);
-        $savePengajar->save();
-        dd($savePengajar);
+        // INPUT PENGAJAR
+        // $kode_semester = Semester::latest()->first();
+        // $kode_kelas = Kelas::latest()->first();
+        // $kode_matapelajaran = Matapelajaran::latest()->first();
+        // $nip_guru = Detail::where('role_status', 'guru')->first();
+        // // dd($nip_guru);
+        // $pengajar = new Pengajar;
+        // $savePengajar = $pengajar->create([
+        //     'kode_pengajar' => 'PENGAJAR-'.strtoupper(Str::random(5)),
+        //     'kode_semester' => $kode_semester->kode_semester,
+        //     'kode_kelas' => $kode_kelas->kode_kelas,
+        //     'kode_matapelajaran' => $kode_matapelajaran->kode_matapelajaran,
+        //     'nip_guru' => $nip_guru->nip_nisn,
+        //     'created_at' => now(),
+        //     'updated_at' => now()
+        // ]);
+        // $savePengajar->detail()->associate($nip_guru->id);
+        // $savePengajar->kelas()->associate($kode_kelas->id);
+        // $savePengajar->semester()->associate($kode_semester->id);
+        // $savePengajar->matapelajaran()->associate($kode_matapelajaran->id);
+        // $savePengajar->save();
+        // dd($savePengajar);
     }
 
     public function daftarSemester()
