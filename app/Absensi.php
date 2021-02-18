@@ -13,4 +13,9 @@ class Absensi extends Model
     {
         return $this->belongsTo('App\Pengajar');
     }
+
+    public function detail()
+    {
+        return $this->belongsTo('App\Pengajar');
+    }
 }

@@ -35,7 +35,7 @@ class AdminController extends Controller
         // $saveSemester->save();
         // dd($saveSemester);
 
-        INPUT PENGAJAR
+        // INPUT PENGAJAR
         $kode_semester = Semester::latest()->first();
         $kode_kelas = Kelas::latest()->first();
         $kode_matapelajaran = Matapelajaran::latest()->first();

@@ -29,4 +29,9 @@ class Detail extends Model
     {
         return $this->hasOne('App\Pengajar');
     }
+
+    public function absensi()
+    {
+        return $this->hasMany('App\Absensi');
+    }
 }
