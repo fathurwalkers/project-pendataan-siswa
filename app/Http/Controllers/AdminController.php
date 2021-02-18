@@ -36,7 +36,15 @@ class AdminController extends Controller
 
         $kode_semester = Semester::latest()->first();
         $kode_kelas = Kelas::latest()->first();
-        dd($kode_kelas);
+        $kode_matapelajaran = Matapelajaran::latest()->first();
+        $nip_guru = Detail::where('role_status', 'guru')->first();
+        dd($nip_guru);
+        $pengajar = new Pengajar;
+        $savePengajar = $pengajar->create([
+            'kode_pengajar' => 'PENGAJAR-'.strtoupper(Str::random(5)),
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
     }
 
     public function daftarSemester()
