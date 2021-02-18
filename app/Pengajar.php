@@ -33,4 +33,9 @@ class Pengajar extends Model
     {
         return $this->hasMany('App\Absensi');
     }
+
+    public function nilai()
+    {
+        return $this->hasMany('App\Nilai');
+    }
 }

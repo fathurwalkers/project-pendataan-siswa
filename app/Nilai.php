@@ -8,4 +8,9 @@ class Nilai extends Model
 {
     protected $table = 'nilai';
     protected $guarded = [];
+
+    public function pengajar()
+    {
+        return $this->belongsTo('App\Pengajar');
+    }
 }

@@ -26,15 +26,8 @@ class CreateNilaisTable extends Migration
             $table->date('tanggal_nilai');
             $table->string('status_nilai');
 
-            // $table->unsignedBigInteger('semester_id');
-            // $table->unsignedBigInteger('kelas_id');
-            // $table->unsignedBigInteger('matapelajaran_id');
-            // $table->unsignedBigInteger('pengajar_id');
-            
-            // $table->foreign('semester_id')->references('id')->on('semester');
-            // $table->foreign('kelas_id')->references('id')->on('kelas');
-            // $table->foreign('matapelajaran_id')->references('id')->on('matapelajaran');
-            // $table->foreign('pengajar_id')->references('id')->on('pengajar');
+            $table->unsignedBigInteger('pengajar_id');
+            $table->foreign('pengajar_id')->references('id')->on('pengajar');
 
             $table->timestamps();
         });
