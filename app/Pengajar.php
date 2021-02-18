@@ -28,4 +28,9 @@ class Pengajar extends Model
     {
         return $this->belongsTo('App\Detail');
     }
+
+    public function absensi()
+    {
+        return $this->hasMany('App\Absensi');
+    }
 }

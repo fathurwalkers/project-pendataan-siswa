@@ -29,12 +29,14 @@ class CreateAbsensisTable extends Migration
             // $table->unsignedBigInteger('semester_id');
             // $table->unsignedBigInteger('kelas_id');
             // $table->unsignedBigInteger('matapelajaran_id');
-            // $table->unsignedBigInteger('pengajar_id');
+            $table->unsignedBigInteger('pengajar_id')->nullable();
+            $table->unsignedBigInteger('detail_id')->nullable();
 
             // $table->foreign('semester_id')->references('id')->on('semester');
             // $table->foreign('kelas_id')->references('id')->on('kelas');
             // $table->foreign('matapelajaran_id')->references('id')->on('matapelajaran');
-            // $table->foreign('pengajar_id')->references('id')->on('pengajar');
+            $table->foreign('pengajar_id')->references('id')->on('pengajar');
+            $table->foreign('detail_id')->references('id')->on('detail');
 
             $table->timestamps();
         });

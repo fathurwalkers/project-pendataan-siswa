@@ -8,4 +8,9 @@ class Absensi extends Model
 {
     protected $table = 'absensi';
     protected $guarded = [];
+
+    public function pengajar()
+    {
+        return $this->belongsTo('App\Pengajar');
+    }
 }
