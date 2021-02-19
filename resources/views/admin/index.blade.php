@@ -7,6 +7,8 @@
 @section('main-content')
 <div class="col-md-12">
     <div class="card">
+
+      @if($users->level == 'admin')
       <div class="card-body">
         <div class="row">
           <div class="col-md-12 col-lg-3">
@@ -80,6 +82,8 @@
 
         </div>
       </div>
+      @endif
+
     </div>
 </div>
 
