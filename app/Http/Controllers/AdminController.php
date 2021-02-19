@@ -282,8 +282,23 @@ class AdminController extends Controller
 
     public function editGuru($idguru)
     {
+        $users = session('data_login');
         $guru = Detail::where('id', $idguru)->firstOrFail();
-        return view('admin.edit-guru', compact('guru'));
+        return view('admin.edit-guru', compact('guru', 'users'));
+    }
+
+    public function updateGuru(Request $request, $idguru)
+    {
+        $updateGuru = Detail::where('id', $idguru)->update([
+            'nama_lengkap' => $request->nama_lengkap,
+            'nip_nisn' => $request->nip_nisn,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'alamat' => $request->alamat,
+            'telepon' => $request->telepon,
+            'foto' => $pathGambar,
+            'role_status' => 'guru',
+            'updated_at' => now()
+        ]);
     }
 
     public function tambahMatapelajaran()

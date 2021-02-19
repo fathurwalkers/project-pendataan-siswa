@@ -8,28 +8,28 @@
 <!-- Default box -->
 <div class="card col-sm-12">
   <div class="card-body">
-    <form action="{{ route('update-guru') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('update-guru', $guru->id) }}" method="POST" enctype="multipart/form-data">
 
       @csrf
 
       <div class="form-group">
         <label for="nama_lengkap">Nama Lengkap</label>
-        <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" autofocus>
+        <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" value="{{ $guru->nama_lengkap }}" autofocus>
       </div>
 
       <div class="form-group">
         <label for="nip_nisn">NIP</label>
-        <input type="text" class="form-control" id="nip_nisn" name="nip_nisn">
+        <input type="text" class="form-control" id="nip_nisn" name="nip_nisn" value="{{ $guru->nip_nisn }}">
       </div>
 
       <div class="form-group">
         <label for="alamat">Alamat</label>
-        <input type="text" class="form-control" id="alamat" name="alamat">
+        <input type="text" class="form-control" id="alamat" name="alamat" value="{{ $guru->alamat }}">
       </div>
 
       <div class="form-group">
         <label for="telepon">No. Telepon</label>
-        <input type="text" class="form-control" id="telepon" name="telepon">
+        <input type="text" class="form-control" id="telepon" name="telepon" value="{{ $guru->telepon }}">
       </div>
 
       <div class="form-group my-3">
@@ -37,8 +37,8 @@
           <div class="input-group-prepend">
             <label class="input-group-text" for="inputGroupSelect01">Jenis Kelamin</label>
           </div>
-          <select class="custom-select" id="inputGroupSelect01" name="jenis_kelamin">
-            <option selected>Pilih...</option>
+          <select class="custom-select" id="inputGroupSelect01" name="jenis_kelamin" value="{{ $guru->jenis_kelamin }}">
+            <option selected>{{ $guru->jenis_kelamin }}</option>
             <option value="Laki-laki">Laki-laki</option>
             <option value="Perempuan">Perempuan</option>
           </select>
@@ -51,8 +51,8 @@
             <span class="input-group-text">Upload Foto</span>
           </div>
           <div class="custom-file">
-            <input type="file" class="custom-file-input" id="inputGroupFile01" name="foto">
-            <label class="custom-file-label" for="inputGroupFile01">Pilih Foto...</label>
+            <input type="file" class="custom-file-input" id="inputGroupFile01" name="foto" value="{{ $guru->foto }}">
+            <label class="custom-file-label" for="inputGroupFile01">{{ $guru->foto }}</label>
           </div>
         </div>
       </div>
@@ -62,8 +62,8 @@
           <div class="input-group-prepend">
             <label class="input-group-text" for="inputGroupSelect01">Role Status</label>
           </div>
-          <select class="custom-select" id="inputGroupSelect01" name="role_status">
-            <option selected>Pilih...</option>
+          <select class="custom-select" id="inputGroupSelect01" name="role_status" value="{{ $guru->role_status }}">
+            <option selected value="{{ $guru->jenis_kelamin }}">Guru / Pengajar</option>
             <option value="guru">Guru / Pengajar</option>
             <option value="kepsek">Kepala Sekolah</option>
           </select>

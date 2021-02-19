@@ -39,7 +39,7 @@
                 <td>{{ $guru->jenis_kelamin }}</td>
                 <td>{{ $guru->telepon }}</td>
                 <td class="text-center d-flex">
-                  <a href="#" class="btn btn-info mx-1">Edit</a>
+                  <a href="{{ route('edit-guru', $guru->id) }}" class="btn btn-info mx-1">Edit</a>
                   <a href="{{ route('biodata-guru', $guru->id) }}" class="btn btn-success mx-1">Selengkapnya</a>
                   <form action="{{ route('hapus-guru', $guru->id) }}" method="POST">
                     @csrf
