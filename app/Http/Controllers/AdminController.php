@@ -358,6 +358,13 @@ class AdminController extends Controller
         return view('admin.edit-matapelajaran', compact('user', 'matapelajaran'));
     }
 
+    public function updateMatapelajaran(Request $request, $idmatapelajaran)
+    {
+        // $matapelajaran->where('id', $idmatapelajaran)->update([
+        //     ''
+        // ]);
+    }
+
     public function tambahKelas()
     {
         $users = session('data_login');
