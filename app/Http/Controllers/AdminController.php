@@ -280,6 +280,12 @@ class AdminController extends Controller
         return view('admin.tambah-guru', compact('users'));
     }
 
+    public function editGuru($idguru)
+    {
+        $guru = Detail::where('id', $idguru)->firstOrFail();
+        return view('admin.edit-guru', compact('guru'));
+    }
+
     public function tambahMatapelajaran()
     {
         $users = session('data_login');
