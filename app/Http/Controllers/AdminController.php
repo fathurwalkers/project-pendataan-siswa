@@ -579,8 +579,6 @@ class AdminController extends Controller
         for ($i = 0; $i<10; $i++) {
             $detail_guru = new Detail;
             $array_jenkel = ['Laki-laki', 'Perempuan'];
-            $array_kelas = ['1', '2', '3'];
-            $siswa_kelas = Randoms::random($array_kelas);
             $jenis_kelamin = Randoms::random($array_jenkel);
             $role_status = 'guru';
             $siswa_status = 'Aktif';
