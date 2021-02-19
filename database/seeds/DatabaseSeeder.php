@@ -131,7 +131,7 @@ class DatabaseSeeder extends Seeder
             'telepon' => '0892929291',
             'foto' => $gambarfaker,
             'role_status' => $role_status,
-            'siswa_status' => null,
+            'siswa_status' => 'Aktif',
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -168,7 +168,7 @@ class DatabaseSeeder extends Seeder
             'telepon' => '0892929291',
             'foto' => $gambarfaker,
             'role_status' => $role_status,
-            'siswa_status' => null,
+            'siswa_status' => 'Aktif',
             'created_at' => now(),
             'updated_at' => now()
         ]);
