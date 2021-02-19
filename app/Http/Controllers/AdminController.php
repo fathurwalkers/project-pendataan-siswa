@@ -305,8 +305,6 @@ class AdminController extends Controller
             'kelas_id' => intval($request->siswa_kelas),
             'updated_at' => now()
         ]);
-        // $updateGuru->kelas()->detach();
-        // $updateGuru->kelas()->associate(intval($request->siswa_kelas));
         return redirect()->route('daftar-siswa');
     }
 
