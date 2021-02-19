@@ -24,12 +24,12 @@
 
       <div class="form-group">
         <label for="alamat">Alamat</label>
-        <input type="text" class="form-control" id="alamat" name="alamat">
+        <input type="text" class="form-control" id="alamat" name="alamat" value="{{ $siswa->alamat }}">
       </div>
 
       <div class="form-group">
         <label for="telepon">No. Telepon</label>
-        <input type="text" class="form-control" id="telepon" name="telepon">
+        <input type="text" class="form-control" id="telepon" name="telepon" value="{{ $siswa->telepon }}">
       </div>
 
       <div class="form-group my-3">
@@ -38,7 +38,7 @@
             <label class="input-group-text" for="inputGroupSelect01">Jenis Kelamin</label>
           </div>
           <select class="custom-select" id="inputGroupSelect01" name="jenis_kelamin">
-            <option selected>Pilih...</option>
+            <option selected value="{{ $siswa->jenis_kelamin }}">{{ $siswa->jenis_kelamin }}</option>
             <option value="Laki-laki">Laki-laki</option>
             <option value="Perempuan">Perempuan</option>
           </select>
@@ -52,7 +52,7 @@
           </div>
           <div class="custom-file">
             <input type="file" class="custom-file-input" id="inputGroupFile01" name="foto">
-            <label class="custom-file-label" for="inputGroupFile01">Pilih Foto...</label>
+            <label class="custom-file-label" for="inputGroupFile01">{{ $siswa->foto }}</label>
           </div>
         </div>
       </div>
@@ -63,7 +63,7 @@
             <label class="input-group-text" for="inputGroupSelect01">Kelas</label>
           </div>
           <select class="custom-select" id="inputGroupSelect01" name="siswa_kelas">
-            <option selected>Pilih Kelas</option>
+            <option selected value="{{ $siswa->siswa_kelas }}">Pilih Kelas</option>
             <option value="1">I</option>
             <option value="2">II</option>
             <option value="3">III</option>
