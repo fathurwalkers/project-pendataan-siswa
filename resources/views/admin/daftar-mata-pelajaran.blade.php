@@ -35,7 +35,7 @@
                 <td class="text-center">{{ $loop->iteration }}</td>
                 <td>{{ $mapel->nama_matapelajaran }}</td>
                 <td class="text-center">{{ $mapel->kode_matapelajaran }}</td>
-                <td class="text-center">
+                <td class="text-center btn-group">
                     <a href="{{ route('edit-matapelajaran', $mapel->id) }}" class="btn btn-info">Edit</a>    
                     {{-- <a href="#" class="btn btn-success">Detail</a>     --}}
                     <form action="{{ route('hapus-matapelajaran', $mapel->id) }}" method="POST">
