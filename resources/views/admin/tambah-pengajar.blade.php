@@ -8,7 +8,7 @@
 <!-- Default box -->
 <div class="card">
   <div class="card-body">
-    <form action="{{ route('post-tambah-siswa') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('post-tambah-pengajar') }}" method="POST" enctype="multipart/form-data">
 
       @csrf
 
@@ -59,7 +59,7 @@
           <div class="input-group-prepend">
             <label class="input-group-text" for="inputGroupSelect01">NIP Guru</label>
           </div>
-          <select class="custom-select" id="inputGroupSelect01" name="matapelajaran_id">
+          <select class="custom-select" id="inputGroupSelect01" name="guru_id">
             <option selected>Pilih...</option>
             @foreach ($guru as $gr)
             <option value="{{ $gr->id }}">{{ $gr->nip_nisn }} / {{ $gr->nama_lengkap }}</option>
@@ -72,7 +72,7 @@
 
     </form>
 
-    <a href="{{ route('daftar-siswa') }}" class="float-right btn btn-danger my-1 mx-2">Kembali</a>
+    <a href="{{ route('daftar-pengajar') }}" class="float-right btn btn-danger my-1 mx-2">Kembali</a>
 
   </div>
   <!-- /.card-body -->

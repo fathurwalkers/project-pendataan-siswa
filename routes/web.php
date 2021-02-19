@@ -55,7 +55,9 @@ Route::prefix('/dashboard')->group(function () {
     Route::post('/tambah-semester', 'AdminController@post_tambahSemester')->middleware('ceklogin')->name('post-tambah-semester');
 
     // PENGAJAR
+    Route::get('/daftar-pengajar')->middleware('ceklogin')->name('daftar-pengajar');
     Route::get('/tambah-pengajar', 'AdminController@tambahPengajar')->middleware('ceklogin')->name('tambah-pengajar');
+    Route::post('/post-tambah-pengajar', 'AdminController@post_tambahPengajar')->middleware('ceklogin')->name('post-tambah-pengajar');
 
     // PROFILE USER
     Route::get('/biodata-user/{iduser}', 'AdminController@profileuser')->middleware('ceklogin')->name('biodata-user');

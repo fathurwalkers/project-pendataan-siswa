@@ -266,6 +266,11 @@ class AdminController extends Controller
         return view('admin.daftar-user-guru', compact('users', 'user_guru'));
     }
 
+    public function daftarPengajar()
+    {
+        //
+    }
+
     // ---------------------------------------------------------------------------------------
 
     public function tambahSiswa()
@@ -400,7 +405,23 @@ class AdminController extends Controller
     
     public function post_tambahPengajar(Request $request)
     {
-        //
+        $matapelajaran_id = $request->matapelajaran_id;
+        $kelas_id = $request->kelas_id;
+        $semester_id = $request->semester_id;
+        $guru_id = $request->guru_id;
+
+        $matapelajaran = Matapelajaran::where('id', $matapelajaran_id)->firstOrFail();
+        $kelas = Kelas::where('id', $kelas_id)->firstOrFail();
+        $semester = Semester::where('id', $semester_id)->firstOrFail();
+        $guru = Detail::where('id', $guru_id)->firstOrFail();
+        // $pengajar = new Pengajar;
+        // $savePengajar = $pengajar->create([
+        //     'kode_pengajar' => 'PENGAJAR-'.strtoupper(Str::random(5)),
+        //     'kode_semester' => ,
+        //     'kode_kelas' => ,
+        //     'kode_matapelajaran' => ,
+        //     'nip_guru' => ,
+        // ]);
     }
 
     public function post_tambahSiswa(Request $request)
