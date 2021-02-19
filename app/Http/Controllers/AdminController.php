@@ -279,8 +279,8 @@ class AdminController extends Controller
     {
         $users = session('data_login');
         $siswa = Detail::where('id', $idsiswa)->firstOrFail();
-        dd($siswa);
-        return view('admin.edit-siswa', compact('users', 'siswa'));
+        $kelas = Kelas::all();
+        return view('admin.edit-siswa', compact('users', 'siswa', 'kelas'));
     }
 
     public function updateSiswa(Request $request, $idsiswa)
@@ -304,6 +304,8 @@ class AdminController extends Controller
             'role_status' => 'siswa',
             'updated_at' => now()
         ]);
+        $updateGuru->kelas()->dissociate();
+        $updateGuru->kelas()->associate($request->siswa_kelas);
         return redirect()->route('daftar-siswa');
     }
 

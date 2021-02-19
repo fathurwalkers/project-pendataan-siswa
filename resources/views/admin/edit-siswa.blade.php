@@ -63,10 +63,10 @@
             <label class="input-group-text" for="inputGroupSelect01">Kelas</label>
           </div>
           <select class="custom-select" id="inputGroupSelect01" name="siswa_kelas">
-            <option selected value="{{ $siswa->siswa_kelas }}">Pilih Kelas</option>
-            <option value="1">I</option>
-            <option value="2">II</option>
-            <option value="3">III</option>
+            <option selected value="{{ $siswa->kelas_id }}">{{ $siswa->kelas->kelas }}</option>
+            @foreach ($kelas as $item)
+            <option value="{{ $item->id }}">{{ $item->kelas }}</option>
+            @endforeach
           </select>
         </div>
       </div>
@@ -77,16 +77,14 @@
             <label class="input-group-text" for="inputGroupSelect01">Status Siswa</label>
           </div>
           <select class="custom-select" id="inputGroupSelect01" name="siswa_status">
-            <option selected>Status Siswa</option>
+            <option selected value="{{ $siswa->siswa_status }}">{{ $siswa->siswa_status }}</option>
             <option value="aktif">Aktif</option>
             <option value="tidak_aktif">Tidak Aktif</option>
           </select>
         </div>
       </div>
 
-      <input type="hidden" value="siswa" name="role_status">
-
-      <button type="submit" class="btn btn-primary my-2">Tambah Siswa</button>
+      <button type="submit" class="btn btn-primary my-2">Update Siswa</button>
 
     </form>
 
