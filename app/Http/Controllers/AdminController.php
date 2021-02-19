@@ -403,11 +403,26 @@ class AdminController extends Controller
         ));
     }
 
+    public function detailPengajar($idpengajar)
+    {
+        // $users = session('data_login');
+    }
+
     public function hapusPengajar(Request $request, $idpengajar)
     {
         $pengajar = Pengajar::where('id', $request->idpengajar)->firstOrFail();
         $pengajar->forceDelete();
         return redirect()->route('daftar-pengajar');
+    }
+
+    public function editPengajar($idpengajar)
+    {
+        // $users = session('data_login');
+    }
+
+    public function updatePengajar(Request $request, $idpengajar)
+    {
+        //
     }
 
     // ---------------------------------------------------------------------------------------

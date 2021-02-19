@@ -43,8 +43,8 @@
                 {{-- <td>{{ $a->kode_pengajar }}</td> --}}
                 <td>{{ $a->semester->tahun_ajaran }}</td>
                 <td class="text-center btn-group">
-                    <a href="#" class="btn btn-info mx-1">Edit</a>
-                    <a href="#" class="btn btn-success mx-1">Selengkapnya</a>
+                    <a href="{{ route('edit-pengajar', $a->id) }}" class="btn btn-info mx-1">Edit</a>
+                    <a href="{{ route('detail-pengajar', $a->id) }}" class="btn btn-success mx-1">Selengkapnya</a>
                     <form action="{{ route('hapus-pengajar', $a->id) }}" method="POST">
                         @csrf
                         <input type="hidden" value="{{ $a->id }}" name="idpengajar">
