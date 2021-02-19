@@ -302,10 +302,11 @@ class AdminController extends Controller
             'telepon' => $request->telepon,
             'foto' => $pathGambar,
             'role_status' => 'siswa',
+            'kelas_id' => intval($request->siswa_kelas),
             'updated_at' => now()
         ]);
-        $updateGuru->kelas()->dissociate();
-        $updateGuru->kelas()->associate($request->siswa_kelas);
+        // $updateGuru->kelas()->detach();
+        // $updateGuru->kelas()->associate(intval($request->siswa_kelas));
         return redirect()->route('daftar-siswa');
     }
 
