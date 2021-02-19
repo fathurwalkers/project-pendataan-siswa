@@ -43,7 +43,7 @@
                 <td>{{ $siswa->kelas->kelas }}</td>
                 <td>{{ $siswa->siswa_status }}</td>
                 <td class="text-center d-flex">
-                    <a href="#" class="btn btn-info mx-1">Edit</a>
+                    <a href="{{ route('edit-siswa', $siswa->id) }}" class="btn btn-info mx-1">Edit</a>
                     <a href="{{ route('biodata-siswa', $siswa->id) }}" class="btn btn-success mx-1">Selengkapnya</a>
                     <form action="{{ route('hapus-siswa', $siswa->id) }}" method="POST">
                       @csrf

@@ -282,9 +282,28 @@ class AdminController extends Controller
         return view('admin.edit-siswa', compact('users', 'siswa'));
     }
 
-    public function updateSiswa()
+    public function updateSiswa(Request $request, $idsiswa)
     {
-        //
+        if ($request->hasFile('foto')) {
+            $extFile = $request->foto->getClientOriginalExtension();
+            $randomGambar = Str::random(6);
+            $namaFile = 'image-'.$randomGambar.".".$extFile;
+            $path = $request->foto->move('image', $namaFile);
+            $pathGambar = 'image/'. $namaFile;
+        } else {
+            $pathGambar = $request->foto_siswa;
+        }
+        $updateGuru = Detail::where('id', $idsiswa)->update([
+            'nama_lengkap' => $request->nama_lengkap,
+            'nip_nisn' => $request->nip_nisn,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'alamat' => $request->alamat,
+            'telepon' => $request->telepon,
+            'foto' => $pathGambar,
+            'role_status' => 'siswa',
+            'updated_at' => now()
+        ]);
+        return redirect()->route('daftar-siswa');
     }
 
     public function tambahGuru()
