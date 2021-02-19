@@ -380,7 +380,18 @@ class AdminController extends Controller
         return view('admin.tambah-kelas', compact('users'));
     }
 
+    public function tambahPengajar()
+    {
+        $users = session('data_login');
+        return view('admin.tambah-pengajar', compact('users'));
+    }
+
     // ---------------------------------------------------------------------------------------
+    
+    public function post_tambahPengajar(Request $request)
+    {
+        //
+    }
 
     public function post_tambahSiswa(Request $request)
     {
