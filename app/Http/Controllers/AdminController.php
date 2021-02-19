@@ -355,14 +355,16 @@ class AdminController extends Controller
     {
         $users = session('data_login');
         $matapelajaran = Matapelajaran::where('id', $idmatapelajaran)->firstOrFail();
-        return view('admin.edit-matapelajaran', compact('user', 'matapelajaran'));
+        return view('admin.edit-matapelajaran', compact('users', 'matapelajaran'));
     }
 
     public function updateMatapelajaran(Request $request, $idmatapelajaran)
     {
-        // $matapelajaran->where('id', $idmatapelajaran)->update([
-        //     ''
-        // ]);
+        $updateMatapelajaran = Matapelajaran::where('id', $idmatapelajaran)->update([
+            'nama_matapelajaran' => strtoupper($request->nama_matapelajaran),
+            'updated_at' => now()
+        ]);
+        return redirect()->route('daftar-matapelajaran');
     }
 
     public function tambahKelas()

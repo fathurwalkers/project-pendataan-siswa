@@ -40,8 +40,8 @@ Route::prefix('/dashboard')->group(function () {
     Route::get('/daftar-mata-pelajaran', 'AdminController@daftarMatapelajaran')->middleware('ceklogin')->name('daftar-matapelajaran');
     Route::get('/tambah-mata-pelajaran', 'AdminController@tambahMatapelajaran')->middleware('ceklogin')->name('tambah-matapelajaran');
     Route::post('/tambah-mata-pelajaran', 'AdminController@post_tambahMatapelajaran')->middleware('ceklogin')->name('post-tambah-matapelajaran');
-    Route::get('/edit-mata-pelajaran/{idmatapelajaran}')->middleware('ceklogin')->name('edit-matapelajaran');
-    Route::post('/update-matapelajaran/{idmatapelajaran}')->middleware('ceklogin')->name('update-matapelajaran');
+    Route::get('/edit-mata-pelajaran/{idmatapelajaran}', 'AdminController@editMatapelajaran')->middleware('ceklogin')->name('edit-matapelajaran');
+    Route::post('/update-matapelajaran/{idmatapelajaran}', 'AdminController@updateMatapelajaran')->middleware('ceklogin')->name('update-matapelajaran');
 
     // KELAS
     Route::get('/daftar-kelas', 'AdminController@daftarKelas')->middleware('ceklogin')->name('daftar-kelas');

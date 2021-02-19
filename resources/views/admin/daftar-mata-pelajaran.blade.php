@@ -36,7 +36,7 @@
                 <td>{{ $mapel->nama_matapelajaran }}</td>
                 <td class="text-center">{{ $mapel->kode_matapelajaran }}</td>
                 <td class="text-center">
-                    <a href="#" class="btn btn-info">Edit</a>    
+                    <a href="{{ route('edit-matapelajaran', $mapel->id) }}" class="btn btn-info">Edit</a>    
                     <a href="#" class="btn btn-success">Detail</a>    
                     <a href="#" class="btn btn-danger">Hapus</a>    
                 </td>
