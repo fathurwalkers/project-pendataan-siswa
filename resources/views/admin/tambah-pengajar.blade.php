@@ -12,26 +12,6 @@
 
       @csrf
 
-      {{-- <div class="form-group">
-        <label for="nama_lengkap">Nama Lengkap</label>
-        <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" autofocus>
-      </div>
-
-      <div class="form-group">
-        <label for="nip_nisn">NISN</label>
-        <input type="text" class="form-control" id="nip_nisn" name="nip_nisn">
-      </div>
-
-      <div class="form-group">
-        <label for="alamat">Alamat</label>
-        <input type="text" class="form-control" id="alamat" name="alamat">
-      </div>
-
-      <div class="form-group">
-        <label for="telepon">No. Telepon</label>
-        <input type="text" class="form-control" id="telepon" name="telepon">
-      </div> --}}
-
       <div class="form-group my-3">
         <div class="input-group mb-3 my-3">
           <div class="input-group-prepend">
@@ -41,6 +21,48 @@
             <option selected>Pilih...</option>
             @foreach ($matapelajaran as $mapel)
             <option value="{{ $mapel->id }}">{{ $mapel->nama_matapelajaran }}</option>
+            @endforeach
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group my-3">
+        <div class="input-group mb-3 my-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">Kelas</label>
+          </div>
+          <select class="custom-select" id="inputGroupSelect01" name="kelas_id">
+            <option selected>Pilih...</option>
+            @foreach ($kelas as $kls)
+            <option value="{{ $kls->id }}">{{ $kls->kelas }}</option>
+            @endforeach
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group my-3">
+        <div class="input-group mb-3 my-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">Semester / Tahun Ajaran</label>
+          </div>
+          <select class="custom-select" id="inputGroupSelect01" name="semester_id">
+            <option selected>Pilih...</option>
+            @foreach ($semester as $smtr)
+            <option value="{{ $smtr->id }}">{{ $smtr->tahun_ajaran }}</option>
+            @endforeach
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group my-3">
+        <div class="input-group mb-3 my-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">NIP Guru</label>
+          </div>
+          <select class="custom-select" id="inputGroupSelect01" name="matapelajaran_id">
+            <option selected>Pilih...</option>
+            @foreach ($guru as $gr)
+            <option value="{{ $gr->id }}">{{ $gr->nip_nisn }} / {{ $gr->nama_lengkap }}</option>
             @endforeach
           </select>
         </div>
