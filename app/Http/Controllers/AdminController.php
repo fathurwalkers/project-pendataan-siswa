@@ -403,6 +403,13 @@ class AdminController extends Controller
         ));
     }
 
+    public function hapusPengajar(Request $request, $idpengajar)
+    {
+        $pengajar = Pengajar::where('id', $request->idpengajar)->firstOrFail();
+        $pengajar->forceDelete();
+        return redirect()->route('daftar-pengajar');
+    }
+
     // ---------------------------------------------------------------------------------------
     
     public function post_tambahPengajar(Request $request)

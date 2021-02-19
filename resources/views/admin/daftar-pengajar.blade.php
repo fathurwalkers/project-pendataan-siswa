@@ -45,11 +45,11 @@
                 <td class="text-center btn-group">
                     <a href="#" class="btn btn-info mx-1">Edit</a>
                     <a href="#" class="btn btn-success mx-1">Selengkapnya</a>
-                    <form action="#" method="POST">
-                      @csrf
-                      <input type="hidden" name="idsiswa">
-                      <button id="tombolhapus" type="submit" class="btn btn-danger mx-1">Hapus</button>
-                    </form>
+                    <form action="{{ route('hapus-pengajar', $a->id) }}" method="POST">
+                        @csrf
+                        <input type="hidden" value="{{ $a->id }}" name="idpengajar">
+                        <button id="tombolhapus" type="submit" class="btn btn-danger mx-1">Hapus</button>
+                      </form>
                 </td>
             </tr>
             @endforeach
