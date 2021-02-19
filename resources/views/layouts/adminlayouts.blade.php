@@ -97,6 +97,13 @@
                                         <p>Daftar Siswa</p>
                                     </a>
                                 </li>
+                                
+                                <li class="nav-item">
+                                    <a href="{{ route('daftar-pengajar') }}" class="nav-link">
+                                        <i class="far fa fa-bars nav-icon"></i>
+                                        <p>Daftar Pengajar</p>
+                                    </a>
+                                </li>
 
                                 <li class="nav-item">
                                     <a href="{{ route('daftar-guru') }}" class="nav-link">
@@ -123,6 +130,13 @@
                                     <a href="{{ route('daftar-semester') }}" class="nav-link">
                                         <i class="far fa fa-bars nav-icon"></i>
                                         <p>Daftar Semester</p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="{{ route('tambah-pengajar') }}" class="nav-link">
+                                        <i class="far fa fa-bars nav-icon"></i>
+                                        <p>Tambah Pengajar</p>
                                     </a>
                                 </li>
 

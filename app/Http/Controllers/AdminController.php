@@ -268,7 +268,9 @@ class AdminController extends Controller
 
     public function daftarPengajar()
     {
-        //
+        $users = session('data_login');
+        $pengajar = Pengajar::all();
+        return view('admin.daftar-pengajar', compact('users', 'pengajar'));
     }
 
     // ---------------------------------------------------------------------------------------
@@ -414,14 +416,22 @@ class AdminController extends Controller
         $kelas = Kelas::where('id', $kelas_id)->firstOrFail();
         $semester = Semester::where('id', $semester_id)->firstOrFail();
         $guru = Detail::where('id', $guru_id)->firstOrFail();
-        // $pengajar = new Pengajar;
-        // $savePengajar = $pengajar->create([
-        //     'kode_pengajar' => 'PENGAJAR-'.strtoupper(Str::random(5)),
-        //     'kode_semester' => ,
-        //     'kode_kelas' => ,
-        //     'kode_matapelajaran' => ,
-        //     'nip_guru' => ,
-        // ]);
+        $pengajar = new Pengajar;
+        $savePengajar = $pengajar->create([
+            'kode_pengajar' => 'PENGAJAR-'.strtoupper(Str::random(5)),
+            'kode_semester' => $semester->kode_semester,
+            'kode_kelas' => $kelas->kode_kelas,
+            'kode_matapelajaran' => $matapelajaran->kode_matapelajaran,
+            'nip_guru' => $guru->nip_nisn,
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        $savePengajar->matapelajaran()->associate($matapelajaran->id);
+        $savePengajar->kelas()->associate($kelas->id);
+        $savePengajar->semester()->associate($semester->id);
+        $savePengajar->detail()->associate($guru->id);
+        $savePengajar->save();
+        return redirect()->route('daftar-pengajar');
     }
 
     public function post_tambahSiswa(Request $request)
