@@ -73,7 +73,7 @@
         </div>
       </div>
 
-      <button type="submit" class="btn btn-primary my-2">Tambah Guru</button>
+      <button type="submit" class="btn btn-primary my-2">Update Guru</button>
 
     </form>
 
