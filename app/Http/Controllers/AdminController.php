@@ -417,12 +417,29 @@ class AdminController extends Controller
 
     public function editPengajar($idpengajar)
     {
-        // $users = session('data_login');
+        $pengajar = Pengajar::where('id', $idpengajar)->firstOrFail();
+        $users = session('data_login');
+        $semester = Semester::all();
+        $kelas = Kelas::all();
+        $matapelajaran = Matapelajaran::all();
+        $guru = Detail::where('role_status', 'guru')->get();
+        return view('admin.edit-pengajar', compact(
+            'users',
+            'semester',
+            'kelas',
+            'guru',
+            'pengajar',
+            'matapelajaran'
+        ));
     }
 
     public function updatePengajar(Request $request, $idpengajar)
     {
-        //
+        $pengajarid = $idpengajar;
+        dd($pengajarid);
+        $updatePengajar = Pengajar::where()->update([
+            ''
+        ]);
     }
 
     // ---------------------------------------------------------------------------------------
