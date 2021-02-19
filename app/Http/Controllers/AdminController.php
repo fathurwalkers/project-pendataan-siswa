@@ -271,7 +271,8 @@ class AdminController extends Controller
     public function tambahSiswa()
     {
         $users = session('data_login');
-        return view('admin.tambah-siswa', compact('users'));
+        $kelas = Kelas::all();
+        return view('admin.tambah-siswa', compact('users', 'kelas'));
     }
 
     public function editSiswa($idsiswa)
@@ -373,11 +374,11 @@ class AdminController extends Controller
             'telepon' => $request->telepon,
             'foto' => $pathGambar,
             'role_status' => $request->role_status,
-            'siswa_kelas' => $request->siswa_kelas,
             'siswa_status' => $request->siswa_status,
             'created_at' => now(),
             'updated_at' => now()
         ]);
+        $saveDetail->kelas()->associate($request->siswa_kelas);
         $saveDetail->save();
         
         $login_siswa = new Login;
@@ -418,7 +419,6 @@ class AdminController extends Controller
             'telepon' => $request->telepon,
             'foto' => $pathGambar,
             'role_status' => $request->role_status,
-            'siswa_kelas' => null,
             'siswa_status' => null,
             'created_at' => now(),
             'updated_at' => now()

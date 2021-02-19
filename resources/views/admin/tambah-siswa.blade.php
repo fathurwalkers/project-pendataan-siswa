@@ -64,9 +64,9 @@
           </div>
           <select class="custom-select" id="inputGroupSelect01" name="siswa_kelas">
             <option selected>Pilih Kelas</option>
-            <option value="1">I</option>
-            <option value="2">II</option>
-            <option value="3">III</option>
+            @foreach ($kelas as $item)
+            <option value="{{ $item->id }}">{{ $item->kelas }}</option>
+            @endforeach
           </select>
         </div>
       </div>
