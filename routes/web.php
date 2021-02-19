@@ -24,6 +24,7 @@ Route::prefix('/dashboard')->group(function () {
     Route::post('/tambah-siswa', 'AdminController@post_tambahSiswa')->middleware('ceklogin')->name('post-tambah-siswa');
     Route::get('/detail-siswa/info/{idsiswa}', 'AdminController@biodata_siswa')->middleware('ceklogin')->name('biodata-siswa');
     Route::post('/detail-siswa/delete/{idsiswa}', 'AdminController@hapusSiswa')->middleware('ceklogin')->name('hapus-siswa');
+    Route::get('/edit-siswa/{idsiswa}', 'AdminController@editSiswa')->middleware('ceklogin')->name('edit-siswa');
 
     // GURU
     Route::get('/daftar-guru', 'AdminController@daftarGuru')->middleware('ceklogin')->name('daftar-guru');

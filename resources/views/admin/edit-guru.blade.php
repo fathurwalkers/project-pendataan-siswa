@@ -12,6 +12,9 @@
 
       @csrf
 
+      <input type="hidden" value="{{ $guru->id }}" name="id_guru">
+      <input type="hidden" value="{{ $guru->foto }}" name="foto_guru">
+
       <div class="form-group">
         <label for="nama_lengkap">Nama Lengkap</label>
         <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" value="{{ $guru->nama_lengkap }}" autofocus>

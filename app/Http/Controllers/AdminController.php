@@ -274,6 +274,19 @@ class AdminController extends Controller
         return view('admin.tambah-siswa', compact('users'));
     }
 
+    public function editSiswa($idsiswa)
+    {
+        $users = session('data_login');
+        $siswa = Detail::where('id', $idsiswa)->firstOrFail();
+        dd($siswa);
+        return view('admin.edit-siswa', compact('users', 'siswa'));
+    }
+
+    public function updateSiswa()
+    {
+        //
+    }
+
     public function tambahGuru()
     {
         $users = session('data_login');
@@ -296,7 +309,7 @@ class AdminController extends Controller
             $path = $request->foto->move('image', $namaFile);
             $pathGambar = 'image/'. $namaFile;
         } else {
-            $pathGambar = $request->foto;
+            $pathGambar = $request->foto_guru;
         }
         $updateGuru = Detail::where('id', $idguru)->update([
             'nama_lengkap' => $request->nama_lengkap,
@@ -308,6 +321,7 @@ class AdminController extends Controller
             'role_status' => 'guru',
             'updated_at' => now()
         ]);
+        return redirect()->route('daftar-guru');
     }
 
     public function tambahMatapelajaran()
