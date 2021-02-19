@@ -193,16 +193,28 @@ class DatabaseSeeder extends Seeder
         $login_kepsek->save();
 
         $nipkepsek = Detail::where('role_status', 'kepsek')->firstOrFail();
-        $semester = new Semester;
-        $saveSemester = $semester->create([
-            'kode_semester' => 'SEMESTER-'.strtoupper(Str::random('5')),
-            'status_semester' => 'Aktif',
-            'tahun_ajaran' => '2020/2021',
-            'nip_kepsek' => $nipkepsek->nip_nisn,
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-        $saveSemester->detail()->associate($nipkepsek->id);
-        $saveSemester->save();
+        $tahun_ajaran = [
+            '2010/2011',
+            '2011/2012',
+            '2013/2014',
+            '2014/2016',
+            '2017/2018',
+            '2019/2020',
+            '2020/2021',
+            '2021/2022'
+        ];
+        foreach ($tahun_ajaran as $tems) {
+            $semester = new Semester;
+            $saveSemester = $semester->create([
+                'kode_semester' => 'SEMESTER-'.strtoupper(Str::random('5')),
+                'status_semester' => 'Aktif',
+                'tahun_ajaran' => $tems,
+                'nip_kepsek' => $nipkepsek->nip_nisn,
+                'created_at' => now(),
+                'updated_at' => now()
+            ]);
+            $saveSemester->detail()->associate($nipkepsek->id);
+            $saveSemester->save();
+        }
     }
 }
