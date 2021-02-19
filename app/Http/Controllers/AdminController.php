@@ -369,7 +369,7 @@ class AdminController extends Controller
 
     public function hapusMatapelajaran(Request $request, $idmatapelajaran)
     {
-        $siswa = Detail::where('id', $request->idmatapelajaran)->firstOrFail();
+        $siswa = Matapelajaran::where('id', $request->idmatapelajaran)->firstOrFail();
         $siswa->forceDelete();
         return redirect()->route('daftar-matapelajaran');
     }
