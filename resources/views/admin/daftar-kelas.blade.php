@@ -35,11 +35,11 @@
                 <td class="text-center">{{ $loop->iteration }}</td>
                 <td>{{ $a->kelas }}</td>
                 <td class="text-center">{{ $a->kode_kelas }}</td>
-                <td class="text-center">
+                {{-- <td class="text-center">
                     <a href="#" class="btn btn-info">Edit</a>    
                     <a href="#" class="btn btn-success">Detail</a>    
                     <a href="#" class="btn btn-danger">Hapus</a>    
-                </td>
+                </td> --}}
             </tr>
             @endforeach
         </tbody>
