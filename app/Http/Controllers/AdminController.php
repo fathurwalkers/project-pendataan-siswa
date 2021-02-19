@@ -367,6 +367,13 @@ class AdminController extends Controller
         return redirect()->route('daftar-matapelajaran');
     }
 
+    public function hapusMatapelajaran(Request $request, $idmatapelajaran)
+    {
+        $siswa = Detail::where('id', $request->idmatapelajaran)->firstOrFail();
+        $siswa->forceDelete();
+        return redirect()->route('daftar-matapelajaran');
+    }
+
     public function tambahKelas()
     {
         $users = session('data_login');

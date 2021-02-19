@@ -38,7 +38,11 @@
                 <td class="text-center">
                     <a href="{{ route('edit-matapelajaran', $mapel->id) }}" class="btn btn-info">Edit</a>    
                     {{-- <a href="#" class="btn btn-success">Detail</a>     --}}
-                    <a href="#" class="btn btn-danger">Hapus</a>    
+                    <form action="{{ route('hapus-matapelajaran', $mapel->id) }}" method="POST">
+                      @csrf
+                      <input type="hidden" value="{{ $mapel->id }}" name="idmatapelajaran">
+                      <button id="tombolhapus" type="submit" class="btn btn-danger mx-1">Hapus</button>
+                    </form>  
                 </td>
             </tr>
             @endforeach
