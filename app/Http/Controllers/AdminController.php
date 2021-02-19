@@ -289,6 +289,15 @@ class AdminController extends Controller
 
     public function updateGuru(Request $request, $idguru)
     {
+        if ($request->hasFile('foto')) {
+            $extFile = $request->foto->getClientOriginalExtension();
+            $randomGambar = Str::random(6);
+            $namaFile = 'image-'.$randomGambar.".".$extFile;
+            $path = $request->foto->move('image', $namaFile);
+            $pathGambar = 'image/'. $namaFile;
+        } else {
+            $pathGambar = $request->foto;
+        }
         $updateGuru = Detail::where('id', $idguru)->update([
             'nama_lengkap' => $request->nama_lengkap,
             'nip_nisn' => $request->nip_nisn,
