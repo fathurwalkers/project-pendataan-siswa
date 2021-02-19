@@ -8,7 +8,7 @@
 <!-- Default box -->
 <div class="card">
   <div class="card-body">
-    <form action="{{ route('post-tambah-pengajar') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('post-tambah-siswa') }}" method="POST" enctype="multipart/form-data">
 
       @csrf
 
@@ -35,58 +35,18 @@
       <div class="form-group my-3">
         <div class="input-group mb-3 my-3">
           <div class="input-group-prepend">
-            <label class="input-group-text" for="inputGroupSelect01">Jenis Kelamin</label>
+            <label class="input-group-text" for="inputGroupSelect01">Mata Pelajaran</label>
           </div>
-          <select class="custom-select" id="inputGroupSelect01" name="jenis_kelamin">
+          <select class="custom-select" id="inputGroupSelect01" name="matapelajaran_id">
             <option selected>Pilih...</option>
-            <option value="Laki-laki">Laki-laki</option>
-            <option value="Perempuan">Perempuan</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="form-group my-3">
-        <div class="input-group mb-3 my-3">
-          <div class="input-group-prepend">
-            <span class="input-group-text">Upload Foto</span>
-          </div>
-          <div class="custom-file">
-            <input type="file" class="custom-file-input" id="inputGroupFile01" name="foto">
-            <label class="custom-file-label" for="inputGroupFile01">Pilih Foto...</label>
-          </div>
-        </div>
-      </div>
-
-      <div class="form-group my-3">
-        <div class="input-group mb-3 my-3">
-          <div class="input-group-prepend">
-            <label class="input-group-text" for="inputGroupSelect01">Kelas</label>
-          </div>
-          <select class="custom-select" id="inputGroupSelect01" name="siswa_kelas">
-            <option selected>Pilih Kelas</option>
-            @foreach ($kelas as $item)
-            <option value="{{ $item->id }}">{{ $item->kelas }}</option>
+            @foreach ($matapelajaran as $mapel)
+            <option value="{{ $mapel->id }}">{{ $mapel->nama_matapelajaran }}</option>
             @endforeach
           </select>
         </div>
       </div>
 
-      <div class="form-group my-3">
-        <div class="input-group mb-3 my-3">
-          <div class="input-group-prepend">
-            <label class="input-group-text" for="inputGroupSelect01">Status Siswa</label>
-          </div>
-          <select class="custom-select" id="inputGroupSelect01" name="siswa_status">
-            <option selected>Status Siswa</option>
-            <option value="aktif">Aktif</option>
-            <option value="tidak_aktif">Tidak Aktif</option>
-          </select>
-        </div>
-      </div>
-
-      <input type="hidden" value="siswa" name="role_status">
-
-      <button type="submit" class="btn btn-primary my-2">Tambah Siswa</button>
+      <button type="submit" class="btn btn-primary my-2">Tambah Pengajar</button>
 
     </form>
 

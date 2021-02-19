@@ -383,7 +383,17 @@ class AdminController extends Controller
     public function tambahPengajar()
     {
         $users = session('data_login');
-        return view('admin.tambah-pengajar', compact('users'));
+        $semester = Semester::all();
+        $kelas = Kelas::all();
+        $guru = Detail::where('role_status', 'guru')->get();
+        $matapelajaran = Matapelajaran::all();
+        return view('admin.tambah-pengajar', compact(
+            'users',
+            'semester',
+            'kelas',
+            'guru',
+            'matapelajaran'
+        ));
     }
 
     // ---------------------------------------------------------------------------------------
