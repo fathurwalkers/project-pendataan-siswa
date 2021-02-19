@@ -26,7 +26,7 @@
                 <th>#</th>
                 <th>Kelas</th>
                 <th>Kode Kelas</th>
-                <th>Kelola</th>
+                {{-- <th>Kelola</th> --}}
             </tr>
         </thead>
         <tbody>
