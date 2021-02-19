@@ -436,10 +436,29 @@ class AdminController extends Controller
     public function updatePengajar(Request $request, $idpengajar)
     {
         $pengajarid = $idpengajar;
-        dd($pengajarid);
-        $updatePengajar = Pengajar::where()->update([
-            ''
+
+        $matapelajaran_id = $request->matapelajaran_id;
+        $kelas_id = $request->kelas_id;
+        $semester_id = $request->semester_id;
+        $guru_id = $request->guru_id;
+
+        $matapelajaran = Matapelajaran::where('id', $matapelajaran_id)->firstOrFail();
+        $kelas = Kelas::where('id', $kelas_id)->firstOrFail();
+        $semester = Semester::where('id', $semester_id)->firstOrFail();
+        $guru = Detail::where('id', $guru_id)->firstOrFail();
+        
+        $updatePengajar = Pengajar::where('id', $pengajarid)->update([
+            'kode_semester' => $semester->kode_semester,
+            'kode_kelas' => $kelas->kode_kelas,
+            'kode_matapelajaran' => $matapelajaran->kode_matapelajaran,
+            'nip_guru' => $guru->nip_nisn,
+            'semester_id' => $semester->id,
+            'kelas_id' => $kelas->id,
+            'matapelajaran_id' => $matapelajaran->id,
+            'detail_id' => $guru->id,
+            'updated_at' => now()
         ]);
+        return redirect()->route('daftar-pengajar');
     }
 
     // ---------------------------------------------------------------------------------------
