@@ -20,14 +20,16 @@ class CreateNilaisTable extends Migration
             $table->string('kode_kelas');
             $table->string('kode_matapelajaran');
             $table->string('kode_semester');
-            $table->string('nisn_siswa');
+            $table->string('nisn_siswa')->nullable();
             $table->string('nilai_siswa');
             $table->time('waktu_nilai');
             $table->date('tanggal_nilai');
             $table->string('status_nilai');
 
             $table->unsignedBigInteger('pengajar_id')->nullable();
+            $table->unsignedBigInteger('detail_id')->nullable();
             $table->foreign('pengajar_id')->references('id')->on('pengajar');
+            $table->foreign('detail_id')->references('id')->on('detail');
 
             $table->timestamps();
         });

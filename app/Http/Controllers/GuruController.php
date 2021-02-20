@@ -60,16 +60,14 @@ class GuruController extends Controller
         $nilai = new Nilai;
         $pengajar = Pengajar::where('detail_id', $users->detail->id)->firstOrFail();
         $nilai_request = $request->nilai;
-        // $idsiswa = $request->idsiswa;
-        // $siswa = Detail::where('role_status', 'siswa')->where('id', $idsiswa)->get();
-        // dd($siswa);
+        $idsiswa = $request->idsiswa;
+        $siswa = Detail::where('role_status', 'siswa')->where('kelas_id', $pengajar->kelas->id)->select('nip_nisn')->get();
         foreach ($nilai_request as $items) {
             $saveNilai = $nilai->create([
                     'kode_pengajar' => $pengajar->kode_pengajar,
                     'kode_kelas' => $pengajar->kelas->kode_kelas,
                     'kode_matapelajaran' => $pengajar->matapelajaran->kode_matapelajaran,
                     'kode_semester' => $pengajar->semester->kode_semester,
-                    'nisn_siswa' => $pengajar->kelas->siswa->nip_nisn,
                     'nilai_siswa' => $items,
                     'waktu_nilai' => now(),
                     'tanggal_nilai' => now(),
@@ -78,7 +76,8 @@ class GuruController extends Controller
                     'updated_at' => now(),
                 ]);
         }
-        // dd($saveNilai);
+        // $saveNilai->save();
+        dd($saveNilai);
         return redirect()->route('daftar-kelas-guru');
     }
 }
