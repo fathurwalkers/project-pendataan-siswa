@@ -19,7 +19,7 @@
             <tr>
                 <th>#</th>
                 <th>Kelas</th>
-                <th>Kode Kelas</th>
+                {{-- <th>Kode Kelas</th> --}}
                 {{-- <th>Kelola</th> --}}
             </tr>
         </thead>
@@ -28,7 +28,7 @@
             <tr>
                 <td class="text-center">{{ $loop->iteration }}</td>
                 <td>{{ $a->kelas }}</td>
-                <td class="text-center">{{ $a->kode_kelas }}</td>
+                {{-- <td class="text-center">{{ $a->kode_kelas }}</td> --}}
                 {{-- <td class="text-center">
                     <a href="#" class="btn btn-info">Edit</a>    
                     <a href="#" class="btn btn-success">Detail</a>    

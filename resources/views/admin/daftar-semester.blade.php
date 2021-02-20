@@ -20,7 +20,7 @@
                 <th>#</th>
                 <th>Tahun Ajaran</th>
                 <th>Kepala Sekolah</th>
-                <th>Kode Semester</th>
+                {{-- <th>Kode Semester</th> --}}
                 <th>Status</th>
                 {{-- <th>Kelola</th> --}}
             </tr>
@@ -31,7 +31,7 @@
                 <td class="text-center">{{ $loop->iteration }}</td>
                 <td>{{ $smtr->tahun_ajaran }}</td>
                 <td>{{ $smtr->nip_kepsek }}</td>
-                <td>{{ $smtr->kode_semester }}</td>
+                {{-- <td>{{ $smtr->kode_semester }}</td> --}}
                 <td>{{ $smtr->status_semester }}</td>
                 {{-- <td class="text-center d-flex">
                     <a href="#" class="btn btn-info mx-1">Edit</a>
