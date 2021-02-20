@@ -43,11 +43,13 @@
                 <th>NISN</th>
                 <th>Kelas</th>
                 <th>Status</th>
-                <th>Kelola</th>
+                <th>Input Nilai Siswa</th>
             </tr>
         </thead>
         <tbody>
-            {{-- @foreach ($siswa as $item)
+            <form action="" method="POST">
+                @csrf
+            @foreach ($siswa as $item)
             <tr>
                 <td class="text-center">{{ $loop->iteration }}</td>
                 <td>{{ $item->nama_lengkap }}</td>
@@ -55,11 +57,15 @@
                 <td>{{ $item->kelas->kelas }}</td>
                 <td>{{ $item->siswa_status }}</td>
                 <td>
-                    <a href="{{ route('biodata-siswa', $item->id) }}" class="btn btn-primary">Selengkapnya</a>
+                        <input type="text" name="nilai" placeholder="Masukkan Nilai Siswa">
                 </td>
             </tr>
-            @endforeach --}}
+            @endforeach
     </table>
+    <div class="row col-sm-12 col-lg-12 justify-content-center my-4">
+        <button type="submit" class="btn btn-primary">Input Nilai Siswa</button>
+        </form>
+    </div>
   </div>
 </div>
 @endsection
