@@ -406,6 +406,11 @@ class AdminController extends Controller
     public function detailPengajar($idpengajar)
     {
         $users = session('data_login');
+        $pengajar = Pengajar::where('id', $idpengajar)->firstOrFail();
+        $kelas_id = $pengajar->kelas->id;
+        dd($kelas_id);
+        $siswa = Detail::where('role_status', 'siswa')->where('kelas_id', $pengajar->kelas->id)->get();
+
         return view('admin.detail-pengajar', compact('users'));
     }
 
@@ -661,7 +666,7 @@ class AdminController extends Controller
     public function generate_siswa()
     {
         $faker = Faker::create('id_ID');
-        for ($i = 0; $i<10; $i++) {
+        for ($i = 0; $i<50; $i++) {
             $kelas = Kelas::all();
             $randomkelas = $kelas->random();
             $detail_siswa = new Detail;
@@ -711,7 +716,7 @@ class AdminController extends Controller
     public function generate_guru()
     {
         $faker = Faker::create('id_ID');
-        for ($i = 0; $i<10; $i++) {
+        for ($i = 0; $i<25; $i++) {
             $detail_guru = new Detail;
             $array_jenkel = ['Laki-laki', 'Perempuan'];
             $jenis_kelamin = Randoms::random($array_jenkel);
