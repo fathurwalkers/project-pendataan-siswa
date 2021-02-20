@@ -75,9 +75,12 @@ class GuruController extends Controller
                     'updated_at' => now(),
                 ]);
             $saveNilai->pengajar()->associate($pengajar->id);
-            $saveNilai->save();
             // $saveNilai->detail()->associate($request->idsiswa);
         }
+        foreach ($request->idsiswa as $item) {
+            $saveNilai->detail()->associate($item);
+        }
+        $saveNilai->save();
         dd($saveNilai);
         return redirect()->route('daftar-kelas-guru');
     }
