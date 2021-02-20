@@ -42,4 +42,14 @@ class GuruController extends Controller
         $siswa = Detail::where('role_status', 'siswa')->where('kelas_id', $kelas_id)->get();
         return view('guru.detail-kelas', compact('users', 'pengajar', 'siswa'));
     }
+
+    public function inputNilaiSiswa()
+    {
+        $users = session('data_login');
+        $guru_id = $users->detail->id;
+        $pengajar = Pengajar::where('detail_id', $guru_id)->firstOrFail();
+        $siswa = Detail::where('role_status', 'siswa')->where()->get();
+        dd($pengajar);
+        return view('guru.input-nilai-siswa', compact('users', 'pengajar'));
+    }
 }

@@ -218,6 +218,12 @@
                                         <p>Daftar Kelas</p>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('input-nilai-siswa') }}" class="nav-link">
+                                        <i class="far fa fa-bars nav-icon"></i>
+                                        <p>Input Nilai</p>
+                                    </a>
+                                </li>
                                     @break
 
                                 @case('siswa')
