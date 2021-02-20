@@ -408,10 +408,8 @@ class AdminController extends Controller
         $users = session('data_login');
         $pengajar = Pengajar::where('id', $idpengajar)->firstOrFail();
         $kelas_id = $pengajar->kelas->id;
-        dd($kelas_id);
-        $siswa = Detail::where('role_status', 'siswa')->where('kelas_id', $pengajar->kelas->id)->get();
-
-        return view('admin.detail-pengajar', compact('users'));
+        $siswa = Detail::where('role_status', 'siswa')->where('kelas_id', $kelas_id)->get();
+        return view('admin.detail-pengajar', compact('users', 'pengajar', 'siswa'));
     }
 
     public function hapusPengajar(Request $request, $idpengajar)

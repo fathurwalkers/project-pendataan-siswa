@@ -26,25 +26,28 @@
               </ul>
       </div>
     <table id="example" class="display" style="width:100%">
+        <p>Siswa yang mengambil kelas ini</p>
         <thead>
             <tr>
                 <th>#</th>
-                <th>Nama Lengkap</th>
-                <th>Username</th>
-                <th>Password</th>
-                <th>Role Status</th>
+                <th>Nama Siswa</th>
+                <th>NISN</th>
+                <th>Status</th>
+                <th>Kelola</th>
             </tr>
         </thead>
         <tbody>
-            {{-- @foreach ($user_guru as $item) --}}
+            @foreach ($siswa as $item)
             <tr>
-                {{-- <td>{{ $loop->iteration }}</td> --}}
-                {{-- <td>{{ $item->detail->nama_lengkap }}</td> --}}
-                {{-- <td>{{ $item->username }}</td> --}}
-                {{-- <td>{{ $item->password }}</td> --}}
-                {{-- <td>{{ $item->detail->role_status }}</td> --}}
+                <td class="text-center">{{ $loop->iteration }}</td>
+                <td>{{ $item->nama_lengkap }}</td>
+                <td>{{ $item->nip_nisn }}</td>
+                <td>{{ $item->siswa_status }}</td>
+                <td>
+                    <a href="#" class="btn btn-primary">Selengkapnya</a>
+                </td>
             </tr>
-            {{-- @endforeach --}}
+            @endforeach
     </table>
   </div>
   <!-- /.card-body -->
