@@ -22,4 +22,19 @@ class GuruController extends Controller
     {
         return view('guru.rekap-data-siswa');
     }
+
+    public function daftarKelasGuru($idpengajar)
+    {
+        //
+    }
+
+    public function informasiDetailKelas($idpengajar)
+    {
+        $users = session('data_login');
+        $guru_id = $idpengajar;
+        $pengajar = Pengajar::where('detail_id', $guru_id)->firstOrFail();
+        $kelas_id = $pengajar->kelas_id;
+        $siswa = Detail::where('role_status', 'siswa')->where('kelas_id', $kelas_id)->get();
+        return view('guru.daftar-kelas-guru', compact('users', 'pengajar', 'siswa'));
+    }
 }

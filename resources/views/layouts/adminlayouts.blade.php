@@ -212,6 +212,12 @@
                                         <p>Lihat Profil</p>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('guru-detail-kelas', $users->detail->id) }}" class="nav-link">
+                                        <i class="far fa fa-bars nav-icon"></i>
+                                        <p>Daftar Kelas</p>
+                                    </a>
+                                </li>
                                     @break
 
                                 @case('siswa')
