@@ -1,31 +1,65 @@
 @extends('layouts.adminlayouts')
 
-@section('title', 'Detail Pengajar - Sistem Pendataan Siswa')
+@section('title', 'Informasi Detail Pengajar - Sistem Pendataan Siswa')
 
-@section('header-text', 'Detail Pengajar')
+@section('header-text', 'Informasi Detail Pengajar')
 
 @section('main-content')
-<div class="row">
-
-    <div class="card col-sm-6 col-lg-6">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">
-            With supporting text below as a natural lead-in to additional content.
-          </p>
-          <a href="#" class="btn btn-primary">Button</a>
-        </div>
+<!-- Default box -->
+<div class="card">
+  <div class="card-header">
+    <h3 class="card-title">Title</h3>
+    <div class="card-tools">
+      <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+        <i class="fas fa-minus"></i>
+      </button>
+      <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+        <i class="fas fa-times"></i>
+      </button>
     </div>
-
-    <div class="card col-sm-6 col-lg-6">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">
-            With supporting text below as a natural lead-in to additional content.
-          </p>
-          <a href="#" class="btn btn-primary">Button</a>
-        </div>
-    </div>
-
+  </div>
+  <div class="card-body">
+      <div class="row">
+              <ul>
+                  <li class="list-pengajar">Nama Pengajar : Irwan</li>
+                  <li class="list-pengajar">Kelas : VII B </li>
+              </ul>
+      </div>
+    <table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nama Lengkap</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Role Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{-- @foreach ($user_guru as $item) --}}
+            <tr>
+                {{-- <td>{{ $loop->iteration }}</td> --}}
+                {{-- <td>{{ $item->detail->nama_lengkap }}</td> --}}
+                {{-- <td>{{ $item->username }}</td> --}}
+                {{-- <td>{{ $item->password }}</td> --}}
+                {{-- <td>{{ $item->detail->role_status }}</td> --}}
+            </tr>
+            {{-- @endforeach --}}
+    </table>
+  </div>
+  <!-- /.card-body -->
+  {{-- <div class="card-footer">
+    Footer Section
+  </div> --}}
+  <!-- /.card-footer-->
 </div>
+<!-- /.card -->
+@endsection
+
+@section('after-script')
+<script>
+    $(document).ready(function() {
+        $('#example').DataTable();
+    } );
+</script>
 @endsection
