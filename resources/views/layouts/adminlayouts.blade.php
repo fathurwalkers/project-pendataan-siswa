@@ -213,7 +213,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ route('daftar-kelas-guru', $users->detail->id) }}" class="nav-link">
+                                    <a href="{{ route('daftar-kelas-guru') }}" class="nav-link">
                                         <i class="far fa fa-bars nav-icon"></i>
                                         <p>Daftar Kelas</p>
                                     </a>

@@ -82,8 +82,9 @@ Route::prefix('/dashboard')->group(function () {
     Route::prefix('/guru')->group(function () {
         Route::get('/rekap-data-siswa', 'GuruController@rekapdatasiswa')->middleware('ceklogin')->name('rekap-data-siswa');
         Route::get('/detail-kelas/{idpengajar}/{idmatapelajaran}', 'GuruController@informasiDetailKelas')->middleware('ceklogin')->name('guru-detail-kelas');
-        Route::get('/daftar-kelas-guru/{idpengajar}', 'GuruController@daftarKelasGuru')->middleware('ceklogin')->name('daftar-kelas-guru');
+        Route::get('/daftar-kelas-guru', 'GuruController@daftarKelasGuru')->middleware('ceklogin')->name('daftar-kelas-guru');
         Route::get('/input-nilai-siswa', 'GuruController@inputNilaiSiswa')->middleware('ceklogin')->name('input-nilai-siswa');
+        Route::post('/input-nilai-siswa', 'GuruController@post_inputNilaiSiswa')->middleware('ceklogin')->name('post-input-nilai-siswa');
     });
 
     // FAKER AUTO GENERATE DATA

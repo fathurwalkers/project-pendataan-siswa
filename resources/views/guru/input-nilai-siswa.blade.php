@@ -34,6 +34,8 @@
                 <li class="list-pengajar">: {{ $pengajar->kelas->kelas }}</li>
               </ul>
       </div>
+      <form action="{{ route('post-input-nilai-siswa') }}" method="POST">
+          @csrf
     <table id="example" class="display" style="width:100%">
         {{-- <p>Siswa yang mengambil kelas ini</p> --}}
         <thead>
@@ -47,8 +49,6 @@
             </tr>
         </thead>
         <tbody>
-            <form action="" method="POST">
-                @csrf
             @foreach ($siswa as $item)
             <tr>
                 <td class="text-center">{{ $loop->iteration }}</td>
@@ -57,14 +57,15 @@
                 <td>{{ $item->kelas->kelas }}</td>
                 <td>{{ $item->siswa_status }}</td>
                 <td>
-                        <input type="text" name="nilai" placeholder="Masukkan Nilai Siswa">
+                    <input type="text" name="nilai[{{$item->id}}]" placeholder="Masukkan Nilai Siswa...">
+                    <input type="hidden" name="idsiswa[{{$item->id}}]" value="{{ $item->id }}">
                 </td>
             </tr>
             @endforeach
-    </table>
-    <div class="row col-sm-12 col-lg-12 justify-content-center my-4">
-        <button type="submit" class="btn btn-primary">Input Nilai Siswa</button>
-        </form>
+        </table>
+        <div class="row col-sm-12 col-lg-12 justify-content-center my-4">
+            <button type="submit" class="btn btn-primary">Input Nilai Siswa</button>
+            </form>
     </div>
   </div>
 </div>
