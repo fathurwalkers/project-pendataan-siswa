@@ -30,20 +30,23 @@
       <div class="row">
               <ul>
                 <li class="list-pengajar">Nama Pengajar </li>
+                <li class="list-pengajar">Matapelajaran </li>
                 <li class="list-pengajar">Kelas </li>
               </ul>
               <ul>
                 <li class="list-pengajar">: {{ strtoupper($pengajar->detail->nama_lengkap) }}</li>
+                <li class="list-pengajar">: {{ strtoupper($pengajar->matapelajaran->nama_matapelajaran) }}</li>
                 <li class="list-pengajar">: {{ $pengajar->kelas->kelas }}</li>
               </ul>
       </div>
     <table id="example" class="display" style="width:100%">
-        <p>Siswa yang mengambil kelas ini</p>
+        {{-- <p>Siswa yang mengambil kelas ini</p> --}}
         <thead>
             <tr>
                 <th>#</th>
                 <th>Nama Siswa</th>
                 <th>NISN</th>
+                <th>Kelas</th>
                 <th>Status</th>
                 <th>Kelola</th>
             </tr>
@@ -54,9 +57,10 @@
                 <td class="text-center">{{ $loop->iteration }}</td>
                 <td>{{ $item->nama_lengkap }}</td>
                 <td>{{ $item->nip_nisn }}</td>
+                <td>{{ $item->kelas->kelas }}</td>
                 <td>{{ $item->siswa_status }}</td>
                 <td>
-                    <a href="#" class="btn btn-primary">Selengkapnya</a>
+                    <a href="{{ route('biodata-siswa', $item->id) }}" class="btn btn-primary">Selengkapnya</a>
                 </td>
             </tr>
             @endforeach
