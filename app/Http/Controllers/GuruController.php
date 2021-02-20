@@ -59,22 +59,23 @@ class GuruController extends Controller
         $users = session('data_login');
         $nilai = new Nilai;
         $pengajar = Pengajar::where('detail_id', $users->detail->id)->firstOrFail();
-        $nilai_request = $request->nilai;
-        $idsiswa = $request->idsiswa;
-        $siswa = Detail::where('role_status', 'siswa')->where('kelas_id', $pengajar->kelas->id)->select('nip_nisn')->get();
-        foreach ($nilai_request as $items) {
+        // $nilai_request = $request->nilai;
+        foreach ($request as $items) {
+            // $siswa = Detail::where('role_status', 'siswa')->where('kelas_id', $pengajar->kelas->id)->firstOrFail();
             $saveNilai = $nilai->create([
                     'kode_pengajar' => $pengajar->kode_pengajar,
                     'kode_kelas' => $pengajar->kelas->kode_kelas,
                     'kode_matapelajaran' => $pengajar->matapelajaran->kode_matapelajaran,
                     'kode_semester' => $pengajar->semester->kode_semester,
-                    'nilai_siswa' => $items,
+                    'nilai_siswa' => $items->nilai,
                     'waktu_nilai' => now(),
                     'tanggal_nilai' => now(),
                     'status_nilai' => 'Aman',
                     'created_at' => now(),
                     'updated_at' => now(),
                 ]);
+            $saveNilai->pengajar()->associate($pengajar->id);
+            $saveNilai->detail()->associate($items->idsiswa);
         }
         // $saveNilai->save();
         dd($saveNilai);
