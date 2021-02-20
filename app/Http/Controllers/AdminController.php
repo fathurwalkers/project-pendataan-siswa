@@ -405,7 +405,8 @@ class AdminController extends Controller
 
     public function detailPengajar($idpengajar)
     {
-        // $users = session('data_login');
+        $users = session('data_login');
+        return view('admin.detail-pengajar', compact('users'));
     }
 
     public function hapusPengajar(Request $request, $idpengajar)
