@@ -25,9 +25,12 @@
               Alamat &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;&nbsp;{{ $siswa->alamat }} <br>
 
               Telepon &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;&nbsp;{{ $siswa->telepon }} <br>
-        </p>
+          </p>
         </div>
       </div>
+    </div>
+    <div class="row col-sm-12 col-lg-12 justify-content-center">
+      <a href="{{ route('dashboard') }}" class="btn btn-info my-3 float-right px-5">Kembali</a>
     </div>
   </div>
 @endsection
