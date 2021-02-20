@@ -762,4 +762,12 @@ class AdminController extends Controller
         $profile = Detail::where('id', $iduser)->firstOrFail();
         return view('admin.profile-user', compact('users', 'profile'));
     }
+
+    public function daftarSiswaKelas($idkelas)
+    {
+        $users = session('data_login');
+        $kelas_id = $idkelas;
+        $siswa = Detail::where('role_status', 'siswa')->where('kelas_id', $kelas_id)->get();
+        return view('admin.daftar-siswa-kelas', compact('users', 'siswa'));
+    }
 }

@@ -48,6 +48,7 @@ Route::prefix('/dashboard')->group(function () {
     Route::get('/daftar-kelas', 'AdminController@daftarKelas')->middleware('ceklogin')->name('daftar-kelas');
     // Route::get('/tambah-kelas', 'AdminController@tambahKelas')->middleware('ceklogin')->name('tambah-kelas');
     // Route::post('/tambah-kelas', 'AdminController@post_tambahKelas')->middleware('ceklogin')->name('post-tambah-kelas');
+    Route::get('/daftar-siswa-kelas/{idkelas}', 'Admincontroller@daftarSiswaKelas')->middleware('ceklogin')->name('daftar-siswa-kelas');
 
     // SEMESTER
     Route::get('/daftar-semester', 'AdminController@daftarSemester')->middleware('ceklogin')->name('daftar-semester');

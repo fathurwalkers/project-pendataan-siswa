@@ -1,8 +1,8 @@
 @extends('layouts.adminlayouts')
 
-@section('title', 'Daftar Kelas - Sistem Pendataan Siswa')
+@section('title', 'List Data Siswa pada Kelas ini - Sistem Pendataan Siswa')
 
-@section('header-text', 'Daftar Kelas')
+@section('header-text', 'List Data Siswa pada Kelas ini')
 
 @section('main-content')
 <!-- Default box -->
@@ -18,19 +18,23 @@
         <thead>
             <tr>
                 <th>#</th>
+                <th>Nama Siswa</th>
+                <th>NISN</th>
                 <th>Kelas</th>
                 {{-- <th>Kode Kelas</th> --}}
                 <th>Kelola</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($kelas as $a)
+            @foreach ($siswa as $a)
             <tr>
                 <td class="text-center">{{ $loop->iteration }}</td>
-                <td>{{ $a->kelas }}</td>
+                <td>{{ $a->nama_lengkap }}</td>
+                <td>{{ $a->nip_nisn }}</td>
+                <td>{{ $a->kelas->kelas }}</td>
                 {{-- <td class="text-center">{{ $a->kode_kelas }}</td> --}}
                 <td class="text-center">  
-                    <a href="{{ route('daftar-siswa-kelas', $a->id) }}" class="btn btn-success">Selengkapnya</a>   
+                    <a href="{{ route('biodata-siswa', $a->id) }}" class="btn btn-success">Selengkapnya</a>   
                 </td>
             </tr>
             @endforeach
