@@ -33,7 +33,7 @@
                 <li class="list-pengajar">Kelas </li>
               </ul>
               <ul>
-                <li class="list-pengajar">: {{ $pengajar->detail->nama_lengkap }}</li>
+                <li class="list-pengajar">: {{ strtoupper($pengajar->detail->nama_lengkap) }}</li>
                 <li class="list-pengajar">: {{ $pengajar->kelas->kelas }}</li>
               </ul>
       </div>
