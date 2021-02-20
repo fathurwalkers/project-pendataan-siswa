@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{{ asset('vendor/adminlte/dist/css/adminlte.min.css') }}">
     {{-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> --}}
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
+    @yield('after-css')
 </head>
 
 <body class="hold-transition sidebar-mini">

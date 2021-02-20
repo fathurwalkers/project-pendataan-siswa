@@ -4,6 +4,14 @@
 
 @section('header-text', 'Informasi Detail Pengajar')
 
+@section('after-css')
+    <style>
+      .list-pengajar {
+        list-style: none;
+      }
+    </style>
+@endsection
+
 @section('main-content')
 <!-- Default box -->
 <div class="card">
@@ -21,8 +29,12 @@
   <div class="card-body">
       <div class="row">
               <ul>
-                  <li class="list-pengajar">Nama Pengajar : Irwan</li>
-                  <li class="list-pengajar">Kelas : VII B </li>
+                <li class="list-pengajar">Nama Pengajar </li>
+                <li class="list-pengajar">Kelas </li>
+              </ul>
+              <ul>
+                <li class="list-pengajar">: {{ $pengajar->detail->nama_lengkap }}</li>
+                <li class="list-pengajar">: {{ $pengajar->kelas->kelas }}</li>
               </ul>
       </div>
     <table id="example" class="display" style="width:100%">
