@@ -18,11 +18,11 @@
   <div class="card-header">
     <h3 class="card-title">Title</h3>
     <div class="card-tools">
-      <a href="{{ route('dashboard') }}" class="btn btn-info">Kembali</a>
+      <a href="{{ route('daftar-kelas-guru', $users->detail->id) }}" class="btn btn-info">Kembali</a>
     </div>
   </div>
   <div class="card-body">
-      {{-- <div class="row">
+      <div class="row">
               <ul>
                 <li class="list-pengajar">Nama Pengajar </li>
                 <li class="list-pengajar">Matapelajaran </li>
@@ -33,29 +33,29 @@
                 <li class="list-pengajar">: {{ strtoupper($pengajar->matapelajaran->nama_matapelajaran) }}</li>
                 <li class="list-pengajar">: {{ $pengajar->kelas->kelas }}</li>
               </ul>
-      </div> --}}
+      </div>
     <table id="example" class="display" style="width:100%">
         {{-- <p>Siswa yang mengambil kelas ini</p> --}}
         <thead>
             <tr>
                 <th>#</th>
-                <th>Nama guru</th>
-                <th>NIP</th>
+                <th>Nama Siswa</th>
+                <th>NISN</th>
                 <th>Kelas</th>
-                <th>Mata Pelajaran</th>
+                <th>Status</th>
                 <th>Kelola</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($pengajar as $item)
+            @foreach ($siswa as $item)
             <tr>
                 <td class="text-center">{{ $loop->iteration }}</td>
-                <td>{{ $item->detail->nama_lengkap }}</td>
-                <td>{{ $item->detail->nip_nisn }}</td>
+                <td>{{ $item->nama_lengkap }}</td>
+                <td>{{ $item->nip_nisn }}</td>
                 <td>{{ $item->kelas->kelas }}</td>
-                <td>{{ $item->matapelajaran->nama_matapelajaran }}</td>
+                <td>{{ $item->siswa_status }}</td>
                 <td>
-                    <a href="{{ route('guru-detail-kelas', [$item->detail->id, $item->matapelajaran->id]) }}" class="btn btn-primary">Selengkapnya</a>
+                    <a href="{{ route('biodata-siswa', $item->id) }}" class="btn btn-primary">Selengkapnya</a>
                 </td>
             </tr>
             @endforeach
