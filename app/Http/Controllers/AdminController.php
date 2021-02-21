@@ -86,7 +86,6 @@ class AdminController extends Controller
         $cariUser = Login::where('username', $request->username)->get();
         if ($cariUser->isEmpty()) {
             return back()->with('status_fail', 'Maaf username atau password salah!')->withInput();
-            // return redirect('/dashboard/login')->withInput()->with('status_fail', 'Maaf username atau password salah!');
         }
         $data_login = Login::where('username', $request->username)->firstOrFail();
         switch ($data_login->level) {
