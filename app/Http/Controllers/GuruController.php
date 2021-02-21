@@ -28,7 +28,6 @@ class GuruController extends Controller
         $users = session('data_login');
         $pengajar_id = $users->detail->id;
         $pengajar = Pengajar::where('detail_id', $pengajar_id)->get();
-        // dd($pengajar->detail->nama_lengkap);
         return view('guru.daftar-kelas-guru', compact('users', 'pengajar'));
     }
 
