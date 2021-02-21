@@ -32,8 +32,6 @@
                 <li class="list-pengajar">: {{ strtoupper($detail_pengajar->detail->nip_nisn) }}</li>
               </ul>
       </div>
-      <form action="{{ route('post-input-nilai-siswa') }}" method="POST">
-          @csrf
     <table id="example" class="display" style="width:100%">
         {{-- <p>Siswa yang mengambil kelas ini</p> --}}
         <thead>
@@ -61,8 +59,6 @@
             @endforeach
         </table>
         <div class="row col-sm-12 col-lg-12 justify-content-center my-4">
-            <button type="submit" class="btn btn-primary">Input Nilai Siswa</button>
-            </form>
     </div>
   </div>
 </div>

@@ -66,6 +66,8 @@ class GuruController extends Controller
     {
         $users = session('data_login');
         $pengajar = Pengajar::where('detail_id', $users->detail->id)->firstOrFail();
+        $kelas = Kelas::where('id', $idkelas)->firstOrFail();
+        $matapelajaran = Matapelajaran::where('id', $idmatapelajaran)->firstOrFail();
         $i = 1;
         $k = 1;
         $nilai_request = $request->nilai;
@@ -74,8 +76,8 @@ class GuruController extends Controller
             $nilai = new Nilai;
             $saveNilai = $nilai->create([
                     'kode_pengajar' => $pengajar->kode_pengajar,
-                    'kode_kelas' => $pengajar->kelas->kode_kelas,
-                    'kode_matapelajaran' => $pengajar->matapelajaran->kode_matapelajaran,
+                    'kode_kelas' => $kelas->kode_kelas,
+                    'kode_matapelajaran' => $matapelajaran->kode_matapelajaran,
                     'kode_semester' => $pengajar->semester->kode_semester,
                     'nilai_siswa' => $request->nilai[$i++],
                     'waktu_nilai' => now(),

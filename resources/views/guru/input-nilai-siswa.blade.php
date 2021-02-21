@@ -34,7 +34,7 @@
                 <li class="list-pengajar">: {{ $pengajar->kelas->kelas }}</li>
               </ul>
       </div>
-      <form action="{{ route('post-input-nilai-siswa') }}" method="POST">
+      <form action="{{ route('post-input-nilai-siswa', [$pengajar->kelas->id, $pengajar->matapelajaran->id]) }}" method="POST">
           @csrf
     <table id="example" class="display" style="width:100%">
         {{-- <p>Siswa yang mengambil kelas ini</p> --}}
