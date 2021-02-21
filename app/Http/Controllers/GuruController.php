@@ -60,7 +60,7 @@ class GuruController extends Controller
         $pengajar = Pengajar::where('detail_id', $users->detail->id)->firstOrFail();
         $collect = collect($request->increment);
         $countRequest = $collect->count();
-        // dd($countRequest);
+        // dd($request);
         $i = 1;
         $k = 1;
         $nilai_request = $request->nilai;
@@ -76,7 +76,7 @@ class GuruController extends Controller
                     'kode_kelas' => $pengajar->kelas->kode_kelas,
                     'kode_matapelajaran' => $pengajar->matapelajaran->kode_matapelajaran,
                     'kode_semester' => $pengajar->semester->kode_semester,
-                    'nilai_siswa' => $request->nilai..$i++,
+                    'nilai_siswa' => $request->nilai + $i++,
                     'waktu_nilai' => now(),
                     'tanggal_nilai' => now(),
                     'status_nilai' => 'Aman',
@@ -84,8 +84,9 @@ class GuruController extends Controller
                     'updated_at' => now(),
                 ]);
             $saveNilai->pengajar()->associate($pengajar->id);
-            $saveNilai->detail()->associate($request->idsiswa..$i++);
+            $saveNilai->detail()->associate($request->idsiswa + $i++);
             $saveNilai->save();
+            dump($saveNilai);
         }
         // }
         // dd($saveNilai);
