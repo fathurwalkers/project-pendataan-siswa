@@ -58,8 +58,16 @@ class GuruController extends Controller
     {
         $users = session('data_login');
         $pengajar = Pengajar::where('detail_id', $users->detail->id)->firstOrFail();
-        // $nilai_request = $request->nilai;
-        foreach ($request->nilai as $items) {
+        // $collect = collect($request->increment);
+        // $countRequest = $collect->count();
+        // dd($countRequest);
+        $i = 1;
+        $k = 1;
+        $nilai_request = $request->nilai;
+        // $nilai_request .= $i;
+        $idsiswa_request = $request->idsiswa;
+        // $idsiswa_request .= $k;
+        foreach ($request->increment as $items) {
             // $siswa = Detail::where('role_status', 'siswa')->where('kelas_id', $pengajar->kelas->id)->firstOrFail();
             $nilai = new Nilai;
             $saveNilai = $nilai->create([
@@ -67,7 +75,7 @@ class GuruController extends Controller
                     'kode_kelas' => $pengajar->kelas->kode_kelas,
                     'kode_matapelajaran' => $pengajar->matapelajaran->kode_matapelajaran,
                     'kode_semester' => $pengajar->semester->kode_semester,
-                    'nilai_siswa' => $items,
+                    'nilai_siswa' => $nilai_request[$i++],
                     'waktu_nilai' => now(),
                     'tanggal_nilai' => now(),
                     'status_nilai' => 'Aman',
@@ -75,13 +83,15 @@ class GuruController extends Controller
                     'updated_at' => now(),
                 ]);
             $saveNilai->pengajar()->associate($pengajar->id);
-            // $saveNilai->detail()->associate($request->idsiswa);
+            $saveNilai->detail()->associate($idsiswa_request[$i++]);
+            // $saveNilai->save();
         }
-        foreach ($request->idsiswa as $item) {
-            $saveNilai->detail()->associate($item);
-        }
-        $saveNilai->save();
         dd($saveNilai);
+        die;
+        // $saveNilai->detail()->associate($item);
+
+        // $saveNilai->save();
+        // dd($saveNilai);
         return redirect()->route('daftar-kelas-guru');
     }
 }
