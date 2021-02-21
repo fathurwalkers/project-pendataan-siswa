@@ -67,8 +67,8 @@ class GuruController extends Controller
         // $nilai_request .= $i;
         $idsiswa_request = $request->idsiswa;
         // $idsiswa_request .= $k;
-        for ($j=1;$j>$countRequest;$j++) {
-            // foreach ($request->increment as $items) {
+        // for ($j=1;$j>$countRequest;$j++) {
+        foreach ($request->increment as $items) {
             // $siswa = Detail::where('role_status', 'siswa')->where('kelas_id', $pengajar->kelas->id)->firstOrFail();
             $nilai = new Nilai;
             $saveNilai = $nilai->create([
@@ -76,7 +76,7 @@ class GuruController extends Controller
                     'kode_kelas' => $pengajar->kelas->kode_kelas,
                     'kode_matapelajaran' => $pengajar->matapelajaran->kode_matapelajaran,
                     'kode_semester' => $pengajar->semester->kode_semester,
-                    'nilai_siswa' => $nilai_request.$j,
+                    'nilai_siswa' => $request->nilai.$items,
                     'waktu_nilai' => now(),
                     'tanggal_nilai' => now(),
                     'status_nilai' => 'Aman',
@@ -84,11 +84,11 @@ class GuruController extends Controller
                     'updated_at' => now(),
                 ]);
             $saveNilai->pengajar()->associate($pengajar->id);
-            $saveNilai->detail()->associate($idsiswa_request.$j);
+            $saveNilai->detail()->associate($request->idsiswa.$items);
             $saveNilai->save();
-            // }
         }
-        dd($saveNilai);
+        // }
+        // dd($saveNilai);
         die;
         // $saveNilai->detail()->associate($item);
 
