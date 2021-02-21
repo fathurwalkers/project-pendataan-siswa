@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateNilaisTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('nilai', function (Blueprint $table) {
@@ -34,11 +29,6 @@ class CreateNilaisTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('nilai');
