@@ -90,10 +90,6 @@ class GuruController extends Controller
         // }
         // dd($saveNilai);
         die;
-        // $saveNilai->detail()->associate($item);
-
-        // $saveNilai->save();
-        // dd($saveNilai);
         return redirect()->route('daftar-kelas-guru');
     }
 }
