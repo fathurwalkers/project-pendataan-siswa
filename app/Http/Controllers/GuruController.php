@@ -48,7 +48,6 @@ class GuruController extends Controller
         $users = session('data_login');
         $caripengajar = Pengajar::where('id', $users->detail->id)->get();
         if ($caripengajar->isEmpty()) {
-            // abort(403, 'Halaman yang anda minta tidak ada.');
             return back()->with('tidakditemukan', 'Data pengajar tidak ada untuk Guru ini.');
         }
         $pengajar = Pengajar::where('detail_id', $users->detail->id)->get();
