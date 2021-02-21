@@ -43,18 +43,26 @@ class GuruController extends Controller
         return view('guru.detail-kelas', compact('users', 'pengajar', 'siswa'));
     }
 
-    public function inputNilaiSiswa()
+    public function daftarInputNilai()
+    {
+        $users = session('data_login');
+        $pengajar = Pengajar::where('detail_id', $users->detail->id)->get();
+        $detail_pengajar = Pengajar::where('detail_id', $users->detail->id)->firstOrFail();
+        return view('guru.daftar-input-kelas', compact('users', 'pengajar', 'detail_pengajar'));
+    }
+
+    public function inputNilaiSiswa($idkelas)
     {
         $users = session('data_login');
         $guru_id = $users->detail->id;
-        $pengajar = Pengajar::where('detail_id', $guru_id)->firstOrFail();
-        $kelas_id = $pengajar->kelas->id;
+        $kelas_id = $idkelas;
+        $pengajar = Pengajar::where('detail_id', $guru_id)->where('kelas_id', $kelas_id)->firstOrFail();
         $matapelajaran_id = $pengajar->matapelajaran->id;
         $siswa = Detail::where('role_status', 'siswa')->where('kelas_id', $kelas_id)->get();
         return view('guru.input-nilai-siswa', compact('users', 'pengajar', 'siswa'));
     }
 
-    public function post_inputNilaisiswa(Request $request)
+    public function post_inputNilaisiswa(Request $request, $idkelas, $idmatapelajaran)
     {
         $users = session('data_login');
         $pengajar = Pengajar::where('detail_id', $users->detail->id)->firstOrFail();

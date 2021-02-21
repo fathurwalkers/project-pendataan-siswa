@@ -219,7 +219,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ route('input-nilai-siswa') }}" class="nav-link">
+                                    <a href="{{ route('daftar-input-nilai') }}" class="nav-link">
                                         <i class="far fa fa-bars nav-icon"></i>
                                         <p>Input Nilai</p>
                                     </a>
