@@ -8,6 +8,11 @@ Route::prefix('/')->group(function () {
     })->name('home');
 });
 
+Route::fallback(function () {
+    return "Maaf, halaman tidak ditemukan";
+});
+    
+
 Route::get('/test', 'AdminController@test');
 
 Route::prefix('/dashboard')->group(function () {

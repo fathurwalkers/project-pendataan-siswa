@@ -264,6 +264,11 @@
 
             <!-- Main content -->
             <section class="content">
+                @if (session('tidakditemukan'))
+                    <div class="alert alert-danger">
+                        {{ session('tidakditemukan') }}
+                    </div>
+                @endif
                 @yield('main-content')
             </section>
             <!-- /.content -->

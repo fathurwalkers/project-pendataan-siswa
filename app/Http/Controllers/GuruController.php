@@ -46,17 +46,14 @@ class GuruController extends Controller
     public function daftarInputNilai()
     {
         $users = session('data_login');
+        $caripengajar = Pengajar::where('id', $users->detail->id)->get();
+        if ($caripengajar->isEmpty()) {
+            // abort(403, 'Halaman yang anda minta tidak ada.');
+            return back()->with('tidakditemukan', 'Data pengajar tidak ada untuk Guru ini.');
+        }
         $pengajar = Pengajar::where('detail_id', $users->detail->id)->get();
         $detail_pengajar = Pengajar::where('detail_id', $users->detail->id)->firstOrFail();
-        if ($pengajar) {
-            if ($detail_pengajar) {
-                return view('guru.daftar-input-kelas', compact('users', 'pengajar', 'detail_pengajar'));
-            } else {
-                return redirect()->route('dashboard');
-            }
-        } else {
-            return redirect()->route('dashboard');
-        }
+        return view('guru.daftar-input-kelas', compact('users', 'pengajar', 'detail_pengajar'));
     }
 
     public function inputNilaiSiswa($idkelas)
