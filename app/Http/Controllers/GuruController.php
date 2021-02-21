@@ -58,8 +58,6 @@ class GuruController extends Controller
     {
         $users = session('data_login');
         $pengajar = Pengajar::where('detail_id', $users->detail->id)->firstOrFail();
-        $collect = collect($request->increment);
-        $countRequest = $collect->count();
         $i = 1;
         $k = 1;
         $nilai_request = $request->nilai;
