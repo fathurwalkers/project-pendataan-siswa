@@ -48,7 +48,15 @@ class GuruController extends Controller
         $users = session('data_login');
         $pengajar = Pengajar::where('detail_id', $users->detail->id)->get();
         $detail_pengajar = Pengajar::where('detail_id', $users->detail->id)->firstOrFail();
-        return view('guru.daftar-input-kelas', compact('users', 'pengajar', 'detail_pengajar'));
+        if ($pengajar) {
+            if ($detail_pengajar) {
+                return view('guru.daftar-input-kelas', compact('users', 'pengajar', 'detail_pengajar'));
+            } else {
+                return redirect()->route('dashboard');
+            }
+        } else {
+            return redirect()->route('dashboard');
+        }
     }
 
     public function inputNilaiSiswa($idkelas)
