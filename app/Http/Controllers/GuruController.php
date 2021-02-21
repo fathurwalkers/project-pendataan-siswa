@@ -76,7 +76,7 @@ class GuruController extends Controller
                     'kode_kelas' => $pengajar->kelas->kode_kelas,
                     'kode_matapelajaran' => $pengajar->matapelajaran->kode_matapelajaran,
                     'kode_semester' => $pengajar->semester->kode_semester,
-                    'nilai_siswa' => $request->nilai.$items,
+                    'nilai_siswa' => $request->nilai..$i++,
                     'waktu_nilai' => now(),
                     'tanggal_nilai' => now(),
                     'status_nilai' => 'Aman',
@@ -84,7 +84,7 @@ class GuruController extends Controller
                     'updated_at' => now(),
                 ]);
             $saveNilai->pengajar()->associate($pengajar->id);
-            $saveNilai->detail()->associate($request->idsiswa.$items);
+            $saveNilai->detail()->associate($request->idsiswa..$i++);
             $saveNilai->save();
         }
         // }
