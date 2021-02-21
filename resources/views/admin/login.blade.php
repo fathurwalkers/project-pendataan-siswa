@@ -26,7 +26,11 @@
       </div>
       <div class="card-body">
         <p class="login-box-msg">Masuk ke Sistem Pendataan Siswa</p>
-
+        @if (session('status_fail'))
+            <div class="alert alert-danger">
+                {{ session('status_fail') }}
+            </div>
+        @endif
         <form action="{{ route('postLogin') }}" method="POST">
           @csrf
           <div class="input-group mb-3">
