@@ -31,4 +31,12 @@ class SiswaController extends Controller
         $detail_kelas = Detail::where('kelas_id', $kode_kelas)->get();
         return view('siswa.detail-kelas', compact('users', 'detail_kelas'));
     }
+
+    public function siswaDetailNilai()
+    {
+        $users = session('data_login');
+        $nilai = Nilai::where('detail_id', $users->detail->id)->get();
+        dd($nilai);
+        return view('siswa.detail-nilai-siswa', compact('users', 'nilai'));
+    }
 }
