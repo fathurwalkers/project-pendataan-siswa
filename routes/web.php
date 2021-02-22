@@ -80,6 +80,7 @@ Route::prefix('/dashboard')->group(function () {
         Route::get('/detail-siswa', 'SiswaController@detailSiswa')->middleware('ceklogin')->name('detail-siswa');
         Route::get('/detail-kelas', 'SiswaController@detailKelas')->middleware('ceklogin')->name('detail-kelas');
         Route::get('/detail-nilai-siswa', 'SiswaController@siswaDetailNilai')->middleware('ceklogin')->name('siswa-detail-nilai');
+        Route::get('/detail-absensi-siswa', 'SiswaController@siswaDetailAbsensi')->middleware('ceklogin')->name('siswa-detail-absensi');
     });
 
     // MANAGEMENT UNTUK GURU

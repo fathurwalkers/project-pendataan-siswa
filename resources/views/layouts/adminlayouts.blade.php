@@ -324,6 +324,12 @@
                     </div>
                 @endif
 
+                @if (session('absensi_null'))
+                    <div class="alert alert-danger">
+                        {{ session('absensi_null') }}
+                    </div>
+                @endif
+
                 @yield('main-content')
             </section>
             <!-- /.content -->
