@@ -286,6 +286,12 @@
                                         <p>Lihat Nilai</p>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('siswa-detail-absensi') }}" class="nav-link">
+                                        <i class="far fa fa-bars nav-icon"></i>
+                                        <p>Lihat Riwayat Absensi</p>
+                                    </a>
+                                </li>
                                     @break
 
                             @endswitch
