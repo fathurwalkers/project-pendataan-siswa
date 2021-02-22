@@ -24,7 +24,9 @@
                 <th>Kelas</th>
                 {{-- <th>Kode Pengajar</th> --}}
                 <th>Tahun Ajaran</th>
+                @if ($users->level == 'admin')
                 <th>Kelola</th>
+                @endif
             </tr>
         </thead>
         <tbody>
@@ -37,6 +39,7 @@
                 <td>{{ $a->kelas->kelas }}</td>
                 {{-- <td>{{ $a->kode_pengajar }}</td> --}}
                 <td>{{ $a->semester->tahun_ajaran }}</td>
+                @if ($users->level == 'admin')
                 <td class="text-center btn-group">
                     <a href="{{ route('edit-pengajar', $a->id) }}" class="btn btn-info mx-1">Edit</a>
                     <a href="{{ route('detail-pengajar', $a->id) }}" class="btn btn-success mx-1">Selengkapnya</a>
@@ -46,6 +49,7 @@
                         <button id="tombolhapus" type="submit" class="btn btn-danger mx-1">Hapus</button>
                       </form>
                 </td>
+                @endif
             </tr>
             @endforeach
         </tbody>
