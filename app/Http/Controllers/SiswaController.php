@@ -45,10 +45,10 @@ class SiswaController extends Controller
     public function siswaDetailAbsensi()
     {
         $users = session('data_login');
-        $nilai = Nilai::where('detail_id', $users->detail->id)->get();
-        if ($nilai->isEmpty()) {
-            return back()->with('nilai_null', 'Maaf Nilai untuk siswa ini belum di masukkan!');
+        $absensi = Absensi::where('detail_id', $users->detail->id)->get();
+        if ($absensi->isEmpty()) {
+            return back()->with('absensi_null', 'Maaf absensi untuk siswa ini belum di masukkan!');
         }
-        return view('siswa.detail-nilai-siswa', compact('users', 'nilai'));
+        return view('siswa.detail-absensi-siswa', compact('users', 'absensi'));
     }
 }
