@@ -20,7 +20,9 @@
                 <th>#</th>
                 <th>Kelas</th>
                 {{-- <th>Kode Kelas</th> --}}
+                @if ($users->level == 'admin')
                 <th>Kelola</th>
+                @endif
             </tr>
         </thead>
         <tbody>
@@ -29,9 +31,11 @@
                 <td class="text-center">{{ $loop->iteration }}</td>
                 <td>{{ $a->kelas }}</td>
                 {{-- <td class="text-center">{{ $a->kode_kelas }}</td> --}}
+                @if ($users->level == 'admin')
                 <td class="text-center">  
                     <a href="{{ route('daftar-siswa-kelas', $a->id) }}" class="btn btn-success">Selengkapnya</a>   
                 </td>
+                @endif
             </tr>
             @endforeach
         </tbody>
