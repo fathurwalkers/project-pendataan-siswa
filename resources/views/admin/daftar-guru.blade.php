@@ -22,7 +22,9 @@
                 <th>NISN</th>
                 <th>Jenis Kelamin</th>
                 <th>Telepon</th>
+                @if ($users->level == 'admin')
                 <th>Kelola</th>
+                @endif
             </tr>
         </thead>
         <tbody>
@@ -33,6 +35,7 @@
                 <td>{{ $guru->nip_nisn }}</td>
                 <td>{{ $guru->jenis_kelamin }}</td>
                 <td>{{ $guru->telepon }}</td>
+                @if ($users->level == 'admin')
                 <td class="text-center d-flex">
                   <a href="{{ route('edit-guru', $guru->id) }}" class="btn btn-info mx-1">Edit</a>
                   <a href="{{ route('biodata-guru', $guru->id) }}" class="btn btn-success mx-1">Selengkapnya</a>
@@ -42,6 +45,7 @@
                     <button id="tombolhapus" type="submit" class="btn btn-danger mx-1">Hapus</button>
                   </form>
               </td>
+              @endif
             </tr>
             @endforeach
         </tbody>
