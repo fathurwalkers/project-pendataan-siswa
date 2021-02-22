@@ -280,6 +280,12 @@
                                         <p>Lihat Profil</p>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('siswa-detail-nilai') }}" class="nav-link">
+                                        <i class="far fa fa-bars nav-icon"></i>
+                                        <p>Lihat Nilai</p>
+                                    </a>
+                                </li>
                                     @break
 
                             @endswitch
@@ -305,11 +311,19 @@
 
             <!-- Main content -->
             <section class="content">
+
                 @if (session('tidakditemukan'))
                     <div class="alert alert-danger">
                         {{ session('tidakditemukan') }}
                     </div>
                 @endif
+
+                @if (session('nilai_null'))
+                    <div class="alert alert-danger">
+                        {{ session('nilai_null') }}
+                    </div>
+                @endif
+
                 @yield('main-content')
             </section>
             <!-- /.content -->
