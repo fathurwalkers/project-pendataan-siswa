@@ -24,7 +24,9 @@
                 <th>Telepon</th>
                 <th>Kelas</th>
                 <th>Status</th>
+                @if ($users->level == 'admin')
                 <th>Kelola</th>
+                @endif
             </tr>
         </thead>
         <tbody>
@@ -37,6 +39,7 @@
                 <td>{{ $siswa->telepon }}</td>
                 <td>{{ $siswa->kelas->kelas }}</td>
                 <td>{{ $siswa->siswa_status }}</td>
+                @if ($users->level == 'admin')
                 <td class="text-center d-flex">
                     <a href="{{ route('edit-siswa', $siswa->id) }}" class="btn btn-info mx-1">Edit</a>
                     <a href="{{ route('biodata-siswa', $siswa->id) }}" class="btn btn-success mx-1">Selengkapnya</a>
@@ -46,6 +49,7 @@
                       <button id="tombolhapus" type="submit" class="btn btn-danger mx-1">Hapus</button>
                     </form>
                 </td>
+                @endif
             </tr>
             @endforeach
         </tbody>
