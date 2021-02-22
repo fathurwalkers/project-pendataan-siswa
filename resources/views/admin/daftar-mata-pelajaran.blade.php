@@ -20,7 +20,9 @@
                 <th>#</th>
                 <th>Mata Pelajaran</th>
                 {{-- <th>Kode Mata Pelajaran</th> --}}
+                @if ($users->level == 'admin')
                 <th>Kelola</th>
+                @endif
             </tr>
         </thead>
         <tbody>
@@ -29,6 +31,7 @@
                 <td class="text-center">{{ $loop->iteration }}</td>
                 <td>{{ $mapel->nama_matapelajaran }}</td>
                 {{-- <td class="text-center">{{ $mapel->kode_matapelajaran }}</td> --}}
+                @if ($users->level == 'admin')
                 <td class="text-center btn-group">
                     <a href="{{ route('edit-matapelajaran', $mapel->id) }}" class="btn btn-info">Edit</a>    
                     {{-- <a href="#" class="btn btn-success">Detail</a>     --}}
@@ -38,6 +41,7 @@
                       <button id="tombolhapus" type="submit" class="btn btn-danger mx-1">Hapus</button>
                     </form>  
                 </td>
+                @endif
             </tr>
             @endforeach
         </tbody>
