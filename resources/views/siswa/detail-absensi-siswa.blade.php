@@ -1,14 +1,14 @@
 @extends('layouts.adminlayouts')
 
-@section('title', 'Daftar Informasi Nilai Siswa - Sistem Pendataan Guru')
+@section('title', 'Daftar Informasi Absensi - Sistem Pendataan Guru')
 
-@section('header-text', 'Daftar Informasi Nilai Siswa')
+@section('header-text', 'Daftar Informasi Absensi')
 
 @section('main-content')
 <!-- Default box -->
 <div class="card">
   <div class="card-header">
-    <h3 class="card-title">Daftar Informasi Nilai Siswa</h3>
+    <h3 class="card-title">Daftar Informasi Absensi Siswa</h3>
     <div class="card-tools">
       <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
         <i class="fas fa-minus"></i>
@@ -19,7 +19,7 @@
     </div>
   </div>
   <div class="card-body">
-    <table id="example" class="display" style="width:100%">
+    {{-- <table id="example" class="display" style="width:100%">
         <thead>
             <tr>
                 <th>#</th>
@@ -29,15 +29,15 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($nilai as $item)
+            @foreach ($detail_kelas as $item)
             <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td>{{ $item->detail->kelas->kelas }}</td>
-                <td>{{ $item->detail->nama_lengkap }}</td>
-                <td>{{ $item->pengajar->matapelajaran->nama_matapelajaran }}</td>
+                <td>{{ $item->kelas->kelas }}</td>
+                <td>{{ $item->nama_lengkap }}</td>
+                <td>{{ $item->kelas->kode_kelas }}</td>
             </tr>
             @endforeach
-    </table>
+    </table> --}}
   </div>
   <!-- /.card-body -->
   {{-- <div class="card-footer">
