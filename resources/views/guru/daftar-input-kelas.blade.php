@@ -53,7 +53,7 @@
                 <td>{{ $item->kelas->kelas }}</td>
                 <td>{{ $item->matapelajaran->nama_matapelajaran }}</td>
                 <td class="text-center">
-                    <a href="{{ route('input-nilai-siswa', $item->kelas->id) }}" class="btn btn-info">Input Nilai Kelas ini</a>
+                    <a href="{{ route('input-nilai-siswa', [$item->kelas->id, $item->matapelajaran->id]) }}" class="btn btn-info">Input Nilai Kelas ini</a>
                 </td>
             </tr>
             @endforeach

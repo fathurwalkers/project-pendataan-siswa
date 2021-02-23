@@ -25,16 +25,16 @@
                 <th>#</th>
                 <th>Kelas</th>
                 <th>Nama Siswa</th>
-                {{-- <th>Matapelajaran</th> --}}
+                <th>Matapelajaran</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($pengajar as $item)
+            @foreach ($nilai as $item)
             <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td>{{ $item->kelas->kelas }}</td>
+                <td>{{ $item->detail->kelas->kelas }}</td>
                 <td>{{ $item->detail->nama_lengkap }}</td>
-                {{-- <td>{{ $item->detail->pengajar->nama_matapelajaran }}</td> --}}
+                <td>{{ $item->matapelajaran->nama_matapelajaran }}</td>
             </tr>
             @endforeach
     </table>

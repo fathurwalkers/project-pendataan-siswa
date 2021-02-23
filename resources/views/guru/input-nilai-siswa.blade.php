@@ -1,8 +1,8 @@
 @extends('layouts.adminlayouts')
 
-@section('title', 'Informasi Detail Pengajar - Sistem Pendataan Siswa')
+@section('title', 'Informasi Detail Nilai Siswa - Sistem Pendataan Siswa')
 
-@section('header-text', 'Informasi Detail Pengajar')
+@section('header-text', 'Informasi Detail Nilai Siswa')
 
 @section('after-css')
     <style>
@@ -36,6 +36,7 @@
       </div>
       <form action="{{ route('post-input-nilai-siswa', [$pengajar->kelas->id, $pengajar->matapelajaran->id]) }}" method="POST">
           @csrf
+          <input type="hidden" value="{{ $pengajar->matapelajaran->id }}" name="matapelajaranid">
     <table id="example" class="display" style="width:100%">
         {{-- <p>Siswa yang mengambil kelas ini</p> --}}
         <thead>

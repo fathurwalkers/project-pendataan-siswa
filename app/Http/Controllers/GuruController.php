@@ -46,21 +46,21 @@ class GuruController extends Controller
     {
         $users = session('data_login');
         $caripengajar = Pengajar::where('id', $users->detail->id)->get();
-        if ($caripengajar->isEmpty()) {
-            return back()->with('tidakditemukan', 'Data pengajar tidak ada untuk Guru ini.');
-        }
         $pengajar = Pengajar::where('detail_id', $users->detail->id)->get();
         $detail_pengajar = Pengajar::where('detail_id', $users->detail->id)->firstOrFail();
+        if (!$caripengajar) {
+            return back()->with('tidakditemukan', 'Data pengajar tidak ada untuk Guru ini.');
+        }
         return view('guru.daftar-input-kelas', compact('users', 'pengajar', 'detail_pengajar'));
     }
 
-    public function inputNilaiSiswa($idkelas)
+    public function inputNilaiSiswa($idkelas, $idmatapelajaran)
     {
         $users = session('data_login');
         $guru_id = $users->detail->id;
         $kelas_id = $idkelas;
-        $pengajar = Pengajar::where('detail_id', $guru_id)->where('kelas_id', $kelas_id)->firstOrFail();
-        $matapelajaran_id = $pengajar->matapelajaran->id;
+        $matapelajaran_id = $idmatapelajaran;
+        $pengajar = Pengajar::where('detail_id', $guru_id)->where('kelas_id', $kelas_id)->where('matapelajaran_id', $matapelajaran_id)->firstOrFail();
         $siswa = Detail::where('role_status', 'siswa')->where('kelas_id', $kelas_id)->get();
         return view('guru.input-nilai-siswa', compact('users', 'pengajar', 'siswa'));
     }
@@ -68,9 +68,10 @@ class GuruController extends Controller
     public function post_inputNilaisiswa(Request $request, $idkelas, $idmatapelajaran)
     {
         $users = session('data_login');
-        $pengajar = Pengajar::where('detail_id', $users->detail->id)->firstOrFail();
+        $matapelajaran_id = $idmatapelajaran;
+        $pengajar = Pengajar::where('detail_id', $users->detail->id)->where('kelas_id', $idkelas)->where('matapelajaran_id', $matapelajaran_id)->firstOrFail();
         $kelas = Kelas::where('id', $idkelas)->firstOrFail();
-        $matapelajaran = Matapelajaran::where('id', $idmatapelajaran)->firstOrFail();
+        $matapelajaran = Matapelajaran::where('id', $request->matapelajaranid)->firstOrFail();
         $i = 1;
         $k = 1;
         $nilai_request = $request->nilai;
@@ -90,10 +91,11 @@ class GuruController extends Controller
                     'updated_at' => now(),
                 ]);
             $saveNilai->pengajar()->associate($pengajar->id);
-            $saveNilai->matapelajaran()->associate($matapelajaran->id);
+            $saveNilai->matapelajaran()->associate($pengajar->matapelajaran->id);
             $saveNilai->detail()->associate($request->idsiswa[$k++]);
             $saveNilai->save();
         }
+        dd($saveNilai);
         return redirect()->route('daftar-kelas-guru');
     }
 }
