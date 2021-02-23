@@ -98,7 +98,6 @@ class GuruController extends Controller
             $saveNilai->detail()->associate($request->idsiswa[$k++]);
             $saveNilai->save();
         }
-        dd($saveNilai);
         return redirect()->route('daftar-kelas-guru');
     }
 }
