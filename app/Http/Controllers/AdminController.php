@@ -52,6 +52,8 @@ class AdminController extends Controller
     {
         $users = session('data_login');
         $detail_siswa = Detail::where('role_status', 'siswa')->get()->count();
+        $detail_guru = Detail::where('role_status', 'guru')->get()->count();
+        $detail_kelas = Kelas::all()->count();
         return view('admin.index', [
             'users' => $users,
             'detail_siswa' => $detail_siswa
