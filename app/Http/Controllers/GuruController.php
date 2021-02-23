@@ -90,6 +90,7 @@ class GuruController extends Controller
                     'updated_at' => now(),
                 ]);
             $saveNilai->pengajar()->associate($pengajar->id);
+            $saveNilai->matapelajaran()->associate($matapelajaran->id);
             $saveNilai->detail()->associate($request->idsiswa[$k++]);
             $saveNilai->save();
         }

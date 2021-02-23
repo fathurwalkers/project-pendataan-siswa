@@ -14,4 +14,9 @@ class Matapelajaran extends Model
     {
         return $this->hasMany('App\Pengajar');
     }
+
+    public function nilai()
+    {
+        return $this->hasMany('App\Nilai');
+    }
 }

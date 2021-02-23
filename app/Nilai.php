@@ -18,4 +18,9 @@ class Nilai extends Model
     {
         return $this->belongsTo('App\Detail');
     }
+
+    public function matapelajaran()
+    {
+        return $this->belongsTo('App\Matapelajaran');
+    }
 }

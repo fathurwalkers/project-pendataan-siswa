@@ -20,8 +20,10 @@ class CreateNilaisTable extends Migration
             $table->date('tanggal_nilai');
             $table->string('status_nilai');
 
+            $table->unsignedBigInteger('matapelajaran_id')->nullable();
             $table->unsignedBigInteger('pengajar_id')->nullable();
             $table->unsignedBigInteger('detail_id')->nullable();
+            $table->foreign('matapelajaran_id')->references('id')->on('matapelajaran');
             $table->foreign('pengajar_id')->references('id')->on('pengajar');
             $table->foreign('detail_id')->references('id')->on('detail');
 

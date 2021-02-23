@@ -29,10 +29,10 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($nilai as $item)
+            @foreach ($pengajar as $item)
             <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td>{{ $item->detail->kelas->kelas }}</td>
+                <td>{{ $item->kelas->kelas }}</td>
                 <td>{{ $item->detail->nama_lengkap }}</td>
                 {{-- <td>{{ $item->detail->pengajar->nama_matapelajaran }}</td> --}}
             </tr>

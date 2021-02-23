@@ -36,13 +36,13 @@ class SiswaController extends Controller
     {
         $users = session('data_login');
         $nilai = Nilai::where('detail_id', $users->detail->id)->get();
-        // $pengajar = Pengajar::where('id', $nilai->pengajar_id)->get();
+        $pengajar = Pengajar::where('kelas_id', $users->detail->kelas->id)->get();
         if ($nilai->isEmpty()) {
             return back()->with('nilai_null', 'Maaf Nilai untuk siswa ini belum di masukkan!');
         }
         // dump($nilai);
         // dd($pengajar);
-        return view('siswa.detail-nilai-siswa', compact('users', 'nilai'));
+        return view('siswa.detail-nilai-siswa', compact('users', 'nilai', 'pengajar'));
     }
 
     public function siswaDetailAbsensi()
