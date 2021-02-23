@@ -26,6 +26,7 @@
                 <th>Kelas</th>
                 <th>Nama Siswa</th>
                 <th>Matapelajaran</th>
+                <th>Nilai Siswa</th>
             </tr>
         </thead>
         <tbody>
@@ -35,6 +36,7 @@
                 <td>{{ $item->detail->kelas->kelas }}</td>
                 <td>{{ $item->detail->nama_lengkap }}</td>
                 <td>{{ $item->matapelajaran->nama_matapelajaran }}</td>
+                <td>{{ number_format($item->nilai_siswa) }}</td>
             </tr>
             @endforeach
     </table>
