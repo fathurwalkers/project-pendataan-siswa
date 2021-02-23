@@ -14,7 +14,7 @@
     </div>
   </div>
   <div class="card-body">
-    <table id="example" class="display" style="width:100%">
+    <table id="example" class="display col-sm-4 col-lg-12" style="">
         <thead>
             <tr>
                 <th>#</th>

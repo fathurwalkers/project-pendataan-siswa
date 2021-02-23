@@ -15,6 +15,11 @@
   <link rel="stylesheet" href="{{ asset('vendor/adminlte/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('vendor/adminlte/dist/css/adminlte.min.css') }}">
+  <style>
+    .icheck-primary {
+      display: none;
+    }
+  </style>
 </head>
 
 <body class="hold-transition login-page">
@@ -69,9 +74,9 @@
         {{-- <p class="mb-1">
           <a href="forgot-password.html">I forgot my password</a>
         </p> --}}
-        <p class="mb-0">
+        {{-- <p class="mb-0">
           <a href="{{ route('register') }}" class="text-center badge badge-info">Daftar Akun Baru</a>
-        </p>
+        </p> --}}
       </div>
       <!-- /.card-body -->
     </div>

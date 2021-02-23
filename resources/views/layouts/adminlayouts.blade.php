@@ -317,7 +317,7 @@
 
             <!-- Main content -->
             <section class="content">
-
+                
                 @if (session('tidakditemukan'))
                     <div class="alert alert-danger">
                         {{ session('tidakditemukan') }}
