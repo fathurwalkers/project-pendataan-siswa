@@ -29,11 +29,11 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="{{ route('dashboard') }}" class="nav-link btn btn-success text-white mx-2">Dashboard</a>
+                    <a href="{{ route('dashboard') }}" class="nav-link btn btn-success text-white mx-2">Beranda</a>
                 </li>
-                <li class="nav-item d-none d-sm-inline-block">
+                {{-- <li class="nav-item d-none d-sm-inline-block">
                     <a href="{{ url('/') }}" class="nav-link btn btn-info text-white mx-2">Homepage</a>
-                </li>
+                </li> --}}
             </ul>
 
             <!-- Right navbar links -->
