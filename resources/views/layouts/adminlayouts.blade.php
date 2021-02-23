@@ -325,9 +325,9 @@
                 @endif
 
                 @if (session('nilai_null'))
-                    <div class="alert alert-danger">
-                        {{ session('nilai_null') }}
-                    </div>
+                <div class="alert alert-danger">
+                    {{ session('nilai_null') }}
+                </div>
                 @endif
 
                 @if (session('absensi_null'))
