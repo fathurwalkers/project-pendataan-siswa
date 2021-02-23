@@ -28,7 +28,7 @@ class GuruController extends Controller
         $users = session('data_login');
         $pengajar_id = $users->detail->id;
         $pengajar = Pengajar::where('detail_id', $pengajar_id)->get();
-        if (!$pengajar) {
+        if ($pengajar->isEmpty()) {
             return back()->with('tdkadakelas', 'Data Kelas pada Guru ini tidak ada!');
         }
         return view('guru.daftar-kelas-guru', compact('users', 'pengajar'));
@@ -48,13 +48,14 @@ class GuruController extends Controller
     public function daftarInputNilai()
     {
         $users = session('data_login');
-        $caripengajar = Pengajar::where('id', $users->detail->id)->get();
-        $pengajar = Pengajar::where('detail_id', $users->detail->id)->get();
-        $detail_pengajar = Pengajar::where('detail_id', $users->detail->id)->firstOrFail();
-        if (!$caripengajar) {
+        $caripengajar = Pengajar::where('id', $users->detail->id)->get()->count();
+        if (!$caripengajar == null) {
+            $pengajar = Pengajar::where('detail_id', $users->detail->id)->get();
+            $detail_pengajar = Pengajar::where('detail_id', $users->detail->id)->firstOrFail();
+            return view('guru.daftar-input-kelas', compact('users', 'pengajar', 'detail_pengajar'));
+        } else {
             return back()->with('tidakditemukan', 'Data pengajar tidak ada untuk Guru ini.');
         }
-        return view('guru.daftar-input-kelas', compact('users', 'pengajar', 'detail_pengajar'));
     }
 
     public function inputNilaiSiswa($idkelas, $idmatapelajaran)

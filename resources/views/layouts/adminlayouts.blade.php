@@ -336,6 +336,12 @@
                     </div>
                 @endif
 
+                @if (session('tdkadakelas'))
+                    <div class="alert alert-danger">
+                        {{ session('tdkadakelas') }}
+                    </div>
+                @endif
+
                 @yield('main-content')
             </section>
             <!-- /.content -->
