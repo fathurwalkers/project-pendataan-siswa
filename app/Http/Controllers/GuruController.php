@@ -28,6 +28,9 @@ class GuruController extends Controller
         $users = session('data_login');
         $pengajar_id = $users->detail->id;
         $pengajar = Pengajar::where('detail_id', $pengajar_id)->get();
+        if (!$pengajar) {
+            return back()->with('tdkadakelas', 'Data Kelas pada Guru ini tidak ada!');
+        }
         return view('guru.daftar-kelas-guru', compact('users', 'pengajar'));
     }
 
