@@ -48,9 +48,9 @@
           <div class="col-md-12 col-lg-3">
             <div class="small-box bg-warning mx-2">
               <div class="inner">
-                <h3>44</h3>
+                <h3>{{ $detail_kelas }}</h3>
   
-                <p>Total Siswa</p>
+                <p>Total Kelas</p>
               </div>
               <div class="icon">
                 <i class="fas fa-user-plus"></i>
