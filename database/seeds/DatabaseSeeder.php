@@ -46,7 +46,7 @@ class DatabaseSeeder extends Seeder
         $token = Str::random(16);
         $level = "admin";
         Login::create([
-            'email' => 'fathurwalkers44@gmail.com',
+            'email' => 'admin@smp39.com',
             'username' => 'admin',
             'password' => $hashPassword,
             'level' => $level,
@@ -80,8 +80,6 @@ class DatabaseSeeder extends Seeder
                 'updated_at' => now()
             ]);
         }
-
-
         
         // SEED DATA SISWA
         $kelas = Kelas::all();
@@ -156,6 +154,10 @@ class DatabaseSeeder extends Seeder
         $id_detailbaru = intval($saveGuru->id);
         $login_guru->detail()->associate($id_detailbaru);
         $login_guru->save();
+        
+        //
+
+        // --------------------------------------------------------------------
 
         
         // SEED DATA KEPALA SEKOLAH
