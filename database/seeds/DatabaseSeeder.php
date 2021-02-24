@@ -269,7 +269,7 @@ class DatabaseSeeder extends Seeder
         // ----------------------------------------------------------------------------
 
         // SEED DATA SEMESTER
-        $nipkepsek = Detail::where('role_status', 'kepsek')->firstOrFail();
+        $nipkepsek = Detail::where('role_status', 'kepsek')->where('nip_nisn', '19661231199103 1 094')->firstOrFail();
         $tahun_ajaran = [
             '2020/2021',
             '2021/2022'
