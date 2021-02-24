@@ -28,11 +28,18 @@ class GuruController extends Controller
         $users = session('data_login');
         $pengajar_id = $users->detail->id;
         $cariPengajarKelas = Pengajar::where('detail_id', $pengajar_id)->get();
-        if ($cariPengajarKelas->isEmpty()) {
-            return redirect()->route('dashboard')->with('tdkadakelas', 'Data Kelas pada Guru ini tidak ada!');
+        // if ($cariPengajarKelas->isEmpty()) {
+        //     return redirect()->route('dashboard')->with('tdkadakelas', 'Data Kelas pada Guru ini tidak ada!');
+        // }
+        switch ($cariPengajarKelas) {
+            case $cariPengajarKelas->isEmpty():
+                return redirect()->route('dashboard')->with('tdkadakelas', 'Data Kelas pada Guru ini tidak ada!');
+                break;
+            case $cariPengajarKelas->isNotEmpty():
+                $pengajar = Pengajar::where('detail_id', $pengajar_id)->get();
+                return view('guru.daftar-kelas-guru', compact('users', 'pengajar'));
+                break;
         }
-        $pengajar = Pengajar::where('detail_id', $pengajar_id)->get();
-        return view('guru.daftar-kelas-guru', compact('users', 'pengajar'));
     }
 
     public function informasiDetailKelas($idpengajar, $idmatapelajaran)
