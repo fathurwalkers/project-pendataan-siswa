@@ -77,6 +77,10 @@ class GuruController extends Controller
         $matapelajaran = Matapelajaran::where('id', $request->matapelajaranid)->firstOrFail();
         $i = 1;
         $k = 1;
+        $tugas_req = 1;
+        $absensi_req = 1;
+        $uts_req = 1;
+        $uas_req = 1;
         $nilai_request = $request->nilai;
         $idsiswa_request = $request->idsiswa;
         foreach ($request->increment as $items) {
@@ -86,7 +90,11 @@ class GuruController extends Controller
                     'kode_kelas' => $kelas->kode_kelas,
                     'kode_matapelajaran' => $matapelajaran->kode_matapelajaran,
                     'kode_semester' => $pengajar->semester->kode_semester,
-                    'nilai_siswa' => $request->nilai[$i++],
+                    'nilai_siswa_tugas' => $request->nilai_siswa_tugas[$tugas_req++],
+                    'nilai_siswa_absensi' => $request->nilai_siswa_absensi[$absensi_req++],
+                    'nilai_siswa_uts' => $request->nilai_siswa_uts[$uts_req++],
+                    'nilai_siswa_uas' => $request->nilai_siswa_uas[$uas_req++],
+                    'nilai_ratarata' => null,
                     'waktu_nilai' => now(),
                     'tanggal_nilai' => now(),
                     'status_nilai' => 'Aman',
@@ -97,6 +105,16 @@ class GuruController extends Controller
             $saveNilai->matapelajaran()->associate($pengajar->matapelajaran->id);
             $saveNilai->detail()->associate($request->idsiswa[$k++]);
             $saveNilai->save();
+            $nilaiBaru = Nilai::where('id', $saveNilai->id)->firstOrFail();
+            $tugas = intval($nilaiBaru->nilai_siswa_tugas);
+            $absensi = intval($nilaiBaru->nilai_siswa_absensi);
+            $uts = intval($nilaiBaru->nilai_siswa_uts);
+            $uas = intval($nilaiBaru->nilai_siswa_uas);
+            $nilaiRatarata = $tugas + $absensi + $uts + $uas;
+            $cariNilaiBaru = Nilai::where('id', $nilaiBaru->id)->update([
+                'nilai_ratarata' => $nilaiRatarata,
+                'updated_at' => now()
+            ]);
         }
         return redirect()->route('daftar-kelas-guru');
     }

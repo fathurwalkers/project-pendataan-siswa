@@ -64,9 +64,9 @@
                 <td>{{ $item->kelas->kelas }}</td>
                 <td>
                     <input type="text" name="nilai_siswa_tugas[{{$tugas++}}]" placeholder="Nilai Tugas...">
-                    <input type="text" name="nilai_siswa_absensi[{{$absensi++}}]" placeholder="Nilai Tugas...">
-                    <input type="text" name="nilai_siswa_uts[{{$uts++}}]" placeholder="Nilai Tugas...">
-                    <input type="text" name="nilai_siswa_uas[{{$uas++}}]" placeholder="Nilai Tugas...">
+                    <input type="text" name="nilai_siswa_absensi[{{$absensi++}}]" placeholder="Nilai Absensi...">
+                    <input type="text" name="nilai_siswa_uts[{{$uts++}}]" placeholder="Nilai UTS...">
+                    <input type="text" name="nilai_siswa_uas[{{$uas++}}]" placeholder="Nilai UAS...">
                     <input type="hidden" name="idsiswa[{{$j++}}]" value="{{ $item->id }}">
                     <input type="hidden" name="increment[{{$k++}}]" value="{{ $o++ }}">
                 </td>
