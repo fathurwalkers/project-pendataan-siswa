@@ -49,10 +49,13 @@
             </tr>
         </thead>
         <tbody class="table-bordered border-1">
-          {{ $i = 1 }}
           {{ $j = 1 }}
           {{ $k = 1 }}
           {{ $o = 1 }}
+          {{ $uas = 1 }}
+          {{ $uts = 1 }}
+          {{ $tugas = 1 }}
+          {{ $absensi = 1 }}
             @foreach ($siswa as $item)
             <tr>
                 <td class="text-center">{{ $loop->iteration }}</td>
@@ -60,7 +63,10 @@
                 <td>{{ $item->nip_nisn }}</td>
                 <td>{{ $item->kelas->kelas }}</td>
                 <td>
-                    <input type="text" name="nilai[{{$i++}}]" placeholder="Masukkan Nilai Siswa...">
+                    <input type="text" name="nilai_siswa_tugas[{{$tugas++}}]" placeholder="Nilai Tugas...">
+                    <input type="text" name="nilai_siswa_absensi[{{$absensi++}}]" placeholder="Nilai Tugas...">
+                    <input type="text" name="nilai_siswa_uts[{{$uts++}}]" placeholder="Nilai Tugas...">
+                    <input type="text" name="nilai_siswa_uas[{{$uas++}}]" placeholder="Nilai Tugas...">
                     <input type="hidden" name="idsiswa[{{$j++}}]" value="{{ $item->id }}">
                     <input type="hidden" name="increment[{{$k++}}]" value="{{ $o++ }}">
                 </td>
