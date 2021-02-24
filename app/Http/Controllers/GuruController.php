@@ -50,14 +50,6 @@ class GuruController extends Controller
     {
         $users = session('data_login');
         $caripengajar = Pengajar::where('detail_id', $users->detail->id)->get();
-        // if ($caripengajar) {
-        //     $pengajar = Pengajar::where('detail_id', $users->detail->id)->get();
-        //     $detail_pengajar = Pengajar::where('detail_id', $users->detail->id)->firstOrFail();
-        //     return view('guru.daftar-input-kelas', compact('users', 'pengajar', 'detail_pengajar'));
-        // } else {
-        //     return redirect()->route('dashboard')->with('tidakditemukan', 'Data pengajar tidak ada untuk Guru ini.');
-        // }
-        // dd($caripengajar);
         switch ($caripengajar) {
             case $caripengajar->isEmpty():
                 return redirect()->route('dashboard')->with('tidakditemukan', 'Data pengajar tidak ada untuk Guru ini.');
