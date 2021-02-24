@@ -15,7 +15,10 @@ class CreateNilaisTable extends Migration
             $table->string('kode_kelas');
             $table->string('kode_matapelajaran');
             $table->string('kode_semester');
-            $table->string('nilai_siswa');
+            $table->string('nilai_siswa_tugas');
+            $table->string('nilai_siswa_absen');
+            $table->string('nilai_siswa_uts');
+            $table->string('nilai_siswa_uas');
             $table->time('waktu_nilai');
             $table->date('tanggal_nilai');
             $table->string('status_nilai');

@@ -37,19 +37,18 @@
       <form action="{{ route('post-input-nilai-siswa', [$pengajar->kelas->id, $pengajar->matapelajaran->id]) }}" method="POST">
           @csrf
           <input type="hidden" value="{{ $pengajar->matapelajaran->id }}" name="matapelajaranid">
-    <table id="example" class="display" style="width:100%">
+    <table id="" class="table">
         {{-- <p>Siswa yang mengambil kelas ini</p> --}}
-        <thead>
+        <thead class="thead-dark table-bordered border-1">
             <tr>
                 <th>#</th>
                 <th>Nama Siswa</th>
                 <th>NISN</th>
                 <th>Kelas</th>
-                <th>Status</th>
                 <th>Input Nilai Siswa</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="table-bordered border-1">
           {{ $i = 1 }}
           {{ $j = 1 }}
           {{ $k = 1 }}
@@ -60,7 +59,6 @@
                 <td>{{ $item->nama_lengkap }}</td>
                 <td>{{ $item->nip_nisn }}</td>
                 <td>{{ $item->kelas->kelas }}</td>
-                <td>{{ $item->siswa_status }}</td>
                 <td>
                     <input type="text" name="nilai[{{$i++}}]" placeholder="Masukkan Nilai Siswa...">
                     <input type="hidden" name="idsiswa[{{$j++}}]" value="{{ $item->id }}">
