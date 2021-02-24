@@ -192,15 +192,85 @@ class DatabaseSeeder extends Seeder
         $login_kepsek->detail()->associate($id_detailbaru);
         $login_kepsek->save();
 
+        //
+
+        $detail_kepsek = new Detail;
+        $role_status = 'kepsek';
+        $gambarfaker = 'image/image-hmDRkX.png';
+        $savekepsek = $detail_kepsek->create([
+            'nama_lengkap' => 'La Dadi, S.Pd',
+            'nip_nisn' => '19661231199103 1 094',
+            'jenis_kelamin' => 'Laki-laki',
+            'alamat' => 'alamat belum di masukkan',
+            'telepon' => 'nomor telepon belum ada.',
+            'foto' => $gambarfaker,
+            'role_status' => $role_status,
+            'siswa_status' => 'Kepala Sekolah / GT',
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        $savekepsek->save();
+        $login_kepsek = new Login;
+        $passwordkepsek = 'la_dadi';
+        $userkepsek = 'la_dadi';
+        $token = Str::random(16);
+        $level = "kepsek";
+        
+        $login_kepsek = Login::create([
+            'email' => $userkepsek.'@smp39.com',
+            'username' => $userkepsek,
+            'password' => $passwordkepsek,
+            'level' => $level,
+            'token' => $token,
+            'created_at' => now(),
+            'updated_at' => now()
+            ]);
+        $id_detailbaru = intval($savekepsek->id);
+        $login_kepsek->detail()->associate($id_detailbaru);
+        $login_kepsek->save();
+
+        //
+
+        $detail_kepsek = new Detail;
+        $role_status = 'kepsek';
+        $gambarfaker = 'image/image-hmDRkX.png';
+        $savekepsek = $detail_kepsek->create([
+            'nama_lengkap' => 'Rukiani Habo, S.Pd ',
+            'nip_nisn' => '19740116201101 2 002',
+            'jenis_kelamin' => 'Laki-laki',
+            'alamat' => 'alamat belum di masukkan.',
+            'telepon' => 'nomor telepon belum ada.',
+            'foto' => $gambarfaker,
+            'role_status' => $role_status,
+            'siswa_status' => 'Wakil Kepala Sekolah / GT',
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        $savekepsek->save();
+        $login_kepsek = new Login;
+        $passwordkepsek = 'rukiani_habo';
+        $userkepsek = 'rukiano_habo';
+        $token = Str::random(16);
+        $level = "kepsek";
+        
+        $login_kepsek = Login::create([
+            'email' => $userkepsek.'@smp39.com',
+            'username' => $userkepsek,
+            'password' => $passwordkepsek,
+            'level' => $level,
+            'token' => $token,
+            'created_at' => now(),
+            'updated_at' => now()
+            ]);
+        $id_detailbaru = intval($savekepsek->id);
+        $login_kepsek->detail()->associate($id_detailbaru);
+        $login_kepsek->save();
+
+        // ----------------------------------------------------------------------------
+
         // SEED DATA SEMESTER
         $nipkepsek = Detail::where('role_status', 'kepsek')->firstOrFail();
         $tahun_ajaran = [
-            '2010/2011',
-            '2011/2012',
-            '2013/2014',
-            '2014/2016',
-            '2017/2018',
-            '2019/2020',
             '2020/2021',
             '2021/2022'
         ];
