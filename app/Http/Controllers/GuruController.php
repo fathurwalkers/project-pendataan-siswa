@@ -28,9 +28,6 @@ class GuruController extends Controller
         $users = session('data_login');
         $pengajar_id = $users->detail->id;
         $cariPengajarKelas = Pengajar::where('detail_id', $pengajar_id)->get();
-        // if ($cariPengajarKelas->isEmpty()) {
-        //     return redirect()->route('dashboard')->with('tdkadakelas', 'Data Kelas pada Guru ini tidak ada!');
-        // }
         switch ($cariPengajarKelas) {
             case $cariPengajarKelas->isEmpty():
                 return redirect()->route('dashboard')->with('tdkadakelas', 'Data Kelas pada Guru ini tidak ada!');
