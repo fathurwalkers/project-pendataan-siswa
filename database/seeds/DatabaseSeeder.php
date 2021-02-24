@@ -16,18 +16,20 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create('id_ID');
+
+        // SEED DATA MATAPELAJARAN
         $array_mapel = [
             'Matematika',
             'Bahasa Indonesia',
             'Bahasa Inggris',
-            'Fisika',
-            'Kimia',
-            'Sejarah',
+            'SBK',
+            'IPS',
+            'IPA',
+            'Prakarya',
             'Pendidikan Agama Islam',
             'Pendidikan Kewarganegaraan',
-            'Kewirausahaan',
-            'Penjaskes',
-            'Biologi'
+            'BK',
+            'Penjaskes'
         ];
         foreach ($array_mapel as $item) {
             Matapelajaran::create([
