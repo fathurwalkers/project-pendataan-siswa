@@ -450,7 +450,7 @@ class AdminController extends Controller
         
         $login_siswa = Login::create([
             'email' => $userSiswa.'@localhost.com',
-            'username' => $userSiswa,
+            'username' => $passwordSiswa,
             'password' => $passwordSiswa,
             'level' => $level,
             'token' => $token,
@@ -494,7 +494,7 @@ class AdminController extends Controller
         
         $login_guru = Login::create([
             'email' => $userGuru.'@aplikasi.com',
-            'username' => $userGuru,
+            'username' => $passwordGuru,
             'password' => $passwordGuru,
             'level' => $level,
             'token' => $token,
