@@ -38,14 +38,14 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-        $hashPassword = Hash::make('jancok', [
+        $hashPassword = Hash::make('admin', [
             'rounds' => 12,
         ]);
         $token = Str::random(16);
         $level = "admin";
         Login::create([
             'email' => 'fathurwalkers44@gmail.com',
-            'username' => 'fathurwalkers',
+            'username' => 'admin',
             'password' => $hashPassword,
             'level' => $level,
             'token' => $token,
@@ -192,6 +192,7 @@ class DatabaseSeeder extends Seeder
         $login_kepsek->detail()->associate($id_detailbaru);
         $login_kepsek->save();
 
+        // SEED DATA SEMESTER
         $nipkepsek = Detail::where('role_status', 'kepsek')->firstOrFail();
         $tahun_ajaran = [
             '2010/2011',
