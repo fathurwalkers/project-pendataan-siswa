@@ -315,7 +315,7 @@ class AdminController extends Controller
         $users = session('data_login');
         $semester = Semester::all();
         $kelas = Kelas::all();
-        $guru = Detail::where('role_status', 'guru')->get();
+        $guru = Detail::whereIn('role_status', ['guru', 'kepsek'])->get();
         $matapelajaran = Matapelajaran::all();
         return view('admin.tambah-pengajar', compact(
             'users',
@@ -475,7 +475,7 @@ class AdminController extends Controller
         $saveDetail = $detail_guru->create([
             'nama_lengkap' => $request->nama_lengkap,
             'nip_nisn' => $request->nip_nisn,
-            'jenis_kelamin' => $request->jenis_kelamin,
+            'jenis_kelamin' => 'Belum di input',
             'alamat' => $request->alamat,
             'telepon' => $request->telepon,
             'foto' => $pathGambar,

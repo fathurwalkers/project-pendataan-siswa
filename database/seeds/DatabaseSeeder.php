@@ -56,21 +56,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $arraykelas = [
-            'VII A',
-            'VII B',
-            'VII C',
-            'VII D',
-            'VII E',
-            'VIII A',
-            'VIII B',
-            'VIII C',
-            'VIII D',
-            'VIII E',
-            'IX A',
-            'IX B',
-            'IX C',
-            'IX D',
-            'IX E'
+            'VII',
+            'VIII',
+            'IX'
         ];
         foreach ($arraykelas as $itemkelas) {
             Kelas::create([
