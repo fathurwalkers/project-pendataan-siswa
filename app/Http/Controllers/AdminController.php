@@ -1029,19 +1029,84 @@ class AdminController extends Controller
             'L',
             'P',
             'P',
-            'L']
+            'L'],
+            'alamat' => [
+                'DESA WASAMPELA',
+                'Wasampela',
+                'POROS WASUEMBA',
+                'DESA WASAMPELA',
+                'Wasampela',
+                'Desa Wasampela',
+                'Wasampela',
+                'Desa Wasampela',
+                'Desa Wasampela',
+                'Wasampela',
+                'Desa Wasampela',
+                'Desa Wasampela',
+                'Wasampela',
+                'DESA WASAMPELA',
+                'Desa Wasampela',
+                'Wasampela',
+                'Wasampela',
+                'Desa Wasampela',
+                'Desa Wasampela',
+                'Desa Wasampela',
+                'Desa Wasampela',
+                'Desa Wasampela',
+                'Desa Wasampela',
+                'DESA WASAMPELA',
+                'Desa Wasampela',
+                'Desa Wasampela',
+                'Wasampela',
+                'Desa Wasampela',
+                'Desa Wasampela',
+                'Desa Wasampela',
+                'Wasampela',
+                'Desa Wasampela',
+                'Wasampela',
+                'Wasampela',
+                'Wasampela',
+                'Desa Wasampela',
+                'Wasampela',
+                'Desa Wasampela',
+                'Desa Wasampela',
+                'Jalan Poros Pasarwajo-Wabula',
+                'Wasampela',
+                'WASAMPELA',
+                'Desa Wasampela',
+                'Jalan Poros Pasarwajo-Wabula',
+                'Desa Wasampela',
+                'Desa Wasampela',
+                'JALAN POROS PASARWAJO-WABULA',
+                'Desa Wasampela',
+                'LABALA',
+                'Desa Wasampela',
+                'Desa Wasampela',
+                'Desa Wasampela',
+                'Jalan Poros Wabula-Burangasi',
+                'Desa Wasampela',
+                'DESA WASAMPELA',
+                'Wasampela',
+                'Desa Wasampela',
+                'Desa Wasampela',
+                'Desa Wasampela',
+                'DESA WASAMPELA',
+                'Wasampela',
+                'DESA WASAMPELA']
     ];
 
         $countSiswa = $array_count->count();
         $nama_siswa = 0;
         $nisn = 0;
         $jenis_kelamin = 0;
+        $alamat = 0;
         for ($i=0; $i<$countSiswa;$i++) {
             $testtable = new Testtable;
             $saveTest = $testtable->create([
                 'nama_siswa' => $array_siswa['nama'][$nama_siswa++],
                 'nisn' => $array_siswa['nisn'][$nisn++],
                 'jenis_kelamin' => $array_siswa['jenis_kelamin'][$jenis_kelamin++],
+                'alamat' => $array_siswa['alamat'][$alamat++],
             ]);
             $saveTest->save();
         }
