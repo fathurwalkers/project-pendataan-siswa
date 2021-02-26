@@ -1158,7 +1158,7 @@ class AdminController extends Controller
                 '082393265923',
                 ]
     ];
-
+    
         $countSiswa = $array_count->count();
         $nama_siswa = 0;
         $nisn = 0;
