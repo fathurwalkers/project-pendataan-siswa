@@ -848,17 +848,54 @@ class AdminController extends Controller
         $jenis_kelamin = 0;
         $alamat = 0;
         $telepon = 0;
-        for ($i=0; $i<$countSiswa;$i++) {
-            $testtable = new Testtable;
-            $saveTest = $testtable->create([
-                'nama_siswa' => $array_siswa['nama'][$nama_siswa++],
-                'nisn' => $array_siswa['nisn'][$nisn++],
+        // for ($i=0; $i<$countSiswa;$i++) {
+        //     $testtable = new Testtable;
+        //     $saveTest = $testtable->create([
+        //         'nama_siswa' => $array_siswa['nama'][$nama_siswa++],
+        //         'nisn' => $array_siswa['nisn'][$nisn++],
+        //         'jenis_kelamin' => $array_siswa['jenis_kelamin'][$jenis_kelamin++],
+        //         'alamat' => $array_siswa['alamat'][$alamat++],
+        //         'telepon' => $array_siswa['telepon'][$telepon++],
+        //     ]);
+        //     $saveTest->save();
+        // }
+        for ($i = 0; $i<$countSiswa; $i++) {
+            $gambarfaker = 'image/image-hmDRkX.png';
+            $detail_siswa = new Detail;
+            $saveDetail = $detail_siswa->create([
+                'nama_lengkap' => $array_siswa['nama'][$nama_siswa++],
+                'nip_nisn' => $array_siswa['nisn'][$nisn++],
                 'jenis_kelamin' => $array_siswa['jenis_kelamin'][$jenis_kelamin++],
                 'alamat' => $array_siswa['alamat'][$alamat++],
                 'telepon' => $array_siswa['telepon'][$telepon++],
+                'foto' => $gambarfaker,
+                'role_status' => 'siswa',
+                'siswa_status' => 'Aktif',
+                'created_at' => now(),
+                'updated_at' => now()
             ]);
-            $saveTest->save();
+            // $saveDetail->kelas()->associate($randomkelas);
+            $saveDetail->save();
+            $login_siswa = new Login;
+            $passwordSiswa = $saveDetail->nip_nisn;
+            $userSiswa = $saveDetail->nip_nisn;
+            $token = Str::random(16);
+            $level = "siswa";
+            
+            $login_siswa = Login::create([
+                'email' => $userSiswa.'@localhost.com',
+                'username' => $userSiswa,
+                'password' => $passwordSiswa,
+                'level' => $level,
+                'token' => $token,
+                'created_at' => now(),
+                'updated_at' => now()
+                ]);
+            $id_detailbaru = intval($saveDetail->id);
+            $login_siswa->detail()->associate($id_detailbaru);
+            $login_siswa->save();
         }
+        return redirect()->route('daftar-siswa');
         dump($countSiswa);
         dd($saveTest);
     }
