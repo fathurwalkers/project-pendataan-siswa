@@ -697,20 +697,6 @@ class AdminController extends Controller
 
     public function test()
     {
-        // INPUT SEMESTER
-        // $nipkepsek = Detail::where('role_status', 'kepsek')->firstOrFail();
-        // $semester = new Semester;
-        // $saveSemester = $semester->create([
-        //     'kode_semester' => 'SEMESTER-'.strtoupper(Str::random('5')),
-        //     'status_semester' => 'Aktif',
-        //     'tahun_ajaran' => '2020/2021',
-        //     'nip_kepsek' => $nipkepsek->nip_nisn,
-        //     'created_at' => now(),
-        //     'updated_at' => now()
-        // ]);
-        // $saveSemester->detail()->associate($nipkepsek->id);
-        // $saveSemester->save();
-
         // INPUT ABSENSI
         // $absensi = new Absensi;
         // $pengajarAbsensi = Pengajar::latest()->first();
