@@ -896,7 +896,5 @@ class AdminController extends Controller
             $login_siswa->save();
         }
         return redirect()->route('daftar-siswa');
-        dump($countSiswa);
-        dd($saveTest);
     }
 }
