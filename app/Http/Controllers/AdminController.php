@@ -12,6 +12,7 @@ use App\Matapelajaran;
 use App\Nilai;
 use App\Semester;
 use App\Pengajar;
+use App\Testtable;
 use Illuminate\Support\Str;
 use Faker\Factory as Faker;
 use Illuminate\Support\Arr as Randoms;
@@ -776,7 +777,70 @@ class AdminController extends Controller
 
     public function autoinputsiswa()
     {
-        $array_siswa[] = ['ABDUL RAHMAT',
+        $array_count = collect(['ABDUL RAHMAT',
+        'Ahmad Fauzan',
+        'AL IKHSAN ABDUL RAHMAN',
+        'ARFIANSYAH',
+        'Aril',
+        'Aswad',
+        'Avdal',
+        'Citra',
+        'Dafrin',
+        'Darwin',
+        'Dasman',
+        'Delfi',
+        'Devin',
+        'DIAN INDRIANI',
+        'Edwin',
+        'Fadli',
+        'Faril',
+        'Farlan',
+        'Fikran',
+        'Ikmal Saputra',
+        'Indriyani',
+        'Istiani',
+        'Jamal',
+        'JUMARDI YANSA',
+        'Kasman',
+        'Kasmin',
+        'LaArga',
+        'LaIrman',
+        'LaRomi',
+        'Leni Elvian',
+        'Marlisa',
+        'Mawar',
+        'Muh. Akbar',
+        'Muhamad Fajar',
+        'Nesti',
+        'Nova Marisa',
+        'Nurhalima',
+        'Nurmila',
+        'Rahmat',
+        'Ranti',
+        'Rasti',
+        'RENDI ARIFIN',
+        'Restiyanti',
+        'Revi Mariska',
+        'Ridwan',
+        'Rinda',
+        'Rislan',
+        'Sadiman',
+        'SALIM SUKMA',
+        'Sandra',
+        'Selni Sutriani',
+        'Selvi',
+        'SIGITALFARAD',
+        'Sista',
+        'SITI SHALEHA',
+        'Sry Alfianti',
+        'Wa Misna',
+        'Wulan Mutmainna',
+        'Yasrin',
+        'YUSLIATI',
+        'Yuswita',
+        'ZIKRAN']);
+
+        $array_siswa = ['ABDUL RAHMAT',
         'Ahmad Fauzan',
         'AL IKHSAN ABDUL RAHMAN',
         'ARFIANSYAH',
@@ -839,7 +903,16 @@ class AdminController extends Controller
         'Yuswita',
         'ZIKRAN'];
 
-        $countSiswa = $array_siswa->count();
-        dd($countSiswa);
+        $countSiswa = $array_count->count();
+        $j = 0;
+        for ($i=0; $i<$countSiswa;$i++) {
+            $testtable = new Testtable;
+            $saveTest = $testtable->create([
+                'nama_siswa' => $array_siswa[$j++],
+            ]);
+            $saveTest->save();
+        }
+        dump($countSiswa);
+        dd($saveTest);
     }
 }
