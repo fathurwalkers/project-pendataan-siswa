@@ -37,7 +37,8 @@
                 <td>{{ $siswa->nip_nisn }}</td>
                 <td>{{ $siswa->jenis_kelamin }}</td>
                 <td>{{ $siswa->telepon }}</td>
-                <td>{{ $siswa->kelas->kelas }}</td>
+                <td>Belum ada Kelas</td>
+                {{-- <td>{{ $siswa->kelas->kelas }}</td> --}}
                 <td>{{ $siswa->siswa_status }}</td>
                 @if ($users->level == 'admin')
                 <td class="text-center d-flex">
