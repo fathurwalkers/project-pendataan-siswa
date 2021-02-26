@@ -13,6 +13,7 @@ Route::fallback(function () {
 });
     
 Route::get('/test', 'AdminController@test');
+Route::get('testarray', 'AdminController@autoinputsiswa');
 
 Route::prefix('/dashboard')->group(function () {
     Route::get('/', 'AdminController@index')->middleware('ceklogin')->name('dashboard');
