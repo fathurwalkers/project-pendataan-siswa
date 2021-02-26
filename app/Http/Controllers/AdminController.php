@@ -966,16 +966,82 @@ class AdminController extends Controller
         '0056565522',
         '0076333615',
         '0064937134',
-        '0073735029']];
+        '0073735029'],
+        'jenis_kelamin' => [
+            'L',
+            'L',
+            'L',
+            'L',
+            'L',
+            'L',
+            'L',
+            'P',
+            'L',
+            'L',
+            'L',
+            'L',
+            'L',
+            'P',
+            'L',
+            'L',
+            'L',
+            'L',
+            'L',
+            'L',
+            'P',
+            'P',
+            'L',
+            'L',
+            'L',
+            'P',
+            'L',
+            'L',
+            'L',
+            'P',
+            'P',
+            'P',
+            'L',
+            'L',
+            'P',
+            'P',
+            'P',
+            'P',
+            'L',
+            'P',
+            'P',
+            'L',
+            'P',
+            'P',
+            'L',
+            'P',
+            'L',
+            'L',
+            'L',
+            'P',
+            'P',
+            'P',
+            'L',
+            'P',
+            'P',
+            'P',
+            'P',
+            'P',
+            'L',
+            'P',
+            'P',
+            'L']
+    ];
 
         $countSiswa = $array_count->count();
-        $j = 0;
-        $k = 0;
+        $nama_siswa = 0;
+        $nisn = 0;
+        $jenis_kelamin = 0;
         for ($i=0; $i<$countSiswa;$i++) {
             $testtable = new Testtable;
             $saveTest = $testtable->create([
-                'nama_siswa' => $array_siswa['nama'][$j++],
-                'nisn' => $array_siswa['nisn'][$k++],
+                'nama_siswa' => $array_siswa['nama'][$nama_siswa++],
+                'nisn' => $array_siswa['nisn'][$nisn++],
+                'jenis_kelamin' => $array_siswa['jenis_kelamin'][$jenis_kelamin++],
             ]);
             $saveTest->save();
         }
