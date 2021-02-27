@@ -63,7 +63,12 @@
             <label class="input-group-text" for="inputGroupSelect01">Kelas</label>
           </div>
           <select class="custom-select" id="inputGroupSelect01" name="siswa_kelas">
+            @if($siswa->kelas_id == null)
             <option selected value=""></option>
+            @endif
+            @if($siswa->kelas_id)
+            <option selected value="{{ $siswa->kelas_id }}">{{ $siswa->kelas->kelas }}</option>
+            @endif
             @foreach ($kelas as $item)
             <option value="{{ $item->id }}">{{ $item->kelas }}</option>
             @endforeach
