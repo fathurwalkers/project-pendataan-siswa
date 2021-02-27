@@ -8,7 +8,12 @@
 <div class="card mb-3 col-md-12">
     <div class="row g-0">
       <div class="col-md-4">
+        @if ($siswa->foto == null)
+        <img src="{{ asset('/image/image-hmDRkX.png') }}" alt="{{ $siswa->nama_lengkap }}" class="img-fluid mt-2 mb-2" width="350px">
+        @endif
+        @if($siswa->foto)
         <img src="{{ asset($siswa->foto) }}" alt="{{ $siswa->nama_lengkap }}" class="img-fluid mt-2 mb-2" width="350px">
+        @endif
       </div>
       <div class="col-md-8">
         <div class="card-body">

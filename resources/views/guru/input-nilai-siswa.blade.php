@@ -9,6 +9,10 @@
       .list-pengajar {
         list-style: none;
       }
+
+      .displaytidakada {
+        display: none;
+      }
     </style>
 @endsection
 
@@ -49,13 +53,15 @@
             </tr>
         </thead>
         <tbody class="table-bordered border-1">
-          {{ $j = 1 }}
-          {{ $k = 1 }}
-          {{ $o = 1 }}
-          {{ $uas = 1 }}
-          {{ $uts = 1 }}
-          {{ $tugas = 1 }}
-          {{ $absensi = 1 }}
+          <div class="displaytidakada">
+            {{ $j = 1 }}
+            {{ $k = 1 }}
+            {{ $o = 1 }}
+            {{ $uas = 1 }}
+            {{ $uts = 1 }}
+            {{ $tugas = 1 }}
+            {{ $absensi = 1 }}
+          </div>
             @foreach ($siswa as $item)
             <tr>
                 <td class="text-center">{{ $loop->iteration }}</td>
