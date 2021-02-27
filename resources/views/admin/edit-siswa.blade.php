@@ -63,7 +63,7 @@
             <label class="input-group-text" for="inputGroupSelect01">Kelas</label>
           </div>
           <select class="custom-select" id="inputGroupSelect01" name="siswa_kelas">
-            <option selected value="{{ $siswa->kelas_id }}">{{ $siswa->kelas->kelas }}</option>
+            <option selected value=""></option>
             @foreach ($kelas as $item)
             <option value="{{ $item->id }}">{{ $item->kelas }}</option>
             @endforeach
