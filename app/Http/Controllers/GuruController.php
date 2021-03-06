@@ -132,9 +132,10 @@ class GuruController extends Controller
     {
         $users = session('data_login');
         $pengajar_id = $detailid;
+        $kelas_id = $kelasid;
         $matapelajaran_id = $matapelajaranid;
-        $pengajar = Pengajar::where('detail_id', $pengajar_id)->first();
-        $carinilai = Nilai::where('pengajar_id', intval($pengajar->id))->where('matapelajaran_id', $matapelajaran_id)->get();
-        return v
+        $pengajar = Pengajar::where('detail_id', $pengajar_id)->where('kelas_id', $kelas_id)->first();
+        $nilai = Nilai::where('pengajar_id', intval($pengajar->id))->where('matapelajaran_id', $matapelajaran_id)->get();
+        return view('guru.daftar-total-nilai', compact('users', 'nilai', 'pengajar'));
     }
 }
