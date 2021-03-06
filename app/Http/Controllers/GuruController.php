@@ -127,4 +127,14 @@ class GuruController extends Controller
         }
         return redirect()->route('daftar-kelas-guru');
     }
+
+    public function total_nilai($detailid, $kelasid, $matapelajaranid)
+    {
+        $users = session('data_login');
+        $pengajar_id = $detailid;
+        $matapelajaran_id = $matapelajaranid;
+        $pengajar = Pengajar::where('detail_id', $pengajar_id)->first();
+        $carinilai = Nilai::where('pengajar_id', intval($pengajar->id))->where('matapelajaran_id', $matapelajaran_id)->get();
+        return v
+    }
 }

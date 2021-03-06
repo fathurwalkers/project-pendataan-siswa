@@ -56,6 +56,7 @@
                 <td>{{ $item->matapelajaran->nama_matapelajaran }}</td>
                 <td>
                     <a href="{{ route('guru-detail-kelas', [$item->detail->id, $item->matapelajaran->id]) }}" class="btn btn-primary">Selengkapnya</a>
+                    <a href="{{ route('daftar-total-nilai', [$item->detail->id, $item->kelas->id,$item->matapelajaran->id]) }}" class="btn btn-primary">Total Nilai</a>
                 </td>
             </tr>
             @endforeach

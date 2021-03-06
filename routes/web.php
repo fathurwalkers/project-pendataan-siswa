@@ -40,6 +40,7 @@ Route::prefix('/dashboard')->group(function () {
     Route::post('/detail-guru/delete/{idguru}', 'AdminController@hapusGuru')->middleware('ceklogin')->name('hapus-guru');
     Route::get('/edit-guru/{idguru}', 'AdminController@editGuru')->middleware('ceklogin')->name('edit-guru');
     Route::post('/update-guru/{idguru}', 'AdminController@updateGuru')->middleware('ceklogin')->name('update-guru');
+    Route::get('/total-nilai/{detailid}/{kelasid}/{matapelajaranid}', 'GuruController@total_nilai')->middleware('ceklogin')->name('daftar-total-nilai');
 
     // MATA PELAJARAN
     Route::get('/daftar-mata-pelajaran', 'AdminController@daftarMatapelajaran')->middleware('ceklogin')->name('daftar-matapelajaran');

@@ -26,7 +26,10 @@
                 <th>Kelas</th>
                 <th>Nama Siswa</th>
                 <th>Matapelajaran</th>
-                <th>Nilai Siswa</th>
+                <th>Nilai Tugas</th>
+                <th>Nilai UTS</th>
+                <th>Nilai UAS</th>
+                <th>Nilai Absen</th>
             </tr>
         </thead>
         <tbody>
@@ -36,7 +39,10 @@
                 <td>{{ $item->detail->kelas->kelas }}</td>
                 <td>{{ $item->detail->nama_lengkap }}</td>
                 <td>{{ $item->matapelajaran->nama_matapelajaran }}</td>
-                <td>{{ number_format($item->nilai_siswa) }}</td>
+                <td>{{ number_format($item->nilai_siswa_tugas) }}</td>
+                <td>{{ number_format($item->nilai_siswa_uts) }}</td>
+                <td>{{ number_format($item->nilai_siswa_uas) }}</td>
+                <td>{{ number_format($item->nilai_siswa_absensi) }}</td>
             </tr>
             @endforeach
     </table>
