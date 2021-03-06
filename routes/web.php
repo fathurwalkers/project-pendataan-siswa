@@ -99,4 +99,7 @@ Route::prefix('/dashboard')->group(function () {
     // FAKER AUTO GENERATE DATA
     Route::get('/generate-siswa', 'AdminController@generate_siswa')->middleware('ceklogin');
     Route::get('/generate-guru', 'AdminController@generate_guru')->middleware('ceklogin');
+
+    Route::get('/print-siswa', 'PrintController@print_daftarsiswa')->name('print-siswa');
+    Route::get('/print-guru', 'PrintController@print_daftarguru')->name('print-guru');
 });
