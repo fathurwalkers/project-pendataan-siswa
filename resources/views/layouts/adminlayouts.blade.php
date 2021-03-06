@@ -14,7 +14,8 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('vendor/adminlte/dist/css/adminlte.min.css') }}">
     {{-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> --}}
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
+    {{-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css"> --}}
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/datatables/DataTables-1.10.23/css/jquery.dataTables.css') }}">
     @yield('after-css')
 </head>
 
@@ -372,7 +373,8 @@
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('vendor/adminlte/dist/js/demo.js') }}"></script>
     <script src="{{ asset('/vendor/sweetalert/sweetalert.min.js') }}"></script>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
+    {{-- <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script> --}}
+    <script type="text/javascript" charset="utf8" src="{{ asset('vendor/datatables/DataTables-1.10.23/js/jquery.dataTables.js') }}"></script>
     @yield('after-script')
 </body>
 
