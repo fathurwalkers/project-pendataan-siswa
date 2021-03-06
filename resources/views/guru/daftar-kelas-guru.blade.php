@@ -22,6 +22,7 @@
     </div>
   </div>
   <div class="card-body">
+    <a href="{{ route('print-test') }}" class="btn btn-primary">Test Print</a>
       {{-- <div class="row">
               <ul>
                 <li class="list-pengajar">Nama Pengajar </li>

@@ -41,6 +41,7 @@ Route::prefix('/dashboard')->group(function () {
     Route::get('/edit-guru/{idguru}', 'AdminController@editGuru')->middleware('ceklogin')->name('edit-guru');
     Route::post('/update-guru/{idguru}', 'AdminController@updateGuru')->middleware('ceklogin')->name('update-guru');
     Route::get('/total-nilai/{detailid}/{kelasid}/{matapelajaranid}', 'GuruController@total_nilai')->middleware('ceklogin')->name('daftar-total-nilai');
+    Route::get('/printtest', 'GuruController@printnilai')->middleware('ceklogin')->name('print-test');
 
     // MATA PELAJARAN
     Route::get('/daftar-mata-pelajaran', 'AdminController@daftarMatapelajaran')->middleware('ceklogin')->name('daftar-matapelajaran');

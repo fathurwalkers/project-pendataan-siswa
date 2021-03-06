@@ -15,6 +15,7 @@ use App\Pengajar;
 use Illuminate\Support\Str;
 use Faker\Factory as Faker;
 use Illuminate\Support\Arr as Randoms;
+use PDF;
 
 class GuruController extends Controller
 {
@@ -137,5 +138,13 @@ class GuruController extends Controller
         $pengajar = Pengajar::where('detail_id', $pengajar_id)->where('kelas_id', $kelas_id)->first();
         $nilai = Nilai::where('pengajar_id', intval($pengajar->id))->where('matapelajaran_id', $matapelajaran_id)->get();
         return view('guru.daftar-total-nilai', compact('users', 'nilai', 'pengajar'));
+    }
+
+    public function printnilai()
+    {
+        $users = session('data_login');
+        $nilai = Nilai::all();
+        $pdf = PDF::loadView('guru.printtest', ['nilai' => $nilai]);
+        return $pdf->download('nilai.pdf');
     }
 }
