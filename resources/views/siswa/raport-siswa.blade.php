@@ -38,6 +38,11 @@
           width: 100%;
           border: none !important;
         }
+
+        @media print {
+            @page { margin: 0; }
+            body { margin: 1.6cm; }
+        }
         
         /* tr:nth-child(even){background-color: #ddd} */
         </style>
@@ -48,10 +53,10 @@
 
     <table class="table-1">
         <tr>
-            <td class="table-1">Nama : </td>
+            <td class="">Nama : </td>
         </tr>
         <tr>
-            <td class="table-1">Nama : </td>
+            <td class="">Nama : </td>
         </tr>
     </table>
 

@@ -32,11 +32,16 @@
           text-align: left;
           padding: 8px;
           font-family: 'Times New Roman', Times, serif;
-          /* font-size: 80%; */
+          font-size: 100% !important;
           border-collapse: collapse;
           border-spacing: 0;
           width: 100%;
           border: none !important;
+        }
+
+        @media print {
+            @page { margin: 0; }
+            body { margin: 1.6cm; }
         }
         
         /* tr:nth-child(even){background-color: #ddd} */
@@ -54,6 +59,8 @@
             <td class="table-1">Nama : </td>
         </tr>
     </table>
+
+    <br />
 
     <div style="overflow-x:auto;">
         <table>
