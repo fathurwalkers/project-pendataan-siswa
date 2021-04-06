@@ -82,9 +82,7 @@ class SiswaController extends Controller
         }
         $data2 = Detail::find($users->detail->id);
         $id_pengajar = $data[0];
-        // dd($id_pengajar);
         $pengajar = Pengajar::where('id', $id_pengajar->pengajar_id)->first();
-        // dd($pengajar);
         $pdf = PDF::loadView('siswa.raport-siswa', [
             'data' => $data,
             'detail' => $data2
