@@ -15,6 +15,7 @@ use App\Pengajar;
 use Illuminate\Support\Str;
 use Faker\Factory as Faker;
 use Illuminate\Support\Arr as Randoms;
+use PDF;
 
 class SiswaController extends Controller
 {
@@ -53,5 +54,28 @@ class SiswaController extends Controller
             return back()->with('absensi_null', 'Maaf absensi untuk siswa ini belum di masukkan!');
         }
         return view('siswa.detail-absensi-siswa', compact('users', 'absensi'));
+    }
+
+    public function testRapor()
+    {
+        $users = session('data_login');
+        $data = Nilai::where('detail_id', $users->detail->id)->get();
+        if ($data->isEmpty()) {
+            return back()->with('nilai_null', 'Maaf Nilai untuk siswa ini belum di masukkan!');
+        }
+        $pdf = PDF::loadView('siswa.raport-siswa', ['data' => $data]);
+        return $pdf->download('daftar-guru.pdf');
+        // return $pdf->loadHTML('daftar-guru.pdf');
+        // return view('siswa.raport-siswa', compact('users', 'nilai'));
+    }
+
+    public function lihatRapor()
+    {
+        $users = session('data_login');
+        $data = Nilai::where('detail_id', $users->detail->id)->get();
+        if ($data->isEmpty()) {
+            return back()->with('nilai_null', 'Maaf Nilai untuk siswa ini belum di masukkan!');
+        }
+        return view('siswa.lihat-raport', compact('users', 'data'));
     }
 }

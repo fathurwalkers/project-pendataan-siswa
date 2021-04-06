@@ -69,10 +69,10 @@
                 <td>{{ $item->nip_nisn }}</td>
                 <td>{{ $item->kelas->kelas }}</td>
                 <td>
-                    <input type="text" name="nilai_siswa_tugas[{{$tugas++}}]" placeholder="Nilai Tugas...">
-                    <input type="text" name="nilai_siswa_absensi[{{$absensi++}}]" placeholder="Nilai Absensi...">
-                    <input type="text" name="nilai_siswa_uts[{{$uts++}}]" placeholder="Nilai UTS...">
-                    <input type="text" name="nilai_siswa_uas[{{$uas++}}]" placeholder="Nilai UAS...">
+                    <input type="number" min="0" max="100" name="nilai_siswa_tugas[{{$tugas++}}]" placeholder="Nilai Tugas...">
+                    <input type="number" min="0" max="100" name="nilai_siswa_absensi[{{$absensi++}}]" placeholder="Nilai Absensi...">
+                    <input type="number" min="0" max="100" name="nilai_siswa_uts[{{$uts++}}]" placeholder="Nilai UTS...">
+                    <input type="number" min="0" max="100" name="nilai_siswa_uas[{{$uas++}}]" placeholder="Nilai UAS...">
                     <input type="hidden" name="idsiswa[{{$j++}}]" value="{{ $item->id }}">
                     <input type="hidden" name="increment[{{$k++}}]" value="{{ $o++ }}">
                 </td>

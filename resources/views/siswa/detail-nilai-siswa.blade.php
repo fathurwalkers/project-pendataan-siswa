@@ -8,17 +8,14 @@
 <!-- Default box -->
 <div class="card">
   <div class="card-header">
-    <h3 class="card-title">Daftar Informasi Nilai Siswa</h3>
+    <h3 class="card-title my-2">Daftar Informasi Nilai Siswa</h3>
     <div class="card-tools">
-      <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-        <i class="fas fa-minus"></i>
-      </button>
-      <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-        <i class="fas fa-times"></i>
-      </button>
+      <a href="{{ route('lihat-raport') }}" class="btn btn-success float-right">Cetak Raport</a>
+      <a href="{{ route('lihat-raport2') }}" class="btn btn-primary float-right">Lihat Raport</a>
     </div>
   </div>
   <div class="card-body">
+    {{-- <a href="{{ route('lihat-raport') }}" class="btn btn-success float-right my-2">Lihat Raport</a> --}}
     <table id="example" class="display" style="width:100%">
         <thead>
             <tr>
