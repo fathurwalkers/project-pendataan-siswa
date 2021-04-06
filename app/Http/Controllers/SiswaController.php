@@ -88,7 +88,7 @@ class SiswaController extends Controller
         $pdf = PDF::loadView('siswa.raport-siswa', [
             'data' => $data,
             'detail' => $data2
-            ]);
+        ]);
         return view('siswa.lihat-raport', compact('users', 'data', 'data2', 'pengajar'));
     }
 }
