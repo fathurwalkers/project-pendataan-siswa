@@ -63,7 +63,11 @@ class SiswaController extends Controller
         if ($data->isEmpty()) {
             return back()->with('nilai_null', 'Maaf Nilai untuk siswa ini belum di masukkan!');
         }
-        $pdf = PDF::loadView('siswa.raport-siswa', ['data' => $data]);
+        $data2 = Detail::find($users->detail->id);
+        $pdf = PDF::loadView('siswa.raport-siswa', [
+            'data' => $data,
+            'detail' => $data2
+            ]);
         return $pdf->download('daftar-guru.pdf');
         // return $pdf->loadHTML('daftar-guru.pdf');
         // return view('siswa.raport-siswa', compact('users', 'nilai'));
@@ -76,6 +80,15 @@ class SiswaController extends Controller
         if ($data->isEmpty()) {
             return back()->with('nilai_null', 'Maaf Nilai untuk siswa ini belum di masukkan!');
         }
-        return view('siswa.lihat-raport', compact('users', 'data'));
+        $data2 = Detail::find($users->detail->id);
+        $id_pengajar = $data[0];
+        // dd($id_pengajar);
+        $pengajar = Pengajar::where('id', $id_pengajar->pengajar_id)->first();
+        // dd($pengajar);
+        $pdf = PDF::loadView('siswa.raport-siswa', [
+            'data' => $data,
+            'detail' => $data2
+            ]);
+        return view('siswa.lihat-raport', compact('users', 'data', 'data2', 'pengajar'));
     }
 }
