@@ -96,6 +96,8 @@ Route::prefix('/dashboard')->group(function () {
         Route::post('/input-nilai-siswa/{idkelas}/{idmatapelajaran}', 'GuruController@post_inputNilaiSiswa')->middleware('ceklogin')->name('post-input-nilai-siswa');
     });
 
+    Route::get('/test-raport/idnilai', 'SiswaController@testRapor')->midlleware('ceklogin')->name('lihat-raport');
+    
     // FAKER AUTO GENERATE DATA
     Route::get('/generate-siswa', 'AdminController@generate_siswa')->middleware('ceklogin');
     Route::get('/generate-guru', 'AdminController@generate_guru')->middleware('ceklogin');
