@@ -56,7 +56,7 @@
         <div class="row">
             <div class="col-sm-12 col-md-12-col-lg-12 ju">
 
-                <h1 class="my-2 mb-4 text-center">RAPORT NILAI SISWA</h1>
+                <h1 class="my-2 mb-4 text-center"> <u class="m-2"> LAPORAN NILAI SISWA </u> </h1>
 
                 <div class="container">
                     <div class="row mx-auto">
