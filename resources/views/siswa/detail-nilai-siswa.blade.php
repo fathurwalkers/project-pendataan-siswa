@@ -10,12 +10,11 @@
   <div class="card-header">
     <h3 class="card-title my-2">Daftar Informasi Nilai Siswa</h3>
     <div class="card-tools">
-      <a href="{{ route('lihat-raport') }}" class="btn btn-success float-right">Cetak Raport</a>
-      <a href="{{ route('lihat-raport2') }}" class="btn btn-primary float-right">Lihat Raport</a>
+      {{-- <a href="{{ route('lihat-raport') }}" class="btn btn-success float-right">Cetak Raport</a> --}}
+      <a href="{{ route('lihat-raport2') }}" class="btn btn-primary float-right mx-2">Lihat Raport</a>
     </div>
   </div>
   <div class="card-body">
-    {{-- <a href="{{ route('lihat-raport') }}" class="btn btn-success float-right my-2">Lihat Raport</a> --}}
     <table id="example" class="display" style="width:100%">
         <thead>
             <tr>
