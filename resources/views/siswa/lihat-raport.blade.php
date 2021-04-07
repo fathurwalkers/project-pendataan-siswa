@@ -63,6 +63,15 @@
                         <div class="col-sm-8 col-md-8 col-lg-8 ml-3 p-2">
                             <p class="mt-1">Nama &nbsp;: {{ $data2->nama_lengkap }}</p>
                             <p class="mt-1">Alamat : {{ $data2->alamat }}</p>
+
+                            @if($pengajar->semester->tahun_ajaran == "2020/2021")
+                            <p class="mt-1">Semester : 1</p>
+                            @endif
+
+                            @if($pengajar->semester->tahun_ajaran == "2021/2022")
+                            <p class="mt-1">Semester : 2</p>
+                            @endif
+
                         </div>
                         <div class="col-sm-3 col-md-3 col-lg-3 p-2">
                             <p class="mt-1">Kelas : {{ $pengajar->kelas->kelas }}</p>
