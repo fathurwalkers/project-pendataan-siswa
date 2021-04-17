@@ -88,7 +88,7 @@
                                 @case('admin')
                                 <li class="nav-item">
                                     <a href="{{ route('dashboard') }}" class="nav-link">
-                                        <i class="far fa fa-bars nav-icon"></i>
+                                        <i class="nav-icon fas fa-tachometer-alt"></i>
                                         <p>Beranda</p>
                                     </a>
                                 </li>
@@ -148,40 +148,55 @@
                                     </ul>
                                   </li>
 
-                                <li class="nav-item">
-                                    <a href="{{ route('tambah-pengajar') }}" class="nav-link">
-                                        <i class="far fa fa-bars nav-icon"></i>
-                                        <p>Tambah Pengajar</p>
+                                  <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                      <i class="nav-icon far fa-plus-square"></i>
+                                      <p>
+                                        Tambah Data
+                                        <i class="right fas fa-angle-left"></i>
+                                      </p>
                                     </a>
-                                </li>
+                                    <ul class="nav nav-treeview" style="display: none;">
 
-                                <li class="nav-item">
-                                    <a href="{{ route('tambah-semester') }}" class="nav-link">
-                                        <i class="far fa fa-bars nav-icon"></i>
-                                        <p>Tambah Semester</p>
-                                    </a>
-                                </li>
+                                        <li class="nav-item">
+                                            <a href="{{ route('tambah-pengajar') }}" class="nav-link">
+                                                <i class="far fa fa-bars nav-icon"></i>
+                                                <p>Tambah Pengajar</p>
+                                            </a>
+                                        </li>
+        
+                                        <li class="nav-item">
+                                            <a href="{{ route('tambah-semester') }}" class="nav-link">
+                                                <i class="far fa fa-bars nav-icon"></i>
+                                                <p>Tambah Semester</p>
+                                            </a>
+                                        </li>
+        
+                                        <li class="nav-item">
+                                            <a href="{{ route('tambah-siswa') }}" class="nav-link">
+                                                <i class="far fa fa-bars nav-icon"></i>
+                                                <p>Tambah Siswa</p>
+                                            </a>
+                                        </li>
+        
+                                        <li class="nav-item">
+                                            <a href="{{ route('tambah-guru') }}" class="nav-link">
+                                                <i class="far fa fa-bars nav-icon"></i>
+                                                <p>Tambah Guru</p>
+                                            </a>
+                                        </li>
+        
+                                        <li class="nav-item">
+                                            <a href="{{ route('tambah-matapelajaran') }}" class="nav-link">
+                                                <i class="far fa fa-bars nav-icon"></i>
+                                                <p>Tambah Mata Pelajaran</p>
+                                            </a>
+                                        </li>
 
-                                <li class="nav-item">
-                                    <a href="{{ route('tambah-siswa') }}" class="nav-link">
-                                        <i class="far fa fa-bars nav-icon"></i>
-                                        <p>Tambah Siswa</p>
-                                    </a>
-                                </li>
+                                    </ul>
+                                  </li>
 
-                                <li class="nav-item">
-                                    <a href="{{ route('tambah-guru') }}" class="nav-link">
-                                        <i class="far fa fa-bars nav-icon"></i>
-                                        <p>Tambah Guru</p>
-                                    </a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="{{ route('tambah-matapelajaran') }}" class="nav-link">
-                                        <i class="far fa fa-bars nav-icon"></i>
-                                        <p>Tambah Mata Pelajaran</p>
-                                    </a>
-                                </li>
+                                
 
                                 <li class="nav-item">
                                     <a href="{{ route('daftar-user-siswa') }}" class="nav-link">
