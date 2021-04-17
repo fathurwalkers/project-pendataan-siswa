@@ -196,21 +196,33 @@
                                     </ul>
                                   </li>
 
-                                
-
-                                <li class="nav-item">
-                                    <a href="{{ route('daftar-user-siswa') }}" class="nav-link">
-                                        <i class="far fa fa-bars nav-icon"></i>
-                                        <p>Daftar User Siswa</p>
+                                  <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                      <i class="nav-icon far fas fa-users"></i>
+                                      <p>
+                                        List User 
+                                        <i class="right fas fa-angle-left"></i>
+                                      </p>
                                     </a>
-                                </li>
+                                    <ul class="nav nav-treeview" style="display: none;">
 
-                                <li class="nav-item">
-                                    <a href="{{ route('daftar-user-guru') }}" class="nav-link">
-                                        <i class="far fa fa-bars nav-icon"></i>
-                                        <p>Daftar User Guru</p>
-                                    </a>
-                                </li>
+                                        <li class="nav-item">
+                                            <a href="{{ route('daftar-user-siswa') }}" class="nav-link">
+                                                <i class="far fa fa-bars nav-icon"></i>
+                                                <p>Daftar User Siswa</p>
+                                            </a>
+                                        </li>
+        
+                                        <li class="nav-item">
+                                            <a href="{{ route('daftar-user-guru') }}" class="nav-link">
+                                                <i class="far fa fa-bars nav-icon"></i>
+                                                <p>Daftar User Guru</p>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                  </li>
+
                                     @break
 
                                 @case('kepsek')
