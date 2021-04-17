@@ -326,19 +326,19 @@
                                 @case('siswa')
                                 <li class="nav-item">
                                     <a href="{{ route('dashboard') }}" class="nav-link">
-                                        <i class="far fa fa-bars nav-icon"></i>
+                                        <i class="nav-icon fas fa-tachometer-alt"></i>
                                         <p>Beranda</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('biodata-siswa', $users->detail->id) }}" class="nav-link">
-                                        <i class="far fa fa-bars nav-icon"></i>
+                                        <i class="far fas fa-address-card nav-icon"></i>
                                         <p>Lihat Profil</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('siswa-detail-nilai') }}" class="nav-link">
-                                        <i class="far fa fa-bars nav-icon"></i>
+                                        <i class="far fas fa-clipboard nav-icon"></i>
                                         <p>Lihat Nilai</p>
                                     </a>
                                 </li>
