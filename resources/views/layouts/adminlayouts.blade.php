@@ -241,7 +241,7 @@
 
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
-                                      <i class="nav-icon far fas fa-users"></i>
+                                      <i class="nav-icon fas fa-chart-pie"></i>
                                       <p>
                                         List Data
                                         <i class="right fas fa-angle-left"></i>
@@ -299,25 +299,25 @@
                                 @case('guru')
                                 <li class="nav-item">
                                     <a href="{{ route('dashboard') }}" class="nav-link">
-                                        <i class="far fa fa-bars nav-icon"></i>
+                                        <i class="nav-icon fas fa-tachometer-alt"></i>
                                         <p>Beranda</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('biodata-guru', $users->detail->id) }}" class="nav-link">
-                                        <i class="far fa fa-bars nav-icon"></i>
+                                        <i class="far fas fa-address-card nav-icon"></i>
                                         <p>Lihat Profil</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('daftar-kelas-guru') }}" class="nav-link">
-                                        <i class="far fa fa-bars nav-icon"></i>
+                                        <i class="far nav-icon fas fa-chart-pie"></i>
                                         <p>Daftar Kelas</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('daftar-input-nilai') }}" class="nav-link">
-                                        <i class="far fa fa-bars nav-icon"></i>
+                                        <i class="nav-icon far fa-plus-square"></i>
                                         <p>Input Nilai</p>
                                     </a>
                                 </li>
