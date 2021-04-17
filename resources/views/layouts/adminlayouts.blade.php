@@ -73,7 +73,7 @@
                     </div>
                     <div class="info">
                         <a href="{{ route('dashboard') }}"
-                            class="d-block badge badge-info py-2 px-2">{{ $users->username }}</a>
+                            class="d-block badge badge-info py-2 px-2">{{ $users->detail->nama_lengkap }}</a>
                     </div>
                 </div>
 
