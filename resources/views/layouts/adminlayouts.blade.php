@@ -198,9 +198,9 @@
 
                                   <li class="nav-item">
                                     <a href="#" class="nav-link">
-                                      <i class="nav-icon far fas fa-users"></i>
+                                      <i class="nav-icon far fas fa-chart-pie"></i>
                                       <p>
-                                        List User 
+                                        List User
                                         <i class="right fas fa-angle-left"></i>
                                       </p>
                                     </a>
@@ -228,57 +228,72 @@
                                 @case('kepsek')
                                 <li class="nav-item">
                                     <a href="{{ route('dashboard') }}" class="nav-link">
-                                        <i class="far fa fa-bars nav-icon"></i>
+                                        <i class="nav-icon fas fa-tachometer-alt"></i>
                                         <p>Beranda</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('biodata-user', $users->detail->id) }}" class="nav-link">
-                                        <i class="far fa fa-bars nav-icon"></i>
-                                        <p>Lihat Profil</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('daftar-siswa') }}" class="nav-link">
-                                        <i class="far fa fa-bars nav-icon"></i>
-                                        <p>Daftar Siswa</p>
-                                    </a>
-                                </li>
-                                
-                                <li class="nav-item">
-                                    <a href="{{ route('daftar-pengajar') }}" class="nav-link">
-                                        <i class="far fa fa-bars nav-icon"></i>
-                                        <p>Daftar Pengajar</p>
+                                        <i class="fas fa-user-circle"></i>
+                                        <p> Lihat Profil</p>
                                     </a>
                                 </li>
 
                                 <li class="nav-item">
-                                    <a href="{{ route('daftar-guru') }}" class="nav-link">
-                                        <i class="far fa fa-bars nav-icon"></i>
-                                        <p>Daftar Guru</p>
+                                    <a href="#" class="nav-link">
+                                      <i class="nav-icon far fas fa-users"></i>
+                                      <p>
+                                        List Data
+                                        <i class="right fas fa-angle-left"></i>
+                                      </p>
                                     </a>
+                                    <ul class="nav nav-treeview" style="display: none;">
+
+                                        <li class="nav-item">
+                                            <a href="{{ route('daftar-siswa') }}" class="nav-link">
+                                                <i class="far fa fa-bars nav-icon"></i>
+                                                <p>Daftar Siswa</p>
+                                            </a>
+                                        </li>
+                                        
+                                        <li class="nav-item">
+                                            <a href="{{ route('daftar-pengajar') }}" class="nav-link">
+                                                <i class="far fa fa-bars nav-icon"></i>
+                                                <p>Daftar Pengajar</p>
+                                            </a>
+                                        </li>
+        
+                                        <li class="nav-item">
+                                            <a href="{{ route('daftar-guru') }}" class="nav-link">
+                                                <i class="far fa fa-bars nav-icon"></i>
+                                                <p>Daftar Guru</p>
+                                            </a>
+                                        </li>
+        
+                                        <li class="nav-item">
+                                            <a href="{{ route('daftar-matapelajaran') }}" class="nav-link">
+                                                <i class="far fa fa-bars nav-icon"></i>
+                                                <p>Daftar Mata Pelajaran</p>
+                                            </a>
+                                        </li>
+        
+                                        <li class="nav-item">
+                                            <a href="{{ route('daftar-kelas') }}" class="nav-link">
+                                                <i class="far fa fa-bars nav-icon"></i>
+                                                <p>Daftar Kelas</p>
+                                            </a>
+                                        </li>
+        
+                                        <li class="nav-item">
+                                            <a href="{{ route('daftar-semester') }}" class="nav-link">
+                                                <i class="far fa fa-bars nav-icon"></i>
+                                                <p>Daftar Semester</p>
+                                            </a>
+                                        </li>
+
+                                    </ul>
                                 </li>
 
-                                <li class="nav-item">
-                                    <a href="{{ route('daftar-matapelajaran') }}" class="nav-link">
-                                        <i class="far fa fa-bars nav-icon"></i>
-                                        <p>Daftar Mata Pelajaran</p>
-                                    </a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="{{ route('daftar-kelas') }}" class="nav-link">
-                                        <i class="far fa fa-bars nav-icon"></i>
-                                        <p>Daftar Kelas</p>
-                                    </a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="{{ route('daftar-semester') }}" class="nav-link">
-                                        <i class="far fa fa-bars nav-icon"></i>
-                                        <p>Daftar Semester</p>
-                                    </a>
-                                </li>
                                     @break
                                 
                                 @case('guru')
