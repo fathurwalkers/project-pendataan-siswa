@@ -148,22 +148,6 @@
                                     </ul>
                                   </li>
 
-                                {{-- <li class="nav-item">
-                                    <a href="{{ route('daftar-siswa') }}" class="nav-link">
-                                        <i class="far fa fa-bars nav-icon"></i>
-                                        <p>Daftar Siswa</p>
-                                    </a>
-                                </li>
-                                
-                                <li class="nav-item">
-                                    <a href="{{ route('daftar-pengajar') }}" class="nav-link">
-                                        <i class="far fa fa-bars nav-icon"></i>
-                                        <p>Daftar Pengajar</p>
-                                    </a>
-                                </li> --}}
-
-                                
-
                                 <li class="nav-item">
                                     <a href="{{ route('tambah-pengajar') }}" class="nav-link">
                                         <i class="far fa fa-bars nav-icon"></i>
