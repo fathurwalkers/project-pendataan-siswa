@@ -869,25 +869,25 @@ class AdminController extends Controller
 
     public function testCase()
     {
-        $absensi = new Absensi;
-        $pengajarAbsensi = Pengajar::latest()->first();
-        $nisn_siswa = Detail::where('role_status', 'siswa')->first();
-        $saveAbsensi = $absensi->create([
-            'kode_pengajar' => $pengajarAbsensi->kode_pengajar,
-            'kode_kelas' => $pengajarAbsensi->kelas->kode_kelas,
-            'kode_semester' => $pengajarAbsensi->semester->kode_semester,
-            'kode_matapelajaran' => $pengajarAbsensi->matapelajaran->kode_matapelajaran,
-            'nisn_siswa' => $nisn_siswa->nip_nisn,
-            'nisn_siswa' => $nisn_siswa->nip_nisn,
-            'waktu_absen' => now(),
-            'tanggal_absen' => now(),
-            'status_absen' => 'Hadir',
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-        $saveAbsensi->pengajar()->associate($pengajarAbsensi->id);
-        $saveAbsensi->detail()->associate($nisn_siswa->id);
-        $saveAbsensi->save();
-        dd($saveAbsensi);
+        // $absensi = new Absensi;
+        // $pengajarAbsensi = Pengajar::latest()->first();
+        // $nisn_siswa = Detail::where('role_status', 'siswa')->first();
+        // $saveAbsensi = $absensi->create([
+        //     'kode_pengajar' => $pengajarAbsensi->kode_pengajar,
+        //     'kode_kelas' => $pengajarAbsensi->kelas->kode_kelas,
+        //     'kode_semester' => $pengajarAbsensi->semester->kode_semester,
+        //     'kode_matapelajaran' => $pengajarAbsensi->matapelajaran->kode_matapelajaran,
+        //     'nisn_siswa' => $nisn_siswa->nip_nisn,
+        //     'nisn_siswa' => $nisn_siswa->nip_nisn,
+        //     'waktu_absen' => now(),
+        //     'tanggal_absen' => now(),
+        //     'status_absen' => 'Hadir',
+        //     'created_at' => now(),
+        //     'updated_at' => now()
+        // ]);
+        // $saveAbsensi->pengajar()->associate($pengajarAbsensi->id);
+        // $saveAbsensi->detail()->associate($nisn_siswa->id);
+        // $saveAbsensi->save();
+        // dd($saveAbsensi);
     }
 }
