@@ -603,7 +603,6 @@ class AdminController extends Controller
             'detail_id' => null,
             'updated_at' => now(),
         ]);
-        // $nilaiSiswa->detail()->delete();
         $siswa->forceDelete();
         return redirect()->route('daftar-siswa');
     }
