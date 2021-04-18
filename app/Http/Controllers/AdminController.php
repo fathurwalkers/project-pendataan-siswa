@@ -828,17 +828,6 @@ class AdminController extends Controller
         $jenis_kelamin = 0;
         $alamat = 0;
         $telepon = 0;
-        // for ($i=0; $i<$countSiswa;$i++) {
-        //     $testtable = new Testtable;
-        //     $saveTest = $testtable->create([
-        //         'nama_siswa' => $array_siswa['nama'][$nama_siswa++],
-        //         'nisn' => $array_siswa['nisn'][$nisn++],
-        //         'jenis_kelamin' => $array_siswa['jenis_kelamin'][$jenis_kelamin++],
-        //         'alamat' => $array_siswa['alamat'][$alamat++],
-        //         'telepon' => $array_siswa['telepon'][$telepon++],
-        //     ]);
-        //     $saveTest->save();
-        // }
         for ($i = 0; $i<$countSiswa; $i++) {
             $gambarfaker = 'image/image-hmDRkX.png';
             $detail_siswa = new Detail;
