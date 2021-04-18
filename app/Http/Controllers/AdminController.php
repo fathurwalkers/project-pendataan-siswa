@@ -599,6 +599,11 @@ class AdminController extends Controller
     public function hapusSiswa(Request $request, $idsiswa)
     {
         $siswa = Detail::where('id', $request->idsiswa)->firstOrFail();
+        $nilaiSiswa = Nilai::where('detail_id', $siswa->id)->update([
+            'detail_id' => null,
+            'updated_at' => now(),
+        ]);
+        // $nilaiSiswa->detail()->delete();
         $siswa->forceDelete();
         return redirect()->route('daftar-siswa');
     }
@@ -606,6 +611,11 @@ class AdminController extends Controller
     public function hapusGuru(Request $request, $idguru)
     {
         $guru = Detail::where('id', $request->idguru)->firstOrFail();
+        $guru->kelas()->delete();
+        $guru->login()->delete();
+        $guru->pengajar()->delete();
+        $guru->semester()->delete();
+        $guru->absensi()->delete();
         $guru->forceDelete();
         return redirect()->route('daftar-guru');
     }
