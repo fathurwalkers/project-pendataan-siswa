@@ -58,7 +58,7 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="{{ asset('vendor/adminlte') }}/index3.html" class="brand-link">
+            <a href="{{ route('dashboard') }}" class="brand-link">
                 {{-- <img src="{{ asset('vendor/adminlte') }}/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8"> --}}
                 <span class="brand-text font-weight-light">SMP NEGERI 39 BUTON</span>
@@ -373,6 +373,10 @@
 
             <!-- Main content -->
             <section class="content">
+
+                @error('foto')
+                    <div class="alert alert-danger">Foto Harus di Input / File : .png / .jpg / .jpeg</div>
+                @enderror
                 
                 @if (session('tidakditemukan'))
                     <div class="alert alert-danger">

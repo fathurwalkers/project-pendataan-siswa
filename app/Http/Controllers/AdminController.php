@@ -423,11 +423,27 @@ class AdminController extends Controller
     public function post_tambahSiswa(Request $request)
     {
         $detail_siswa = new Detail;
-        $extFile = $request->foto->getClientOriginalExtension();
-        $randomGambar = Str::random(6);
-        $namaFile = 'image-'.$randomGambar.".".$extFile;
-        $path = $request->foto->move('image', $namaFile);
-        $pathGambar = 'image/'. $namaFile;
+
+        $request->validate([
+            'foto' => 'required',
+        ]);
+        
+        if ($request->foto->getClientOriginalExtension() !== null) {
+            $extFile = $request->foto->getClientOriginalExtension();
+            $randomGambar = Str::random(6);
+            $namaFile = 'image-'.$randomGambar.".".$extFile;
+            $path = $request->foto->move('image', $namaFile);
+            $pathGambar = 'image/'. $namaFile;
+        } else {
+            $pathGambar = 'image/image-hmDRkX.png';
+        }
+
+        // $extFile = $request->foto->getClientOriginalExtension();
+        // $randomGambar = Str::random(6);
+        // $namaFile = 'image-'.$randomGambar.".".$extFile;
+        // $path = $request->foto->move('image', $namaFile);
+        // $pathGambar = 'image/'. $namaFile;
+
         $saveDetail = $detail_siswa->create([
             'nama_lengkap' => $request->nama_lengkap,
             'nip_nisn' => $request->nip_nisn,
@@ -468,11 +484,21 @@ class AdminController extends Controller
     public function post_tambahGuru(Request $request)
     {
         $detail_guru = new Detail;
-        $extFile = $request->foto->getClientOriginalExtension();
-        $randomGambar = Str::random(6);
-        $namaFile = 'image-'.$randomGambar.".".$extFile;
-        $path = $request->foto->move('image', $namaFile);
-        $pathGambar = 'image/'. $namaFile;
+
+        $request->validate([
+            'foto' => 'required',
+        ]);
+        
+        if ($request->foto->getClientOriginalExtension() !== null) {
+            $extFile = $request->foto->getClientOriginalExtension();
+            $randomGambar = Str::random(6);
+            $namaFile = 'image-'.$randomGambar.".".$extFile;
+            $path = $request->foto->move('image', $namaFile);
+            $pathGambar = 'image/'. $namaFile;
+        } else {
+            $pathGambar = 'image/image-hmDRkX.png';
+        }
+        
         $saveDetail = $detail_guru->create([
             'nama_lengkap' => $request->nama_lengkap,
             'nip_nisn' => $request->nip_nisn,
