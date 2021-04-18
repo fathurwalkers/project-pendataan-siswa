@@ -15,20 +15,6 @@ class Detail extends Model
         return $this->hasOne('App\Login');
     }
 
-    // public static function boot()
-    // {
-    //     parent::boot();
-
-    //     static::deleting(function ($detail) { // before delete() method call this
-    //         $detail->login()->delete();
-    //         $detail->kelas()->delete();
-    //         $detail->semester()->delete();
-    //         $detail->pengajar()->delete();
-    //         $detail->absensi()->delete();
-    //         // do the rest of the cleanup...
-    //     });
-    // }
-
     public function kelas()
     {
         return $this->belongsTo('App\Kelas');
