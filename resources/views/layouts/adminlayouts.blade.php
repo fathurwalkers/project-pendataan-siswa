@@ -17,6 +17,21 @@
     {{-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css"> --}}
     <link rel="stylesheet" type="text/css" href="{{ asset('vendor/datatables/DataTables-1.10.23/css/jquery.dataTables.css') }}">
     @yield('after-css')
+
+    <style>
+        body {
+            background-image: url("{{ asset('image/bg1.jpg') }}");
+        }
+
+        .content-wrapper {
+            background-image: url("{{ asset('image/bg1.jpg') }}")!important;
+            background-color: none!important;
+        }
+        .main-footer {
+            background-image: url("{{ asset('image/bg1.jpg') }}")!important;
+            background-color: none!important;
+        }
+    </style>
 </head>
 
 <body class="hold-transition sidebar-mini">
