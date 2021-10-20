@@ -96,6 +96,8 @@ class AdminController extends Controller
                     if ($cek_password) {
                         $users = session(['data_login' => $data_login]);
                         return redirect()->route('dashboard');
+                    } else {
+                        return redirect()->route('login')->with('password_fail', 'Password Salah!');
                     }
                 }
                 break;
@@ -103,18 +105,24 @@ class AdminController extends Controller
                 if ($request->password == $data_login->password) {
                     $users = session(['data_login' => $data_login]);
                     return redirect()->route('dashboard');
+                } else {
+                    return redirect()->route('login')->with('password_fail', 'Username atau Password Salah!');
                 }
                 break;
             case 'siswa':
                 if ($request->password == $data_login->password) {
                     $users = session(['data_login' => $data_login]);
                     return redirect()->route('dashboard');
+                } else {
+                    return redirect()->route('login')->with('password_fail', 'Username atau Password Salah!');
                 }
                 break;
             case 'kepsek':
                 if ($request->password == $data_login->password) {
                     $users = session(['data_login' => $data_login]);
                     return redirect()->route('dashboard');
+                } else {
+                    return redirect()->route('login')->with('password_fail', 'Username atau Password Salah!');
                 }
                 break;
         }
